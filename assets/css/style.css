@@ -102,12 +102,28 @@ main {
   font-size: 1.2em;
 }
 
+/*---section 2----*/
+
+.containerImg{
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: #2e2e2e;
+  height: 20vh;
+  width: 120px;
+  color: white;
+}
+
+.containerImg img{
+  border-radius: 10px;
+  
+}
+
 /*------ FOOTER ------*/
 footer {
   position: sticky;
   bottom: 0;
-  width: 100%;
-  background-color: gray;
+  background-color: #212121;
+  color: white;
 }
 .startstop {
   padding: 10px;
