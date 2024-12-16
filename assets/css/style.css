@@ -1,0 +1,73 @@
+/* regole CSS generali*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Circular", serif;
+}
+
+/* header */
+
+#navbarToggleExternalContent.collapse {
+  background-color: black !important;
+}
+
+.navbar {
+  background-color: black !important;
+}
+
+.menuList,
+.listMusic {
+  background-color: black;
+  list-style-type: none;
+}
+
+.menuList i {
+  margin-right: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.menuList li {
+  margin: 1rem 0;
+}
+
+.overflow-auto {
+  height: 85vh;
+  background-color: black !important;
+}
+
+.bi-plus-lg {
+  color: black;
+}
+
+.bi-heart-fill {
+  background: linear-gradient(#3a19a9, #7e9499);
+}
+
+.bi-bookmark-fill {
+  background-color: #1d4637;
+  color: #4b9743;
+}
+
+aside {
+  background-color: black;
+}
+footer {
+  background-color: gray;
+}
+.startstop {
+  padding: 10px;
+}
+.startstop img {
+  width: 80px;
+}
+.startstoptesto {
+  align-content: center;
+}
+.startstoptesto p {
+  margin-bottom: 0%;
+}
+.biSuitHeart svg {
+  align-items: center;
+}
