@@ -52,18 +52,18 @@
 
 /*----main----*/
 
-main{
+main {
   background: linear-gradient(#212121, #101010);
 }
 
 /*main section - buonasera*/
 
-.buonaseraCards img{
+.buonaseraCards img {
   height: fit-content;
   width: fit-content;
-} 
+}
 
-.buonaseraCards .card{
+.buonaseraCards .card {
   background-color: #2e2e2e;
   color: white;
 }
@@ -72,20 +72,20 @@ aside {
   background-color: black;
 }
 
-#amici{
+#amici {
   font-size: 10px;
 }
 
-#amici h5{
+#amici h5 {
   font-size: 10px;
   margin: 0;
 }
 
-#amici p{
+#amici p {
   margin: 0;
 }
 
-#amici p small{
+#amici p small {
   font-size: 8px;
 }
 
@@ -109,3 +109,20 @@ footer {
   align-items: center;
 }
 
+#albumSection p,
+#albumSection h1 {
+  color: white;
+}
+
+#albumSection {
+  background-image: linear-gradient(to right, rgb(37, 37, 37), rgb(66, 66, 66));
+}
+
+.userSelect {
+  border: 1px solid transparent;
+}
+
+.userSelect:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
