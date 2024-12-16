@@ -59,13 +59,17 @@ main{
 /*main section - buonasera*/
 
 .buonaseraCards img{
-  height: fit-content;
-  width: fit-content;
+  min-width: none;
 } 
 
 .buonaseraCards .card{
   background-color: #2e2e2e;
   color: white;
+  cursor: pointer;
+}
+
+.buonaseraCards h5{
+  font-size: 12px;
 }
 
 aside {
