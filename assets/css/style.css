@@ -58,6 +58,11 @@ main {
 
 /*main section - buonasera*/
 
+
+.buonaseraCards img{
+  min-width: none;
+} 
+
 .buonaseraCards img {
   height: fit-content;
   width: fit-content;
@@ -66,6 +71,11 @@ main {
 .buonaseraCards .card {
   background-color: #2e2e2e;
   color: white;
+  cursor: pointer;
+}
+
+.buonaseraCards h5{
+  font-size: 12px;
 }
 
 aside {
