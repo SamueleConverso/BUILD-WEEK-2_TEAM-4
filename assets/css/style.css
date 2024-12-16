@@ -50,9 +50,29 @@
   color: #4b9743;
 }
 
+/*----- ASIDE ------*/
 aside {
   background-color: black;
 }
+
+#amici{
+  font-size: 10px;
+}
+
+#amici h5{
+  font-size: 10px;
+  margin: 0;
+}
+
+#amici p{
+  margin: 0;
+}
+
+#amici p small{
+  font-size: 8px;
+}
+
+/*------ FOOTER ------*/
 footer {
   background-color: gray;
 }
