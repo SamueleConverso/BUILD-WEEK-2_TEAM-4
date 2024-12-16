@@ -6,7 +6,9 @@
   font-family: "Circular", serif;
 }
 
-body{
+html,
+body {
+  min-width: 576px;
   background-color: black;
 }
 
@@ -56,10 +58,9 @@ main {
 
 /*main section - buonasera*/
 
-
-.buonaseraCards img{
+.buonaseraCards img {
   min-width: none;
-} 
+}
 
 .buonaseraCards img {
   height: fit-content;
@@ -72,7 +73,7 @@ main {
   cursor: pointer;
 }
 
-.buonaseraCards h5{
+.buonaseraCards h5 {
   font-size: 12px;
 }
 
@@ -126,14 +127,14 @@ footer {
   align-items: center;
 }
 
-.barraMusica{
+.barraMusica {
   width: 500px;
   align-items: center;
-justify-content: center;
+  justify-content: center;
 }
-#seekBar{
+#seekBar {
   width: 300px;
-  align-self: stretch;
+  align-self: stretch;
 }
 /*---Album Section ----*/
 #albumSection p,
