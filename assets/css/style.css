@@ -50,7 +50,24 @@
   color: #4b9743;
 }
 
-/*----- ASIDE ------*/
+/*----main----*/
+
+main{
+  background: linear-gradient(#212121, #101010);
+}
+
+/*main section - buonasera*/
+
+.buonaseraCards img{
+  height: fit-content;
+  width: fit-content;
+} 
+
+.buonaseraCards .card{
+  background-color: #2e2e2e;
+  color: white;
+}
+
 aside {
   background-color: black;
 }
