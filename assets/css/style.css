@@ -91,6 +91,9 @@ aside {
 
 /*------ FOOTER ------*/
 footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
   background-color: gray;
 }
 .startstop {
@@ -100,6 +103,7 @@ footer {
   width: 80px;
 }
 .startstoptesto {
+  width: 150px;
   align-content: center;
 }
 .startstoptesto p {
@@ -109,6 +113,16 @@ footer {
   align-items: center;
 }
 
+.barraMusica{
+  width: 500px;
+  align-items: center;
+justify-content: center;
+}
+#seekBar{
+  width: 300px;
+  align-self: stretch;
+}
+/*---Album Section ----*/
 #albumSection p,
 #albumSection h1 {
   color: white;
