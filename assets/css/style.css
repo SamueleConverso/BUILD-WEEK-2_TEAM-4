@@ -278,8 +278,29 @@ height: 200px;
 }
 
 .likedSong{
-  justify-items: end;
+  flex-shrink: 0;
+  height: 70px;
+  justify-items:end;
 }
+
+.likedSong img{
+  border-radius: 50%;
+  position: relative;
+}
+.testolike p {
+  padding: 3px;
+  margin-bottom: 0%;
+  font-size: 10px;
+}
+.arianagrande{
+  display: flex;
+}
+.testolike{
+  margin-left: 15px;
+  align-content:center;
+  align-items: center;
+}
+
 .heartLikedSong{
   background: #20d760;
   border-radius: 50%;
@@ -287,22 +308,17 @@ height: 200px;
   padding: 10px;
   position: absolute;
   bottom: -6%;
-  right: 15px;
+  right: 0px;
+}
+
+.imglike {
+width: 60px;
+ height: 60px;
 }
 /*-----Sizing the text in the third page----*/
 
 .sizeText h2{
   font-size: 24px;
-}
-
-.likedSong img{
-  border-radius: 50%;
-  position: relative;
-}
-
-.imglike {
-  min-width: 100px;
- height: 100px;
 }
 
 .popularSongs ol{
