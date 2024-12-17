@@ -58,6 +58,10 @@ main {
 
 /*main section - buonasera*/
 
+.icBuonanotte{
+  font-size: 1.5em;
+}
+
 .buonaseraCards img {
   min-width: none;
 }
