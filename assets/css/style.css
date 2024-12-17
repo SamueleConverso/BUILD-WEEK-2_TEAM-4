@@ -204,6 +204,19 @@ footer {
   font-size: 25px;
 }
 
+.bntPlay{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+
+}
+
+.btnPlay i{
+  font-size: 30px;
+  color: white;
+}
+
 /*---- END OF TEH FIRST PAGE-----*/
 /*----STRAT O FTHE SECOND PAGE (ALBUM PAGE HTML)-----*/
 
