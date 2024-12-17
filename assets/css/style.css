@@ -58,7 +58,7 @@ main {
 
 /*main section - buonasera*/
 
-.icBuonanotte{
+.icBuonanotte {
   font-size: 1.5em;
 }
 
@@ -71,7 +71,8 @@ main {
   width: fit-content;
 }
 
-.buonaseraCards .card, .musicCards .card {
+.buonaseraCards .card,
+.musicCards .card {
   background-color: #2e2e2e;
   color: white;
   cursor: pointer;
@@ -83,18 +84,18 @@ main {
 
 /*---Music Cards----*/
 
-.musicCards .card{
+.musicCards .card {
   height: 350px;
-
 }
 
 /*---aside---*/
 
-#navAside p{
+#navAside p {
   font-size: 0.8em;
 }
 
-#amici h5, #amici p{
+#amici h5,
+#amici p {
   margin: 0;
 }
 
@@ -108,7 +109,7 @@ main {
 
 /*---section 2----*/
 
-.containerImg{
+.containerImg {
   padding: 0.5rem;
   border-radius: 10px;
   background-color: #2e2e2e;
@@ -117,9 +118,8 @@ main {
   color: white;
 }
 
-.containerImg img{
+.containerImg img {
   border-radius: 10px;
-  
 }
 
 /*------ FOOTER ------*/
@@ -174,4 +174,11 @@ footer {
   cursor: pointer;
 }
 
+.playlist img {
+  border-radius: 10px;
+}
 
+.playlist .card {
+  background-color: #2e2e2e;
+  color: white;
+}
