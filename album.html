@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/circular-font.css" />
   </head>
   <body>
-    <div class="d-flex">
+    <div class="d-flex page2">
       <header class="col-lg-3 d-none d-lg-block">
         <nav class="navbar navbar-dark bg-dark">
           <div class="container-fluid">
@@ -120,8 +120,8 @@
         </div>
       </header>
 
-      <main class="col-12 col-lg-7 ">
-        <div class="container-fluid bg-gradient">
+      <main class="col-12 col-lg-7">
+        <div class="container-fluid bg-gradient hederMain">
           <div class="d-flex justify-content-between mb-3 pt-3">
             <div class="d-flex gap-2">
               <i
@@ -142,97 +142,90 @@
 
           <div class="d-none d-lg-block w-100 p-3" id="albumSection">
             <div class="immaginealbum w-100 d-flex gap-2">
-              <div><img src="assets/imgs/main/image-1.jpg" class="immaginealbum"/> </div>
+              <div>
+                <img src="assets/imgs/main/image-1.jpg" class="immaginealbum" />
+              </div>
               <div class="w-100 d-flex flex-column justify-content-end">
                 <div class="w-100 d-flex justify-content-between">
                   <p>ALBUM</p>
                 </div>
-                <div class="d-flex flex-column h-100 justify-content-end w-100 align-content-center">
+                <div
+                  class="d-flex flex-column h-100 justify-content-end w-100 align-content-center"
+                >
                   <h1>VIOLA (feat. Salmo)</h1>
-                  <p><img src="assets/imgs/main/image-1.jpg" class="immagineProfiloMusica" alt="salmo ">  VIOLA (feat. Salmo) • 2013</p>
-                  
+                  <p>
+                    <img
+                      src="assets/imgs/main/image-1.jpg"
+                      class="immagineProfiloMusica"
+                      alt="salmo "
+                    />
+                    VIOLA (feat. Salmo) • 2013
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!--Section BUONASERA-->
+        <!--Section ICONS-->
         <section>
-          <div class="d-flex justify-content-between">
-            <div>
-              <h2 class="text-white m-3">Buonasera</h2>
+          <article>
+            <div class="container-fluid p-3">
+              <div
+                class="row justify-content-start align-items-center w-100 text-start text-white"
+              >
+                <div
+                  class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"
+                >
+                  <i class="bi bi-play-circle-fill playerArtist p-0"></i>
+                </div>
+                <div
+                  class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1"
+                >
+                  <i class="bi bi-heart"></i>
+                </div>
+                <div
+                  class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1"
+                >
+                  <i class="bi bi-download"></i>
+                </div>
+                <div
+                  class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8"
+                >
+                  <i class="bi bi-three-dots text-white"></i>
+                </div>
+              </div>
             </div>
-              
-
-        <!--Section 2-->
-
-        <section class="m-2 d-none d-lg-block">
-          <div class="container-fluid">
+          </article>
+          <article class="titolation"> 
             <div
-              class="d-flex justify-content-between align-items-baseline text-white mb-2"
+              class=" d-flex align-items-center justify-content-around w-100 m-0 text-white opacity-75"
             >
-              <h2>Altro di ciò che ti piace</h2>
-              <p>VISUALIZZA TUTTO</p>
-            </div>
-            <div class="row justify-content-evenly">
-              <div class="playlist col-xl-3 p-1" style="width: 10rem">
-                <div class="card" style="height: 100%">
-                  <img
-                    src="assets/imgs/main/image-17.jpg"
-                    class="card-img-top p-1"
-                    alt=""
-                    height="150px"
-                  />
-                  <div class="card-body">
-                    <p>Hot Hits Italia</p>
-                    <p>La playlist più calda del momento</p>
-                  </div>
-                </div>
-              </div>
-              <div class="playlist col-xl-3 p-1" style="width: 10rem">
-                <div class="card" style="height: 100%">
-                  <img
-                    src="assets/imgs/main/image-18.jpg"
-                    class="card-img-top p-1"
-                    alt=""
-                    height="150px"
-                  />
-                  <div class="card-body">
-                    <p>Big on the internet</p>
-                    <p>ikyk</p>
-                  </div>
-                </div>
-              </div>
+              <p>#</p>
+              <p class="fw-bold mb-1">Title</p>
 
-              <div class="playlist col-xl-3 p-1" style="width: 10rem">
-                <div class="card" style="height: 100%">
-                  <img
-                    src="assets/imgs/main/image-13.jpg"
-                    class="card-img-top p-1"
-                    alt=""
-                    height="150px"
-                  />
-                  <div class="card-body">
-                    <p>Pop rising</p>
-                    <p>The hits of tomorrow are now on spotify</p>
+              <p>Reproductions</p>
+              <i class="bi bi-clock"></i>
+            </div>
+          </article>
+        </section>
+
+        <!--Section ALBUM PLAYLIST-->
+        <section>
+          <div class="container-fluid p-0">
+            <div class="row listMusic">
+              <ol class="text-white list-unstyled m-1">
+                <li
+                  class="d-flex align-items-center justify-content-around w-100 m-0"
+                >
+                  <div class="titleSong">
+                    <p class="fw-bold mb-1">90MIN</p>
+                    <p class="fw-lighter mb-1">Salmo</p>
                   </div>
-                </div>
-              </div>
-              <div class="playlist col-xl-3 p-1" style="width: 10rem">
-                <div class="card" style="height: 100%">
-                  <img
-                    src="assets/imgs/main/image-14.jpg"
-                    class="card-img-top p-1"
-                    alt=""
-                    height="150px"
-                  />
-                  <div class="card-body">
-                    <p>Canzoni tristi</p>
-                    <p>It's ok to not be ok</p>
-                  </div>
-                </div>
-              </div>
+                  <p>122.631.768</p>
+                  <p>3.51</p>
+                </li>
+              </ol>
             </div>
           </div>
         </section>
