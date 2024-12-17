@@ -121,7 +121,7 @@
       </header>
 
       <main class="col-12 col-lg-7">
-        <div class="container-fluid bg-gradient hederMain">
+        <div class="container-fluid bg-gradient hederMain d-none d-lg-block">
           <div class="d-flex justify-content-between mb-3 pt-3">
             <div class="d-flex gap-2">
               <i
@@ -160,6 +160,27 @@
               </div>
             </div>
           </div>
+
+        </div>
+
+        <!--Mobile first part of the main-->
+        <div class="container-fluid d-lg-none d-block">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-start my-2">
+              <i class="bi bi-arrow-left text-white fw-bold"></i>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <img src="assets/imgs/artists/theWeeknd.jpg" alt="Artist" class="w-50">
+            </div>
+            <div class="col-12 mt-4 text-white">
+              <p class="h2 fw-bold ">HURRY UP TOMORROW!</p>
+              <div class="photoSinger d-flex align-items-center">
+                <img src="assets/imgs/artists/theWeeknd.jpg" alt="Logo singer" class="mx-2">
+                <p>The Weeknd</p>
+              </div>
+              <p class="text-secondary-emphasis mt-1">Album • 2025</p>
+            </div>
+          </div>
         </div>
 
         <!--Section ICONS-->
@@ -192,15 +213,18 @@
               </div>
             </div>
           </article>
-          <article class="titolation">
-            <div
-              class="d-flex align-items-center justify-content-around w-100 m-0 text-white opacity-75"
-            >
-              <p>#</p>
-              <p class="fw-bold mb-1">Title</p>
-
-              <p>Reproductions</p>
-              <i class="bi bi-clock"></i>
+          <article class="titolation text-white m-5 d-none d-lg-block">
+            <div class="container-fluid p-0">
+              <div class="row titleAlbum text-start">
+                <div
+                  class="d-flex align-items-center justify-content-around w-100 m-0 p-2 "
+                >
+                  <p class="col-1 text-center">#</p>
+                  <p class="col-6 titleSong p-3">Title</p>
+                  <p class="col-4">Reproductions</p>
+                  <p class="col-1 text-center"><i class="bi bi-clock"></i></p>
+                </div>
+              </div>
             </div>
           </article>
         </section>
@@ -209,11 +233,16 @@
         <section>
           <div class="container-fluid p-0">
             <div class="row listMusic text-start">
+
+              <ol class="col-3 text-white list-unstyled m-1 w-100 p-0">
+                <li
+
               <ol
                 class="col-3 text-white list-unstyled m-1 w-100 p-0"
                 id="trackList"
               >
                 <!-- <li
+
                   class="d-flex align-items-center justify-content-around w-100 m-0"
                 >
                   <div class="col-5 titleSong">
@@ -222,7 +251,11 @@
                   </div>
                   <p class="col-3">122.631.768</p>
                   <p class="col-1 text-end">3.51</p>
+
+                </li>
+
                 </li> -->
+
               </ol>
             </div>
           </div>
