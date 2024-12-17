@@ -34,7 +34,7 @@ body {
 }
 
 .overflow-auto {
-  height: 85vh;
+  height: 120vh;
 }
 
 .bi-plus-lg {
@@ -54,6 +54,18 @@ body {
 
 main {
   background: linear-gradient(#212121, #101010);
+}
+
+/*------Writings Main------*/
+
+.btnPlay, .btnSalva{
+  background-color: #20d760;
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+}
+
+.btnSalva{
+  background-color: transparent;
 }
 
 /*main section - buonasera*/
@@ -88,6 +100,23 @@ main {
   height: 350px;
 }
 
+/*-----Section Mobile Main----*/
+
+.playlistMobile .card{
+  background: linear-gradient(to bottom right, #2e2e2e, #242424);
+  color: white;
+}
+
+.playlistMobile i{
+  font-size: 50px;
+  color: #20d760;
+}
+
+.playlistMobile i:hover{
+  cursor: pointer;
+  text-shadow: 2px 2px 5px white;
+}
+
 /*---aside---*/
 
 #navAside p {
@@ -120,6 +149,16 @@ main {
 
 .containerImg img {
   border-radius: 10px;
+}
+
+.playlist i{
+  font-size: 30px;
+  color: #20d760;
+}
+
+.playlist i:hover{
+  cursor: pointer;
+  text-shadow: 2px 2px 5px white;
 }
 
 /*------ FOOTER ------*/
@@ -194,5 +233,10 @@ footer {
   color: white;
 }
 
+/*---- section & player MOBILE----*/
 
-/*PAGINA ALBUM */
+.navbarMobile{
+  position: sticky;
+  bottom: 0;
+}
+
