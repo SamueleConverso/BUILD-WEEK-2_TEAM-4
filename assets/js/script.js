@@ -14,8 +14,8 @@ const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
 const inputSearch = document.getElementById("inputSearch");
 
-const btnPlay = document.getElementById("play");
-const btnStop = document.getElementById("stop");
+// const btnPlay = document.getElementById("play");
+// const btnStop = document.getElementById("stop");
 
 let randomArtist;
 let randomArtistName;
@@ -88,15 +88,15 @@ function getRandom(arr) {
 //   return randomAlbum;
 // }
 
-function playButton() {}
+// function playButton() {}
 
-btnPlay.addEventListener("click", function (e) {
-  song.play();
-});
+// btnPlay.addEventListener("click", function (e) {
+//   song.play();
+// });
 
-btnStop.addEventListener("click", function (e) {
-  song.pause();
-});
+// btnStop.addEventListener("click", function (e) {
+//   song.pause();
+// });
 
 function printData() {
   imgAlbum.setAttribute("src", randomAlbum.cover_medium);
@@ -119,7 +119,7 @@ function getArtistName() {
       randomArtistName = "The Weeknd";
       break;
     case 1424821:
-      randomArtistName = "Lana Del Rey ";
+      randomArtistName = "Lana Del Rey";
       break;
     case 564:
       randomArtistName = "Rihanna";

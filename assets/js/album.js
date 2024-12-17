@@ -10,9 +10,11 @@ const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albu
 const imgAlbumTop = document.getElementById("imgAlbumTop");
 const albumTitleTop = document.getElementById("albumTitleTop");
 const artistNameTop = document.getElementById("artistNameTop");
+const trackList = document.getElementById("trackList");
 
 let album;
 let tracks;
+let artistName;
 
 document.addEventListener("load", init());
 
@@ -29,8 +31,10 @@ async function getData() {
     });
     album = await response.json();
     tracks = album.tracks.data;
+    artistName = album.artist.name;
     console.log(album);
     console.log(tracks);
+    console.log(artistName);
     printData();
   } catch (error) {
     console.log(error);
@@ -40,9 +44,69 @@ async function getData() {
 function printData() {
   imgAlbumTop.setAttribute("src", album.cover_medium);
   albumTitleTop.innerText = album.title;
+  artistNameTop.innerHTML = `
+  <img
+                      src="${getArtistPhoto()}"
+                      class="immagineProfiloMusica"
+                      alt=""
+                    />${artistName}
+  `;
   //artistNameTop.innerText = getArtistName();
   for (let i = 0; i < tracks.length; i++) {
     let newLi = document.createElement("li");
-    newLi.innerText = tracks[i].title;
+    newLi.classList.add(
+      "d-flex",
+      "align-items-center",
+      "justify-content-around",
+      "w-100",
+      "m-0"
+    );
+    newLi.innerHTML = `
+                  <div class="col-5 titleSong">
+                    <p class="fw-bold mb-1">${tracks[i].title}</p>
+                    <p class="fw-lighter mb-1">${artistName}</p>
+                  </div>
+                  <p class="col-3">122.631.768</p>
+                  <p class="col-1 text-end">3.51</p>
+                
+    `;
+    trackList.appendChild(newLi);
   }
+}
+
+function getArtistPhoto() {
+  let artistPhoto;
+  switch (artistName) {
+    case "Queen":
+      artistPhoto = "assets/imgs/artists/queen.jpg";
+      break;
+    case "Salmo":
+      artistPhoto = "assets/imgs/artists/salmo.jpg";
+      break;
+    case "Lady Gaga":
+      artistPhoto = "assets/imgs/artists/ladyGaga.jpg";
+      break;
+    case "The Weeknd":
+      artistPhoto = "assets/imgs/artists/theWeeknd.jpg";
+      break;
+    case "Lana Del Rey":
+      artistPhoto = "assets/imgs/artists/lanaDelRey.jpg";
+      break;
+    case "Rihanna":
+      artistPhoto = "assets/imgs/artists/rihanna.jpg";
+      break;
+    case "Tiziano Ferro":
+      artistPhoto = "assets/imgs/artists/tizianoFerro.jpg";
+      break;
+    case "Lazza":
+      artistPhoto = "assets/imgs/artists/lazza.jpg";
+      break;
+    case "Eminem":
+      artistPhoto = "assets/imgs/artists/eminem.jpg";
+      break;
+    case "Achille Lauro":
+      artistPhoto = "assets/imgs/artists/achilleLauro.jpg";
+      break;
+  }
+  return artistPhoto;
 }

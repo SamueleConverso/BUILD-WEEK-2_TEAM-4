@@ -22,12 +22,15 @@ async function getData() {
         Authorization: apiKey,
       },
     });
-    let tempData = await response.json();
-    albums = tempData.data;
-    console.log(albums);
-    //   tracks = album.tracks.data;
-    //   console.log(tracks);
-    //   printData();
+    if (!checkQuery()) {
+      let tempData = await response.json();
+      albums = tempData.data;
+      console.log(albums);
+    } else {
+      //   tracks = album.tracks.data;
+      //   console.log(tracks);
+      //   printQuery();
+    }
   } catch (error) {
     console.log(error);
   }
