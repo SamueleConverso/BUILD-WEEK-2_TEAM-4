@@ -7,6 +7,10 @@ const albumId = url.get("_album-id");
 
 const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
+const imgAlbumTop = document.getElementById("imgAlbumTop");
+const albumTitleTop = document.getElementById("albumTitleTop");
+const artistNameTop = document.getElementById("artistNameTop");
+
 let album;
 let tracks;
 
@@ -25,6 +29,7 @@ async function getData() {
     });
     album = await response.json();
     tracks = album.tracks.data;
+    console.log(album);
     console.log(tracks);
     printData();
   } catch (error) {
@@ -33,6 +38,9 @@ async function getData() {
 }
 
 function printData() {
+  imgAlbumTop.setAttribute("src", album.cover_medium);
+  albumTitleTop.innerText = album.title;
+  //artistNameTop.innerText = getArtistName();
   for (let i = 0; i < tracks.length; i++) {
     let newLi = document.createElement("li");
     newLi.innerText = tracks[i].title;
