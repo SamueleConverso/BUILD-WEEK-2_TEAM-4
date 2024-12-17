@@ -5,7 +5,11 @@ const apiKey =
 const url = new URLSearchParams(window.location.search);
 const query = url.get("_searched-query");
 const artistId = url.get("_artist-id");
-console.log(query);
+
+const artistNameLastPage = document.getElementById("artistNameLastPage");
+const artistAlbumsListLastPage = document.getElementById(
+  "artistAlbumsListLastPage"
+);
 
 let albums;
 
@@ -26,6 +30,7 @@ async function getData() {
       let tempData = await response.json();
       albums = tempData.data;
       console.log(albums);
+      printArtist();
     } else {
       //   tracks = album.tracks.data;
       //   console.log(tracks);
@@ -49,7 +54,15 @@ function createUrl() {
     let fetchUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
     return fetchUrl;
   } else {
-    let fetchUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${randomArtist}/albums`;
+    let fetchUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/albums`;
     return fetchUrl;
+  }
+}
+
+function printArtist() {
+  artistNameLastPage.innerText = albums[0].artist.name;
+
+  for (let i = 0; i < albums.length; i++) {
+    let newLi = document.createElement("li");
   }
 }

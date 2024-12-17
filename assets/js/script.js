@@ -30,6 +30,7 @@ document.addEventListener("load", init());
 
 function init() {
   randomArtist = getRandom(myArtists);
+  artistName.setAttribute("href", `artist.html?_artist-id=${randomArtist}`);
   getData(query);
 }
 
