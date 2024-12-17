@@ -52,8 +52,12 @@ body {
 
 /*----main----*/
 
-main {
+.page1 main{
   background: linear-gradient(#212121, #101010);
+}
+
+.page2 main{
+  background: linear-gradient(180deg,#ceb24a, #101010);
 }
 
 /*------Writings Main------*/
@@ -199,15 +203,33 @@ footer {
 .bi-volume-down{
   font-size: 25px;
 }
+
+/*---- END OF TEH FIRST PAGE-----*/
+/*----STRAT O FTHE SECOND PAGE (ALBUM PAGE HTML)-----*/
+
+/*the header shuts down at 576, no need of changing colors*/
+
+.hederMain{
+  background: #ceb24a;
+  
+}
+
+.page2 #albumSection {
+  background: transparent;
+  
+}
+
 /*---Album Section ----*/
 #albumSection p,
 #albumSection h1 {
   color: white;
 }
 
-#albumSection {
-  background-image: linear-gradient(180deg, #C5AA46, #171717);
+.page1 #albumSection {
+  background: linear-gradient(180deg, #2e2e2e, #171717);
+  
 }
+
 .immagineProfiloMusica{
   border-radius: 50% 50% 50% 50%;
   margin-right: 10px;
@@ -261,6 +283,33 @@ height: 200px;
   font-size: 60px;
   color: #20d760;
   cursor: pointer;
+}
+
+.titolation{
+  opacity: 50%;
+  border-bottom: 1px solid white;
+  margin: 3rem;
+
+}
+
+.listMusic{
+  padding-top: 0;
+}
+
+.listMusic ol{
+  list-style-position: inside;
+  counter-reset: list-counter;
+  color: white;
+}
+
+.listMusic ol li{
+  counter-increment: list-counter;
+  margin: 1rem 0;
+}
+
+.listMusic ol li::before{
+  content: counter(list-counter)".";
+  font-weight: normal;
 }
 
 /*-----Sizing the text in the third page----*/
