@@ -10,11 +10,16 @@ const imgAlbum = document.getElementById("imgAlbum");
 const albumTitle = document.getElementById("albumTitle");
 const artistName = document.getElementById("artistName");
 
+const btnToAlbum = document.getElementById("btnToAlbum");
+const btnSearch = document.getElementById("btnSearch");
+const inputSearch = document.getElementById("inputSearch");
+
 let randomArtist;
 let randomArtistName;
 let randomAlbum;
 let query;
 let fetchedAlbums;
+let dataSearched;
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -33,13 +38,19 @@ async function getData(newQuery) {
         Authorization: apiKey,
       },
     });
-    fetchedAlbums = await response.json();
-    randomAlbum = getRandom(fetchedAlbums.data);
-    //let dataAlbums = fetchedAlbums.data;
-    //randomAlbum = getRandomAlbum();
-    console.log(fetchedAlbums);
-    console.log(randomAlbum);
-    printData();
+    if (!query) {
+      fetchedAlbums = await response.json();
+      randomAlbum = getRandom(fetchedAlbums.data);
+      //let dataAlbums = fetchedAlbums.data;
+      //randomAlbum = getRandomAlbum();
+      console.log(fetchedAlbums);
+      console.log(randomAlbum);
+      printData();
+    } else {
+      let tempData = await response.json();
+      dataSearched = tempData.data;
+      console.log(dataSearched);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -116,4 +127,18 @@ function getArtistName() {
   return randomArtistName;
 }
 
-//https://striveschool-api.herokuapp.com/api/deezer/artist/412
+btnToAlbum.addEventListener("click", (e) => {
+  e.preventDefault();
+  let secondPage = "album.html";
+  let newUrl = `${secondPage}?_album-id=${randomAlbum.id}`;
+  window.location.href = newUrl;
+});
+
+btnSearch.addEventListener("click", (e) => {
+  e.preventDefault();
+  let inputValue = inputSearch.value;
+  //getData(inputValue);
+  let secondPage = "artist.html";
+  let newUrl = `${secondPage}?_searched-query=${inputValue}`;
+  window.location.href = newUrl;
+});
