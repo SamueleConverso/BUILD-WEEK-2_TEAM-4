@@ -1,5 +1,6 @@
 const endPoint = "https://striveschool-api.herokuapp.com/api/deezer/album/";
-const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZjcxMWQyMjA3MTAwMTVkZTJmM2MiLCJpYXQiOjE3MzQwODAyNzQsImV4cCI6MTczNTI4OTg3NH0.v17yR1ttMjJ502S2x6eTRuGLyGMxouajUcqejbw_Pes";
+const apiKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZjcxMWQyMjA3MTAwMTVkZTJmM2MiLCJpYXQiOjE3MzQwODAyNzQsImV4cCI6MTczNTI4OTg3NH0.v17yR1ttMjJ502S2x6eTRuGLyGMxouajUcqejbw_Pes";
 
 const myArtists = [
   412, 1155242, 75491, 4050205, 1424821, 564, 5648, 1288678, 13, 598070,
@@ -12,6 +13,9 @@ const artistName = document.getElementById("artistName");
 const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
 const inputSearch = document.getElementById("inputSearch");
+
+const btnPlay = document.getElementById("play");
+const btnStop = document.getElementById("stop");
 
 let randomArtist;
 let randomArtistName;
@@ -84,19 +88,15 @@ function getRandom(arr) {
 //   return randomAlbum;
 // }
 
-function playButton(){
+function playButton() {}
 
-  const btnPlay = document.getElementById('play')
-  const btnStop = document.getElementById('stop')
+btnPlay.addEventListener("click", function (e) {
+  song.play();
+});
 
-  btnPlay.addEventListener('click', function(e){
-    song.play();
-  });
-
-  btnStop.addEventListener('click', function(e){
-    song.pause();
-  });
-}
+btnStop.addEventListener("click", function (e) {
+  song.pause();
+});
 
 function printData() {
   imgAlbum.setAttribute("src", randomAlbum.cover_medium);
