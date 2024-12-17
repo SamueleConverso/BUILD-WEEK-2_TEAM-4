@@ -8,22 +8,31 @@ const myArtists = [
 
 let randomArtist;
 let randomAlbum;
+let query;
+let fetchedAlbums;
+
+//https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
 document.addEventListener("load", init());
 
 function init() {
-  getData();
-  randomArtist = getRandomArtist();
+  randomArtist = getRandom(myArtists);
+  getData(query);
 }
 
-async function getData() {
+async function getData(newQuery) {
+  query = newQuery;
   try {
     let response = await fetch(createUrl(), {
       headers: {
         Authorization: apiKey,
       },
     });
-    randomAlbum = await response.json();
+    fetchedAlbums = await response.json();
+    randomAlbum = getRandom(fetchedAlbums.data);
+    //let dataAlbums = fetchedAlbums.data;
+    //randomAlbum = getRandomAlbum();
+    console.log(fetchedAlbums);
     console.log(randomAlbum);
     printData();
   } catch (error) {
@@ -33,21 +42,31 @@ async function getData() {
 
 function createUrl() {
   if (!query) {
-    return "https://api.pexels.com/v1/search?query=mountain&per_page=9";
+    let url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${randomArtist}/albums`;
+    return url;
   } else {
-    url = `https://api.pexels.com/v1/search?query=${query}&per_page=9`;
+    let url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
     return url;
   }
 }
 
-function getRandomArtist(arr) {
-  const originalArtist = [...arr];
-  const myArtist = [];
+function getRandom(arr) {
+  const original = [...arr];
+  console.log(arr);
+  const myMusic = [];
 
   for (let i = 0; i < arr.length; i++) {
-    const artist = Math.floor(Math.random() * originalArtist.length);
-    myArtist.push(originalArtist[artist]);
-    originalArtist.splice(artist, 1);
+    const song = Math.floor(Math.random() * original.length);
+    myMusic.push(original[song]);
+    original.splice(song, 1);
   }
-  return myArtist[0];
+  return myMusic[0];
 }
+
+// function getRandomAlbum() {
+//   let ranNum = Math.floor(Math.random() * fetchedAlbums.length);
+//   randomAlbum = fetchedAlbums[ranNum];
+//   return randomAlbum;
+// }
+
+function printData() {}
