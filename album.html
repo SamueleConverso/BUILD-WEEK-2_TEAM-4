@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Week 2 - Team 4</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <header class="col-lg-3 d-none d-lg-block">
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent"
+              aria-controls="navbarToggleExternalContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+        <div
+          class="collapse"
+          id="navbarToggleExternalContent"
+          data-bs-theme="dark"
+        >
+          <div>
+            <ul class="menuList text-white p-3 m-0">
+              <li>
+                <i class="bi bi-house-door-fill"></i
+                ><a href="#" class="text-white text-decoration-none">Home</a>
+              </li>
+              <li>
+                <i class="bi bi-search"></i
+                ><a href="#" class="text-white text-decoration-none">Cerca</a>
+              </li>
+              <li><i class="bi bi-music-note-list"></i>La tua libreria</li>
+              <br />
+              <li><i class="bi bi-plus-lg bg-secondary"></i>Crea Playlist</li>
+              <li><i class="bi bi-heart-fill"></i>Brani che ti piacciono</li>
+              <li><i class="bi bi-bookmark-fill"></i>I tuoi episodi</li>
+            </ul>
+          </div>
+        </div>
+        <div class="overflow-auto text-secondary">
+          <ul class="listMusic list-type-none p-4">
+            <li>"Weightless" - Marconi Union</li>
+            <li>"Coffee" - Sylvan Esso</li>
+            <li>"Peach" - Broods</li>
+            <li>"Breezeblocks" - alt-J</li>
+            <li>"Sunflower" - Post Malone, Swae Lee</li>
+            <li>"Pink + White" - Frank Ocean</li>
+            <li>"Riverside" - Agnes Obel</li>
+            <li>"The Daily" (New York Times)</li>
+            <li>"The Tim Ferriss Show"</li>
+            <li>"Sleepy Time Mumbles"</li>
+            <li>"TED Talks Daily"</li>
+            <li>"The Art of Charm"</li>
+            <li>"Stuff You Should Know"</li>
+            <li>"Philosophize This!"</li>
+            <li>"Night Owl" - Galimatias</li>
+            <li>"Toxic" - Britney Spears (Jazz Version)</li>
+            <li>"Electric Feel" - MGMT</li>
+            <li>"Pink Moon" - Nick Drake</li>
+            <li>"Space Song" - Beach House</li>
+            <li>"Go!" - The Chemical Brothers feat. Q-Tip</li>
+            <li>"Take Me Out" - Franz Ferdinand</li>
+            <li>"The Happiness Lab" (con Dr. Laurie Santos)</li>
+            <li>"Radiolab"</li>
+            <li>"The Moth"</li>
+            <li>"Criminal"</li>
+            <li>"My Favorite Murder"</li>
+            <li>"How I Built This" (con Guy Raz)</li>
+            <li>"The Infinite Monkey Cage"</li>
+            <li>"Pink Moon" - Nick Drake</li>
+            <li>"Space Song" - Beach House</li>
+            <li>"Go!" - The Chemical Brothers feat. Q-Tip</li>
+            <li>"Take Me Out" - Franz Ferdinand</li>
+            <li>"The Happiness Lab" (con Dr. Laurie Santos)</li>
+            <li>"Radiolab"</li>
+            <li>"The Moth"</li>
+            <li>"Criminal"</li>
+            <li>"My Favorite Murder"</li>
+            <li>"How I Built This" (con Guy Raz)</li>
+            <li>"The Infinite Monkey Cage"</li>
+            <li>"Radiolab"</li>
+            <li>"The Moth"</li>
+            <li>"Criminal"</li>
+            <li>"My Favorite Murder"</li>
+            <li>"How I Built This" (con Guy Raz)</li>
+            <li>"The Infinite Monkey Cage"</li>
+            <li>"Pink Moon" - Nick Drake</li>
+            <li>"Space Song" - Beach House</li>
+            <li>"Go!" - The Chemical Brothers feat. Q-Tip</li>
+            <li>"Take Me Out" - Franz Ferdinand</li>
+            <li>"The Happiness Lab" (con Dr. Laurie Santos)</li>
+            <li>"Radiolab"</li>
+            <li>"The Moth"</li>
+            <li>"Criminal"</li>
+            <li>"My Favorite Murder"</li>
+            <li>"How I Built This" (con Guy Raz)</li>
+            <li>"The Infinite Monkey Cage"</li>
+          </ul>
+        </div>
+      </header>
+
+      <main class="col-12 col-lg-7 ">
+        <div class="container-fluid bg-gradient">
+          <div class="d-flex justify-content-between mb-3 pt-3">
+            <div class="d-flex gap-2">
+              <i
+                class="bi bi-arrow-left-circle align-self-center text-white"
+              ></i>
+              <i
+                class="bi bi-arrow-right-circle align-self-center text-white"
+              ></i>
+            </div>
+            <div>
+              <p class="mb-0 p-1 text-white bg-black rounded-3 userSelect">
+                <i class="bi bi-person-circle px-1 align-middle text-white"></i
+                >Utente
+                <i class="bi bi-caret-down-fill align-middle text-white"></i>
+              </p>
+            </div>
+          </div>
+
+          <div class="d-none d-lg-block w-100 p-3" id="albumSection">
+            <div class="w-100 d-flex gap-2">
+              <div><img src="assets/imgs/main/image-1.jpg" /></div>
+              <div class="w-100 d-flex flex-column">
+                <div class="w-100 d-flex justify-content-between">
+                  <p>ALBUM</p>
+                </div>
+                <div class="d-flex flex-column h-100 justify-content-between">
+                  <h1>Gioventù bruciata</h1>
+                  
+                  <p><img src="assets/imgs/main/image-16.jpg" class="immagineProfiloMusica" alt="pinguini tattici nucleari ">  Pinguini Tattici Nucleari • 2017</p>
+                  <div class="d-flex gap-2">
+                    <p class="btn btn-success text-black mb-0">Play</p>
+                    <p class="btn btn-dark border border-white mb-0">Salva</p>
+                    <p class="mb-0 btn border border-white">. . .</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Section BUONASERA-->
+        <section>
+          <div class="d-flex justify-content-between">
+            <div>
+              <h2 class="text-white m-3">Buonasera</h2>
+            </div>
+            <div
+              class="text-white d-flex justify-content-center align-items-center d-lg-none"
+            >
+              <div><i class="bi bi-bell m-3 icBuonanotte"></i></div>
+              <div><i class="bi bi-clock-history m-3 icBuonanotte"></i></div>
+              <div><i class="bi bi-gear m-3 icBuonanotte"></i></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-white d-lg-none">
+              <span class="m-5">Musica</span><span>Podcast e show</span>
+            </p>
+          </div>
+          <div class="containe-fluid m-2 d-flex">
+            <div class="buonaseraCards row justify-content-center">
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-2.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-3.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-4.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-5.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-6.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="card mb-3 border-0" style="max-width: 540px">
+                  <div class="row g-0">
+                    <div class="col-5">
+                      <img
+                        src="assets/imgs/main/image-7.jpg"
+                        class="img-fluid h-100 rounded-start"
+                        alt="imageOne"
+                      />
+                    </div>
+                    <div class="col-7 align-self-center">
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          Early stage emily syndrome (sett-ott 2022)
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Section 2-->
+
+        <section class="m-2 d-none d-lg-block">
+          <div class="container-fluid">
+            <div
+              class="d-flex justify-content-between align-items-baseline text-white mb-2"
+            >
+              <h2>Altro di ciò che ti piace</h2>
+              <p>VISUALIZZA TUTTO</p>
+            </div>
+            <div class="row justify-content-evenly">
+              <div class="playlist col-xl-3 p-1" style="width: 10rem">
+                <div class="card" style="height: 100%">
+                  <img
+                    src="assets/imgs/main/image-17.jpg"
+                    class="card-img-top p-1"
+                    alt=""
+                    height="150px"
+                  />
+                  <div class="card-body">
+                    <p>Hot Hits Italia</p>
+                    <p>La playlist più calda del momento</p>
+                  </div>
+                </div>
+              </div>
+              <div class="playlist col-xl-3 p-1" style="width: 10rem">
+                <div class="card" style="height: 100%">
+                  <img
+                    src="assets/imgs/main/image-18.jpg"
+                    class="card-img-top p-1"
+                    alt=""
+                    height="150px"
+                  />
+                  <div class="card-body">
+                    <p>Big on the internet</p>
+                    <p>ikyk</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="playlist col-xl-3 p-1" style="width: 10rem">
+                <div class="card" style="height: 100%">
+                  <img
+                    src="assets/imgs/main/image-13.jpg"
+                    class="card-img-top p-1"
+                    alt=""
+                    height="150px"
+                  />
+                  <div class="card-body">
+                    <p>Pop rising</p>
+                    <p>The hits of tomorrow are now on spotify</p>
+                  </div>
+                </div>
+              </div>
+              <div class="playlist col-xl-3 p-1" style="width: 10rem">
+                <div class="card" style="height: 100%">
+                  <img
+                    src="assets/imgs/main/image-14.jpg"
+                    class="card-img-top p-1"
+                    alt=""
+                    height="150px"
+                  />
+                  <div class="card-body">
+                    <p>Canzoni tristi</p>
+                    <p>It's ok to not be ok</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="col-lg-2 d-none d-lg-block">
+        <div id="navAside" class="d-flex justify-content-between">
+          <div>
+            <p class="text-white m-2">Attività amici</p>
+          </div>
+          <div class="m-2">
+            <p class="text-secondary">
+              <span><i class="bi bi-person-add mx-1"></i></span
+              ><span><i class="bi bi-x-lg mx-1"></i></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex text-secondary" id="amici">
+          <div>
+            <img
+              class="rounded-circle m-2"
+              src="assets/imgs/main/image-19.jpg"
+              height="24"
+            />
+          </div>
+          <div class="d-flex justify-content-between w-100">
+            <div class="m-2">
+              <h5>Samuele Converso</h5>
+              <p><small>In Camera - Yumi Zouma</small></p>
+              <p>
+                <span><i class="bi bi-music-note-beamed me-1"></i></span>EP III
+              </p>
+            </div>
+            <div class="m-2">
+              <small><p>4 ore</p></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex text-secondary" id="amici">
+          <div>
+            <img
+              class="rounded-circle m-2"
+              src="assets/imgs/main/image-19.jpg"
+              height="24"
+            />
+          </div>
+          <div class="d-flex justify-content-between w-100">
+            <div class="m-2">
+              <h5>Valentina Rizzo</h5>
+              <p><small>In Camera - Yumi Zouma</small></p>
+              <p>
+                <span><i class="bi bi-music-note-beamed me-1"></i></span>EP III
+              </p>
+            </div>
+            <div class="m-2">
+              <small><p>4 ore</p></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex text-secondary" id="amici">
+          <div>
+            <img
+              class="rounded-circle m-2"
+              src="assets/imgs/main/image-19.jpg"
+              height="24"
+            />
+          </div>
+          <div class="d-flex justify-content-between w-100">
+            <div class="m-2">
+              <h5>Alessandro Incalza</h5>
+              <p><small>Geolier - DIO LO SA</small></p>
+              <p>
+                <span><i class="bi bi-music-note-beamed me-1"></i></span
+                ><small>NUN SACC' PERDERE</small>
+              </p>
+            </div>
+            <div class="m-2">
+              <small><p>8 ore</p></small>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer class="d-flex d-none d-lg-block">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="d-flex">
+              <div class="startstop">
+                <img src="assets/imgs/main/image-1.jpg" alt="foto random" />
+              </div>
+              <div class="startstoptesto row">
+                <p>Fat Funny Friend</p>
+                <p>Maddie Zahm</p>
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-center mx-3"
+                style="height: 100px"
+              >
+                <i class="bi bi-heart mx-2"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 d-flex">
+            <div
+              class="barraMusica w-100 flex-column justify-content-center align-content-center"
+            >
+              <div class="mb-2 text-center">
+                <i class="bi bi-shuffle mx-2"></i>
+                <i class="bi bi-skip-start-fill mx-2"></i>
+                <i class="bi bi-play-circle-fill mx-2"></i>
+                <i class="bi bi-pause-circle-fill mx-2"></i>
+                <i class="bi bi-skip-end-fill mx-2"></i>
+                <i class="bi bi-repeat mx-2"></i>
+              </div>
+              <div class="p-0">
+                <div class="d-flex justify-content-center mb-2">
+                  <span id="currentTime" class="me-2">00:00</span>
+                  <input
+                    id="seekBar"
+                    type="range"
+                    class="form-range w-100 mx-2"
+                    value="0"
+                    step="1"
+                    min="0"
+                    style="max-width: 300px"
+                  />
+                  <span id="duration" class="ms-2">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 d-flex">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-mic mx-2"></i>
+              <i class="bi bi-list mx-2"></i>
+              <i class="bi bi-speaker mx-2"></i>
+              <i class="bi bi-volume-down mx-2"></i>
+
+              <i class="bi bi-arrows-angle-expand"> </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- PLAYER MOBILE -->
+    <div class="d-block d-lg-none container bg-dark p-3 rounded-3 my-3">
+      <div class="d-flex w-100 justify-content-between">
+        <p class="text-white mb-0">
+          <i class="bi bi-disc text-white"></i>
+          Titolo canzone
+        </p>
+        <div>
+          <i class="bi bi-music-player text-white"></i>
+          <i class="bi bi-heart text-white"></i>
+          <i class="bi bi-play-fill text-white"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR MOBILE -->
+    <div class="d-block d-lg-none container-fluid">
+      <div class="d-flex justify-content-between bg-black opacity-75">
+        <div class="d-flex flex-column">
+          <i
+            class="bi bi-house-door-fill text-white text-center opacity-100"
+          ></i>
+          <p class="text-white mb-0">Home</p>
+        </div>
+        <div class="d-flex flex-column">
+          <i class="bi bi-search text-white text-center opacity-100"></i>
+          <p class="text-white mb-0">Cerca</p>
+        </div>
+        <div class="d-flex flex-column">
+          <i class="bi bi-journals text-white text-center opacity-100"></i>
+          <p class="text-white mb-0">La tua librearia</p>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
