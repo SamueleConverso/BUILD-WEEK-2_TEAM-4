@@ -45,9 +45,9 @@ async function getData() {
 }
 
 function printData() {
-  imgAlbumTop.setAttribute("src", album.cover_medium);
+  imgAlbumTop.setAttribute("src", album.cover_big);
   albumTitleTop.innerText = album.title;
-  imgAlbumDown.setAttribute("src", album.cover_medium);
+  imgAlbumDown.setAttribute("src", album.cover_big);
   albumTitleDown.innerText = album.title;
   artistNameDown.innerHTML = `
   <img src="${getArtistPhoto()}" alt="Logo singer" class="mx-2"/>
