@@ -21,7 +21,7 @@ let album;
 let tracks;
 let artistName;
 
-/*----- VARIABILI FUNZIONI PLAYER */
+/*----- VARIABILI FUNZIONI PLAYER*/
 const playButton = document.getElementById("btnPlay");
 
 const songName = document.getElementById("songName");
@@ -31,6 +31,10 @@ const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
 const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
+
+/*----- VARIABILI FUNZIONI PLAYER MOBILE */
+const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
+const btnPlayerMobile = document.getElementById("btnPlayerMobile");
 
 let song;
 let track;
@@ -167,6 +171,23 @@ playButton.addEventListener("click", (e) => {
   }
 });
 
+btnPlayerMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      break;
+  }
+});
+
 function playSong(track) {
   //console.log(song);
   track.play();
@@ -183,6 +204,9 @@ function printTrack() {
   imgAlbumPlayer.setAttribute("src", album.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = album.artist.name;
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}
+  `;
 }
 
 function progressTrack() {
@@ -229,6 +253,11 @@ function addClickToSong() {
 
 function loadSong(title, preview) {
   songName.innerText = title;
+
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${title}
+  `;
+
   let newPreview = preview;
   console.log(newPreview);
   song = newPreview;
