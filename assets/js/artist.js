@@ -3,8 +3,11 @@ const apiKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzViZjcxMWQyMjA3MTAwMTVkZTJmM2MiLCJpYXQiOjE3MzQwODAyNzQsImV4cCI6MTczNTI4OTg3NH0.v17yR1ttMjJ502S2x6eTRuGLyGMxouajUcqejbw_Pes";
 
 const url = new URLSearchParams(window.location.search);
+
 const query = url.get("_searched-query");
 const artistId = url.get("_artist-id");
+const paramArtistName = url.get("_artist-name");
+console.log(paramArtistName);
 
 const artistNameLastPage = document.getElementById("artistNameLastPage");
 const artistAlbumsListLastPage = document.getElementById(
@@ -81,7 +84,7 @@ function printArtist() {
                             src="assets/imgs/search/image-1.jpeg"
                             alt="songOne"
                           />
-                          <a class="col-6 text-decoration-none text-white" href="album.html?_album-id=${albums[i].id}">${albums[i].title}</a>
+                          <a class="col-6 text-decoration-none" href="album.html?_album-id=${albums[i].id}">${albums[i].title}</a>
                           <p class="col-2">183.811.268</p>
                           <p class="col-1">${albums[i].fans} fan</p>
                         
@@ -111,9 +114,9 @@ function printQuery() {
                             src=${tracks[i].album.cover_small}
                             alt="songOne"
                           />
-                          <div class="col-6 ">
+                          <div class="col-6 d-flex flex-column">
                           <a class="text-decoration-none text-white">${tracks[i].title}</a>
-                          <p>${tracks[i].artist.name}</p>
+                          <a class="text-decoration-none" href="artist.html?_artist-id=${tracks[i].artist.id}&_artist-name=${tracks[i].artist.name}">${tracks[i].artist.name}</a>
                           </div>
                           <p class="col-2">183.811.268</p>
                           <p class="col-1">${duration}</p>
@@ -155,6 +158,8 @@ function getArtistName() {
     case "598070":
       artistName = "Achille Lauro";
       break;
+    default:
+      artistName = paramArtistName;
   }
   return artistName;
 }
@@ -192,6 +197,8 @@ function getArtistPhoto() {
     case "Achille Lauro":
       artistPhoto = "assets/imgs/artists/achilleLauro.jpg";
       break;
+    default:
+      artistPhoto = "";
   }
   return artistPhoto;
 }
