@@ -223,7 +223,7 @@ footer {
 
 }
 
-.btnPlay i{
+#btnPlay i{
   font-size: 30px;
   color: white;
 }
