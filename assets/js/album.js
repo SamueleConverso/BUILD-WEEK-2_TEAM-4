@@ -117,6 +117,8 @@ function getArtistPhoto() {
     case "Achille Lauro":
       artistPhoto = "assets/imgs/artists/achilleLauro.jpg";
       break;
+    default:
+      artistPhoto = album.artist.picture_small;
   }
   return artistPhoto;
 }

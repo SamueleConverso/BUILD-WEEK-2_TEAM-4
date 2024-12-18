@@ -14,6 +14,10 @@ const artistAlbumsListLastPage = document.getElementById(
   "artistAlbumsListLastPage"
 );
 const artistCover = document.getElementById("artistCover");
+const artistNameLastPageDown = document.getElementById(
+  "artistNameLastPageDown"
+);
+const artistCoverDown = document.getElementById("artistCoverDown");
 
 let albums;
 let artistName;
@@ -68,7 +72,9 @@ function createUrl() {
 
 function printArtist() {
   artistNameLastPage.innerText = getArtistName();
+  artistNameLastPageDown.innerText = getArtistName();
   artistCover.setAttribute("src", getArtistPhoto());
+  artistCoverDown.setAttribute("src", getArtistPhoto());
   for (let i = 0; i < albums.length; i++) {
     let newLi = document.createElement("li");
     newLi.classList.add(
@@ -95,8 +101,11 @@ function printArtist() {
 
 function printQuery() {
   artistNameLastPage.innerText = `Hai cercato: "${query}"`;
+  artistNameLastPageDown.innerText = `Hai cercato: "${query}"`;
   artistNameLastPage.style.color = "yellow";
+  artistNameLastPageDown.style.color = "yellow";
   artistCover.setAttribute("src", "assets/imgs/search/image-21.jpg");
+  artistCoverDown.setAttribute("src", "assets/imgs/search/image-21.jpg");
   for (let i = 0; i < tracks.length; i++) {
     let newLi = document.createElement("li");
     newLi.classList.add(
@@ -198,7 +207,7 @@ function getArtistPhoto() {
       artistPhoto = "assets/imgs/artists/achilleLauro.jpg";
       break;
     default:
-      artistPhoto = "";
+      artistPhoto = albums[0].cover_big;
   }
   return artistPhoto;
 }
