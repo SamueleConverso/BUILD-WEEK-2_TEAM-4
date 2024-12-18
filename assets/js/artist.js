@@ -90,7 +90,7 @@ function printArtist() {
                             src="assets/imgs/search/image-1.jpeg"
                             alt="songOne"
                           />
-                          <a class="col-6 text-decoration-none" href="album.html?_album-id=${albums[i].id}">${albums[i].title}</a>
+                          <a class="col-6 text-decoration-none text-success" href="album.html?_album-id=${albums[i].id}">${albums[i].title}</a>
                           <p class="col-2">183.811.268</p>
                           <p class="col-1">${albums[i].fans} fan</p>
                         
@@ -125,7 +125,7 @@ function printQuery() {
                           />
                           <div class="col-6 d-flex flex-column">
                           <a class="text-decoration-none text-white">${tracks[i].title}</a>
-                          <a class="text-decoration-none" href="artist.html?_artist-id=${tracks[i].artist.id}&_artist-name=${tracks[i].artist.name}">${tracks[i].artist.name}</a>
+                          <a class="text-decoration-none text-success" href="artist.html?_artist-id=${tracks[i].artist.id}&_artist-name=${tracks[i].artist.name}">${tracks[i].artist.name}</a>
                           </div>
                           <p class="col-2">183.811.268</p>
                           <p class="col-1">${duration}</p>

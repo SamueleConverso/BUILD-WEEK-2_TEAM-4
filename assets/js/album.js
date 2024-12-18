@@ -15,6 +15,8 @@ const albumTitleDown = document.getElementById("albumTitleDown");
 const artistNameDown = document.getElementById("artistNameDown");
 const trackList = document.getElementById("trackList");
 
+let btnSongToPlay;
+
 let album;
 let tracks;
 let artistName;
@@ -95,7 +97,7 @@ function printData() {
     let duration = (tracks[i].duration / 60).toFixed(2);
     newLi.innerHTML = `
                   <div class="col-5 titleSong">
-                    <p class="fw-bold mb-1">${tracks[i].title}</p>
+                    <p id="${tracks[i].preview}" class="fw-bold mb-1 btn btn-success bg-transparent border-0 p-0 m-0 text-success text-start btnSongToPlay">${tracks[i].title}</p>
                     <p class="fw-lighter mb-1">${artistName}</p>
                   </div>
                   <p class="col-3">122.631.768</p>
@@ -104,6 +106,7 @@ function printData() {
     `;
     trackList.appendChild(newLi);
   }
+  addClickToSong();
 }
 
 function getArtistPhoto() {
@@ -144,6 +147,7 @@ function getArtistPhoto() {
   }
   return artistPhoto;
 }
+
 
 /*------ FUNZIONI PLAYER -------*/
 playButton.addEventListener("click", (e) => {
@@ -208,4 +212,17 @@ function progressTrack(){
   progressBar.addEventListener("mouseup", () => {
     mouseDownOnSlider = false;
   });
+
+function addClickToSong() {
+  btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
+  btnSongToPlay.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      loadSong(btn.id);
+    });
+  });
+}
+
+function loadSong(preview) {
+  console.log(preview);
 }
