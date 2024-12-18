@@ -14,8 +14,8 @@ const albumTitlePlayer = document.getElementById("albumTitlePlayer");
 const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
 
 const progressBar = document.getElementById("seekBar");
-const currentTime = document.getElementById("currentTime")
-const duration = document.getElementById("duration")
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
 
 const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
@@ -76,6 +76,9 @@ async function getData(newQuery) {
     getTrack();
   } catch (error) {
     console.log(error);
+    // setTimeout(() => {
+    //   location.reload();
+    // }, 3000);
   }
 }
 
@@ -151,7 +154,7 @@ async function getTrack() {
     console.log(album);
     song = album.tracks.data[0].preview;
     track = new Audio(song);
-    progressTrack()
+    progressTrack();
     //console.log(song);
     //console.log(track);
     printTrack();
@@ -218,7 +221,7 @@ btnSearch.addEventListener("click", (e) => {
   window.location.href = newUrl;
 });
 
-function printTrack(){
+function printTrack() {
   imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = getArtistName();
@@ -229,8 +232,8 @@ function progressTrack(){
     progressBar.value=0;
     currentTime.innerText = '00';
     duration.innerText = Math.round(track.duration);
-  })
-  track.addEventListener('timeupdate', () => {
+  });
+  track.addEventListener("timeupdate", () => {
     if (!mouseDownOnSlider) {
       progressBar.value = track.currentTime / track.duration * 100;
       if(Math.floor(track.currentTime)<=9){
@@ -238,6 +241,7 @@ function progressTrack(){
       }else{
         currentTime.innerText = Math.floor(track.currentTime + 1);
       }
+
     }
   });
   progressBar.addEventListener("change", () => {
