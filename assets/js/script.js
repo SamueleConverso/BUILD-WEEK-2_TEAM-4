@@ -9,6 +9,12 @@ const imgAlbum = document.getElementById("imgAlbum");
 const albumTitle = document.getElementById("albumTitle");
 const artistName = document.getElementById("artistName");
 
+const songName = document.getElementById("songName");
+const albumTitlePlayer = document.getElementById("albumTitlePlayer");
+const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
+
+const progressBar = document.getElementById("seekBar");
+
 const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
 const inputSearch = document.getElementById("inputSearch");
@@ -30,6 +36,7 @@ let pressed = false;
 let track;
 let song;
 //let track = new Audio(song);
+let mouseDownOnSlider = false;
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -57,7 +64,7 @@ async function getData(newQuery) {
       //let dataAlbums = fetchedAlbums.data;
       //randomAlbum = getRandomAlbum();
       //console.log(fetchedAlbums);
-      //console.log(randomAlbum);
+      console.log(randomAlbum);
       printData();
     } else {
       let tempData = await response.json();
@@ -139,11 +146,13 @@ async function getTrack() {
       }
     );
     album = await response.json();
-    //console.log(album);
+    console.log(album);
     song = album.tracks.data[0].preview;
     track = new Audio(song);
+    progressTrack()
     //console.log(song);
     //console.log(track);
+    printTrack();
   } catch (error) {
     console.log(error);
   }
@@ -206,3 +215,30 @@ btnSearch.addEventListener("click", (e) => {
   let newUrl = `${secondPage}?_searched-query=${inputValue}`;
   window.location.href = newUrl;
 });
+
+function printTrack(){
+  imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);
+  songName.innerText = album.tracks.data[0].title;
+  artistNamePlayer.innerText = getArtistName();
+}
+
+function progressTrack(){
+  track.addEventListener('loadeddata', () => {
+    progressBar.value=0;
+  })
+  track.addEventListener('timeupdate', () => {
+    if (!mouseDownOnSlider) {
+      progressBar.value = track.currentTime / track.duration * 100;
+    }
+  });
+  progressBar.addEventListener("change", () => {
+    const pct = progressBar.value / 100;
+    track.currentTime = (track.duration || 0) * pct;
+  });
+  progressBar.addEventListener("mousedown", () => {
+    mouseDownOnSlider = true;
+  });
+  progressBar.addEventListener("mouseup", () => {
+    mouseDownOnSlider = false;
+  });
+}
