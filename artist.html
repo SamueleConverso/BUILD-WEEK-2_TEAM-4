@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/circular-font.css" />
   </head>
   <body>
-    <div class="d-flex">
+    <div class="d-flex page3">
       <header class="col-lg-3 d-none d-lg-block">
         <nav class="navbar navbar-dark bg-dark">
           <div class="container-fluid">
@@ -121,7 +121,60 @@
       </header>
 
       <main class="col-12 col-lg-7 bg-dark">
-        <div class="container-fluid p-0 bg-gradient">
+        <!--initial part of the main in the desktop-->
+        <div class="container-fluid p-0 bg-gradient d-none d-lg-block">
+          <div class="card text-bg-dark">
+            <img
+              class="card-img img-fluid"
+              style="height: 35vh"
+              alt="artistBackground"
+              id="artistCover"
+            />
+            <div class="card-img-overlay">
+              <div class="d-flex flex-column justify-content-between h-100">
+                <div class="d-flex justify-content-between mb-3 pt-3">
+                  <div class="d-flex gap-2">
+                    <i
+                      class="bi bi-arrow-left-circle align-self-center text-white"
+                    ></i>
+                    <i
+                      class="bi bi-arrow-right-circle align-self-center text-white"
+                    ></i>
+                  </div>
+                  <div>
+                    <p
+                      class="mb-0 p-1 text-white bg-black rounded-3 userSelect"
+                    >
+                      <i
+                        class="bi bi-person-circle px-1 align-middle text-white"
+                      ></i
+                      >Utente
+                      <i
+                        class="bi bi-caret-down-fill align-middle text-white"
+                      ></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="d-flex flex-column">
+                  <p class="m-0 card-text d-flex align-items-center">
+                    <i class="m-0 mx-1 bi bi-patch-check-fill text-primary"></i
+                    ><small class="artistaVerificato m-0"
+                      >Artista Verificato</small
+                    >
+                  </p>
+                  <h1
+                    class="card-title display-1 fw-bold"
+                    id="artistNameLastPage"
+                  ></h1>
+                  <p class="card-text">2.534.773 ascolatatori mensili</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---Mobile first part of the main---->
+        <div class="container-fluid p-0 bg-gradient d-lg-none d-block">
           <div class="card text-bg-dark">
             <img
               src="assets/imgs/main/salmo-copertina.jpg "
@@ -130,111 +183,82 @@
               alt="artistBackground"
             />
             <div class="card-img-overlay">
-              <div class="d-flex justify-content-between mb-3 pt-3">
-                <div class="d-flex gap-2">
-                  <i
-                    class="bi bi-arrow-left-circle align-self-center text-white"
-                  ></i>
-                  <i
-                    class="bi bi-arrow-right-circle align-self-center text-white"
-                  ></i>
+              <div class="d-flex flex-column justify-content-between h-100">
+                <div class="d-flex justify-content-between mb-3 pt-3">
+                  <div class="d-flex gap-2">
+                    <i class="bi bi-arrow-left"></i>
+                  </div>
                 </div>
-                <div>
-                  <p class="mb-0 p-1 text-white bg-black rounded-3 userSelect">
-                    <i
-                      class="bi bi-person-circle px-1 align-middle text-white"
-                    ></i
-                    >Utente
-                    <i
-                      class="bi bi-caret-down-fill align-middle text-white"
-                    ></i>
-                  </p>
-                </div>
+
+                <h1
+                  class="card-title display-1 fw-bold"
+                  id="artistNameLastPage"
+                >
+                </h1>
               </div>
-              <p class="m-0 card-text d-flex align-items-center">
-                <i class="m-0 mx-1 bi bi-patch-check-fill text-primary"></i
-                ><small class="artistaVerificato m-0">Artista Verificato</small>
-              </p>
-              <h1
-                class="card-title display-1 fw-bold"
-                id="artistNameLastPage"
-              ></h1>
-              <p class="card-text">2.534.773 ascolatatori mensili</p>
             </div>
           </div>
         </div>
-
         <!--Section ICONS BUTTON-->
-        <section>
-          <div class="container-fluid p-3">
+        <section class="d-none d-lg-block">
+          <div class="container-fluid p-3 text-white">
             <div
-              class="row justify-content-start align-items-center w-100 text-start"
+              class="row justify-content-start align-items-center w-100 text-center"
             >
-              <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+              <div class="col-2">
                 <i class="bi bi-play-circle-fill playerArtist p-0"></i>
               </div>
-              <div class="col-xxl-2 col-xl-4 col-lg-3 col-md-3 col-sm-4 col-3">
-                <button type="button" class="btn w-100 btn-outline-light">
+              <div class="col-3">
+                <button type="button" class="btn border-white w-100 btn-outline-light p-1">
                   FOLLOWING
                 </button>
               </div>
-              <div class="col-xxl-8 col-xl-6 col-lg-7 col-md-7 col-sm-6 col-7">
-                <i class="bi bi-three-dots text-white"></i>
+              <div class="col-7 text-start">
+                <i class="bi bi-three-dots"></i>
               </div>
+            </div>
+          </div>
+        </section>
+        <!--Section ICONS BUTTON mobile-->
+        <section class="mobileBar d-lg-none d-block">
+          <div class="container-fluid p-3 text-white">
+            <p class="card-text d-lg-none d-block">
+              2.534.773 ascolatatori mensili
+            </p>
+            <div
+              class="row justify-content-between align-items-center w-100 text-start"
+            >
+              <div class="col-3">
+                <button type="button" class="btn border-dark w-100 p-1 text-white">
+                  FOLLOWING
+                </button>
+              </div>
+              <div class="col-2">
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+              <div class="col-3"></div>
+              <div class="col-1 align-self-end">
+                <i class="bi bi-shuffle d-flex flex-column justify-content-center align-items-center">•</i>
+              </div>
+              <div class="col-2">
+                <i class="bi bi-play-circle-fill playerArtist p-0"></i>
+              </div>
+
             </div>
           </div>
         </section>
         <!--Section 2-->
         <section>
           <div class="container-fluid">
-            <div class="row text-white sizeText">
-              <!--Article con canzoni popolari-->
-              <article class="popularSongs col-lg-7">
-                <div class="container-fluid">
-                  <h2>Popolari</h2>
-                  <div class="row">
-                    <div class="w-100">
-                      <ol
-                        class="col-1 text-white p-2 list-unstyled"
-                        style="width: 100%"
-                        id="artistAlbumsListLastPage"
-                      >
-                        <li
-                          class="d-flex align-items-center justify-content-between w-100 col-lg-1"
-                        >
-                          <img
-                            class="col-2"
-                            src="assets/imgs/search/image-1.jpeg"
-                            alt="songOne"
-                          />
-                          <p class="col-6">IL CIELO IN UNA STANZA</p>
-                          <p class="col-2">183.811.268</p>
-                          <p class="col-1">3:06</p>
-                        </li>
-                        <li
-                          class="d-flex align-items-center justify-content-between w-100 col-lg-1"
-                        >
-                          <img
-                            class="col-2"
-                            src="assets/imgs/search/image-1.jpeg"
-                            alt="songOne"
-                          />
-                          <p class="col-6">IL CIELO IN UNA STANZA</p>
-                          <p class="col-2">183.811.268</p>
-                          <p class="col-1">3:06</p>
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
-              </article>
+            <div class="row text-white sizeText flex-md-row-reverse">
+              
               <!--Article con brani che ti piacciono-->
               <article class="col-lg-5">
                 <h2>Brani che ti piacciono</h2>
-                <div class="container-fluid">
+                <div class="container-fluid mb-4">
                   <div class="row align-items-center">
                     <div
-                      class="likedSong col-4 position-relative justify-content-center"
+                      class="likedSong col-lg-4 col-2 position-relative justify-content-center"
                     >
                       <img
                         src="assets/imgs/search/image-12.jpg"
@@ -245,9 +269,49 @@
                         class="heartLikedSong bi bi-heart-fill position-absolute align-content-end"
                       ></i>
                     </div>
-                    <div class="col-8 testolike">
+                    <div class="col-lg-8 col-10 testolike">
                       <p>Hai messo mi piace a 11 brani</p>
                       <p>Di SALMO</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!--Article con canzoni popolari-->
+              <article class="popularSongs col-lg-7">
+                <div class="container-fluid p-0">
+                  <h2 class="text-start">Popolari</h2>
+                  <div class="row">
+                    <div class="w-100">
+                      <ol
+                        class="col-1 text-white p-2 list-unstyled"
+                        style="width: 100%"
+                        id="artistAlbumsListLastPage"
+                      >
+                        <!-- <li
+                          class="d-flex align-items-center justify-content-between w-100 col-lg-1"
+                        >
+                          <img
+                            class="col-2"
+                            src="assets/imgs/search/image-1.jpeg"
+                            alt="songOne"
+                          />
+                          <p class="col-6">IL CIELO IN UNA STANZA</p>
+                          <p class="col-2">183.811.268</p>
+                          <p class="col-1">3:06</p>
+                        </li>
+                        <li
+                          class="d-flex align-items-center justify-content-between w-100 col-lg-1"
+                        >
+                          <img
+                            class="col-2"
+                            src="assets/imgs/search/image-1.jpeg"
+                            alt="songOne"
+                          />
+                          <p class="col-6">IL CIELO IN UNA STANZA</p>
+                          <p class="col-2">183.811.268</p>
+                          <p class="col-1">3:06</p>
+                        </li> -->
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -255,37 +319,6 @@
             </div>
           </div>
         </section>
-
-        <!--Section Mobile-->
-
-        <!--  <section>
-          <div class="m-2 d-flex justify-content-center align-items-center">
-            <div class="playlistMobile">
-              <div class="col-sm-12 d-md-none">
-                <div class="card mb-3 border-0" style="max-width: 540px">
-                  <div class="row g-0">
-                    <div class="col-5">
-                      <img
-                        src="assets/imgs/search/image-1.jpeg"
-                        class="img-fluid h-100 w-100 rounded-start"
-                        alt="imageOne"
-                      />
-                    </div>
-                    <div class="col-7 align-self-center">
-                      <div class="card-body">
-                        <h5 class="card-title">
-                          Discover your Weekly Mix <br />
-                          (dec &nbsp; 2024)
-                        </h5>
-                        <br />
-                        <i class="bi bi-play-circle-fill float-end"></i>
-
-                      </div>
-                    </div> 
-                  </article>
-                </div>
-              </div>
-            </section> -->
 
         <!--Section Mobile-->
 

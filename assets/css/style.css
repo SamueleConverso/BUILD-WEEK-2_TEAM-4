@@ -52,7 +52,7 @@ body {
 
 /*----main----*/
 
-.page1 main{
+.page1 main, .page3 main{
   background: linear-gradient(#212121, #101010);
 }
 
@@ -392,6 +392,13 @@ height: 200px;
   display: flex;
 }
 
+.mobileBar .bi-three-dots-vertical{
+  font-size: 30px;
+}
+.mobileBar .bi-shuffle{
+  font-size: 22px;
+  color: #20d760;
+}
 
 .heartLikedSong{
   background: #20d760;
@@ -409,9 +416,7 @@ width: 60px;
 }
 /*-----Sizing the text in the third page----*/
 
-.sizeText h2{
-  font-size: 24px;
-}
+
 
 .popularSongs ol{
   list-style-position: inside;

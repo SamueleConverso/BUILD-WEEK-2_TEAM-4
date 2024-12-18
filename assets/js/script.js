@@ -19,8 +19,7 @@ const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
 const inputSearch = document.getElementById("inputSearch");
 
-
-const playButton = document.getElementById('btnPlay');
+const playButton = document.getElementById("btnPlay");
 
 // const btnPlay = document.getElementById("play");
 // const btnStop = document.getElementById("stop");
@@ -82,7 +81,7 @@ function createUrl() {
   if (!query) {
     let url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${randomArtist}/albums`;
     return url;
-  }else{
+  } else {
     let url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
     return url;
   }
@@ -107,30 +106,30 @@ function getRandom(arr) {
 //   return randomAlbum;
 // }
 
-playButton.addEventListener('click', (e) => {
+playButton.addEventListener("click", (e) => {
   e.preventDefault();
   //console.log(pressed);
-  switch (pressed){
+  switch (pressed) {
     case true:
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
-    break;
+      break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
-    break;
+      break;
   }
 });
 
-function playSong(track){
+function playSong(track) {
   //console.log(song);
   track.play();
   console.log(track);
 }
 
-function pauseSong(track){
+function pauseSong(track) {
   //console.log(song);
   track.pause();
   console.log(track);
@@ -138,11 +137,14 @@ function pauseSong(track){
 
 async function getTrack() {
   try {
-    let response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`, {
-      headers: {
-        Authorization: apiKey,
-      },
-    });
+    let response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`,
+      {
+        headers: {
+          Authorization: apiKey,
+        },
+      }
+    );
     album = await response.json();
     console.log(album);
     song = album.tracks.data[0].preview;
