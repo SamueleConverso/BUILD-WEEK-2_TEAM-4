@@ -227,13 +227,17 @@ function printTrack(){
 function progressTrack(){
   track.addEventListener('loadeddata', () => {
     progressBar.value=0;
-    currentTime.innerText = track.currentTime;
+    currentTime.innerText = '00';
     duration.innerText = Math.round(track.duration);
   })
   track.addEventListener('timeupdate', () => {
     if (!mouseDownOnSlider) {
       progressBar.value = track.currentTime / track.duration * 100;
-      currentTime.innerText = Math.floor(track.currentTime);
+      if(Math.floor(track.currentTime)<=9){
+        currentTime.innerText = '0'+ Math.floor(track.currentTime + 1);
+      }else{
+        currentTime.innerText = Math.floor(track.currentTime + 1);
+      }
     }
   });
   progressBar.addEventListener("change", () => {
