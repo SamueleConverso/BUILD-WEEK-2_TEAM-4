@@ -62,7 +62,7 @@ async function getData() {
     console.log(track);
     printData();
     printTrack();
-    progressTrack()
+    progressTrack();
   } catch (error) {
     console.log(error);
   }
@@ -148,7 +148,6 @@ function getArtistPhoto() {
   return artistPhoto;
 }
 
-
 /*------ FUNZIONI PLAYER -------*/
 playButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -179,27 +178,26 @@ function pauseSong(track) {
   console.log(track);
 }
 
-function printTrack(){
+function printTrack() {
   imgAlbumPlayer.setAttribute("src", album.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = album.artist.name;
 }
 
-function progressTrack(){
-  track.addEventListener('loadeddata', () => {
-    progressBar.value=0;
-    currentTime.innerText = '00';
+function progressTrack() {
+  track.addEventListener("loadeddata", () => {
+    progressBar.value = 0;
+    currentTime.innerText = "00";
     duration.innerText = Math.round(track.duration);
   });
   track.addEventListener("timeupdate", () => {
     if (!mouseDownOnSlider) {
-      progressBar.value = track.currentTime / track.duration * 100;
-      if(Math.floor(track.currentTime)<=9){
-        currentTime.innerText = '0'+ Math.floor(track.currentTime + 1);
-      }else{
+      progressBar.value = (track.currentTime / track.duration) * 100;
+      if (Math.floor(track.currentTime) <= 9) {
+        currentTime.innerText = "0" + Math.floor(track.currentTime + 1);
+      } else {
         currentTime.innerText = Math.floor(track.currentTime + 1);
       }
-
     }
   });
   progressBar.addEventListener("change", () => {
@@ -212,6 +210,7 @@ function progressTrack(){
   progressBar.addEventListener("mouseup", () => {
     mouseDownOnSlider = false;
   });
+}
 
 function addClickToSong() {
   btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
