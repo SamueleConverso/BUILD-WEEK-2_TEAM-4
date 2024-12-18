@@ -10,6 +10,9 @@ const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albu
 const imgAlbumTop = document.getElementById("imgAlbumTop");
 const albumTitleTop = document.getElementById("albumTitleTop");
 const artistNameTop = document.getElementById("artistNameTop");
+const imgAlbumDown = document.getElementById("imgAlbumDown");
+const albumTitleDown = document.getElementById("albumTitleDown");
+const artistNameDown = document.getElementById("artistNameDown");
 const trackList = document.getElementById("trackList");
 
 let album;
@@ -44,6 +47,12 @@ async function getData() {
 function printData() {
   imgAlbumTop.setAttribute("src", album.cover_medium);
   albumTitleTop.innerText = album.title;
+  imgAlbumDown.setAttribute("src", album.cover_medium);
+  albumTitleDown.innerText = album.title;
+  artistNameDown.innerHTML = `
+  <img src="${getArtistPhoto()}" alt="Logo singer" class="mx-2"/>
+                <p>${artistName}</p>
+  `;
   artistNameTop.innerHTML = `
   <img
                       src="${getArtistPhoto()}"
@@ -61,13 +70,14 @@ function printData() {
       "w-100",
       "m-0"
     );
+    let duration = (tracks[i].duration / 60).toFixed(2);
     newLi.innerHTML = `
                   <div class="col-5 titleSong">
                     <p class="fw-bold mb-1">${tracks[i].title}</p>
                     <p class="fw-lighter mb-1">${artistName}</p>
                   </div>
                   <p class="col-3">122.631.768</p>
-                  <p class="col-1 text-end">3.51</p>
+                  <p class="col-1 text-end">${duration} s</p>
                 
     `;
     trackList.appendChild(newLi);
