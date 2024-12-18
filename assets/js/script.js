@@ -9,6 +9,13 @@ const imgAlbum = document.getElementById("imgAlbum");
 const albumTitle = document.getElementById("albumTitle");
 const artistName = document.getElementById("artistName");
 
+const btnToAlbum = document.getElementById("btnToAlbum");
+const btnSearch = document.getElementById("btnSearch");
+const inputSearch = document.getElementById("inputSearch");
+
+/*----- VARIABILI FUNZIONI PLAYER */
+const playButton = document.getElementById("btnPlay");
+
 const songName = document.getElementById("songName");
 const albumTitlePlayer = document.getElementById("albumTitlePlayer");
 const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
@@ -16,15 +23,6 @@ const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
 const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
-
-const btnToAlbum = document.getElementById("btnToAlbum");
-const btnSearch = document.getElementById("btnSearch");
-const inputSearch = document.getElementById("inputSearch");
-
-const playButton = document.getElementById("btnPlay");
-
-// const btnPlay = document.getElementById("play");
-// const btnStop = document.getElementById("stop");
 
 let randomArtist;
 let randomArtistName;
@@ -111,58 +109,6 @@ function getRandom(arr) {
 //   return randomAlbum;
 // }
 
-playButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  //console.log(pressed);
-  switch (pressed) {
-    case true:
-      pauseSong(track);
-      pressed = false;
-      //console.log(pressed);
-      break;
-    case false:
-      playSong(track);
-      pressed = true;
-      //console.log(pressed);
-      break;
-  }
-});
-
-function playSong(track) {
-  //console.log(song);
-  track.play();
-  console.log(track);
-}
-
-function pauseSong(track) {
-  //console.log(song);
-  track.pause();
-  console.log(track);
-}
-
-async function getTrack() {
-  try {
-    let response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`,
-      {
-        headers: {
-          Authorization: apiKey,
-        },
-      }
-    );
-    album = await response.json();
-    console.log(album);
-    song = album.tracks.data[0].preview;
-    track = new Audio(song);
-    progressTrack();
-    //console.log(song);
-    //console.log(track);
-    printTrack();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 function printData() {
   imgAlbum.setAttribute("src", randomAlbum.cover_medium);
   albumTitle.innerText = randomAlbum.title;
@@ -220,6 +166,59 @@ btnSearch.addEventListener("click", (e) => {
   let newUrl = `${secondPage}?_searched-query=${inputValue}`;
   window.location.href = newUrl;
 });
+
+/*------ FUNZIONI PLAYER -------*/
+async function getTrack() {
+  try {
+    let response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`,
+      {
+        headers: {
+          Authorization: apiKey,
+        },
+      }
+    );
+    album = await response.json();
+    //console.log(album);
+    song = album.tracks.data[0].preview;
+    track = new Audio(song);
+    progressTrack();
+    //console.log(song);
+    //console.log(track);
+    printTrack();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+playButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      break;
+  }
+});
+
+function playSong(track) {
+  //console.log(song);
+  track.play();
+  //console.log(track);
+}
+
+function pauseSong(track) {
+  //console.log(song);
+  track.pause();
+  //console.log(track);
+}
 
 function printTrack() {
   imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);

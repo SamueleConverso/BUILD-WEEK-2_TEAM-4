@@ -456,11 +456,11 @@
           <div class="col-lg-3">
             <div class="d-flex">
               <div class="startstop">
-                <img src="assets/imgs/main/image-1.jpg" alt="foto random" />
+                <img id="imgAlbumPlayer" src="" alt="foto album" />
               </div>
               <div class="startstoptesto row">
-                <p>Fat Funny Friend</p>
-                <p>Maddie Zahm</p>
+                <p id="songName"></p>
+                <p id="artistNamePlayer"></p>
               </div>
               <div
                 class="d-flex justify-content-center align-items-center mx-3"
@@ -474,17 +474,20 @@
             <div
               class="barraMusica w-100 flex-column justify-content-center align-content-center"
             >
-              <div class="mb-2 text-center">
+              <div
+                class="mb-2 text-center d-flex align-items-center justify-content-center"
+              >
                 <i class="bi bi-shuffle mx-2"></i>
                 <i class="bi bi-skip-start-fill mx-2"></i>
-                <i class="bi bi-play-circle-fill mx-2"></i>
-                <i class="bi bi-pause-circle-fill mx-2"></i>
+                <button type="button" id="btnPlay" class="bntPlay">
+                  <i class="bi bi-play-circle-fill bg mx-2"></i>
+                </button>
                 <i class="bi bi-skip-end-fill mx-2"></i>
                 <i class="bi bi-repeat mx-2"></i>
               </div>
               <div class="p-0">
                 <div class="d-flex justify-content-center mb-2">
-                  <span id="currentTime" class="me-2">00:00</span>
+                  <span>0:<span id="currentTime" class="me-2">00</span></span>
                   <input
                     id="seekBar"
                     type="range"
@@ -494,7 +497,7 @@
                     min="0"
                     style="max-width: 300px"
                   />
-                  <span id="duration" class="ms-2">00:00</span>
+                  <span class="ms-2">0:<span id="duration">00</span></span>
                 </div>
               </div>
             </div>
@@ -505,7 +508,6 @@
               <i class="bi bi-list mx-2"></i>
               <i class="bi bi-speaker mx-2"></i>
               <i class="bi bi-volume-down mx-2"></i>
-
               <i class="bi bi-arrows-angle-expand"> </i>
             </div>
           </div>
