@@ -14,6 +14,8 @@ const albumTitlePlayer = document.getElementById("albumTitlePlayer");
 const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
 
 const progressBar = document.getElementById("seekBar");
+const currentTime = document.getElementById("currentTime")
+const duration = document.getElementById("duration")
 
 const btnToAlbum = document.getElementById("btnToAlbum");
 const btnSearch = document.getElementById("btnSearch");
@@ -225,10 +227,13 @@ function printTrack(){
 function progressTrack(){
   track.addEventListener('loadeddata', () => {
     progressBar.value=0;
+    currentTime.innerText = track.currentTime;
+    duration.innerText = Math.round(track.duration);
   })
   track.addEventListener('timeupdate', () => {
     if (!mouseDownOnSlider) {
       progressBar.value = track.currentTime / track.duration * 100;
+      currentTime.innerText = Math.floor(track.currentTime);
     }
   });
   progressBar.addEventListener("change", () => {
