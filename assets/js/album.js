@@ -217,11 +217,20 @@ function addClickToSong() {
   btnSongToPlay.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      loadSong(btn.id);
+      pauseSong(track);
+      song = null;
+      track = null;
+      pressed = false;
+      loadSong(btn.innerText, btn.id);
     });
   });
 }
 
-function loadSong(preview) {
-  console.log(preview);
+function loadSong(title, preview) {
+  songName.innerText = title;
+  let newPreview = preview;
+  console.log(newPreview);
+  song = newPreview;
+  track = new Audio(song);
+  progressTrack();
 }
