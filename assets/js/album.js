@@ -100,8 +100,9 @@ function printData() {
                     <p id="${tracks[i].preview}" class="fw-bold mb-1 btn btn-success bg-transparent border-0 p-0 m-0 text-success text-start btnSongToPlay">${tracks[i].title}</p>
                     <p class="fw-lighter mb-1">${artistName}</p>
                   </div>
-                  <p class="col-3">122.631.768</p>
-                  <p class="col-1 text-end">${duration} s</p>
+                  <p class="col-lg-3 d-lg-block d-none">122.631.768</p>
+                  <p class="col-lg-1 col-sm-3 text-end">${duration} s</p>
+                  <i class="d-lg-none col-sm-1 bi bi-three-dots-vertical text-end"></i>
                 
     `;
     trackList.appendChild(newLi);
