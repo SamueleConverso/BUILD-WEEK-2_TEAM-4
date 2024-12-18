@@ -171,6 +171,9 @@ playButton.addEventListener("click", (e) => {
       //console.log(pressed);
       playIconPlayerDesktop.style.display = "block";
       pauseIconPlayerDesktop.style.display = "none";
+
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       break;
     case false:
       playSong(track);
@@ -178,6 +181,9 @@ playButton.addEventListener("click", (e) => {
       //console.log(pressed);
       playIconPlayerDesktop.style.display = "none";
       pauseIconPlayerDesktop.style.display = "block";
+
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
       break;
   }
 });
@@ -192,6 +198,9 @@ btnPlayerMobile.addEventListener("click", (e) => {
       //console.log(pressed);
       playIconPlayerMobile.style.display = "block";
       pauseIconPlayerMobile.style.display = "none";
+
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
       break;
     case false:
       playSong(track);
@@ -199,6 +208,9 @@ btnPlayerMobile.addEventListener("click", (e) => {
       //console.log(pressed);
       playIconPlayerMobile.style.display = "none";
       pauseIconPlayerMobile.style.display = "block";
+
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
       break;
   }
 });
