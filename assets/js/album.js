@@ -32,9 +32,16 @@ const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
+const pauseIconPlayerDesktop = document.getElementById(
+  "pauseIconPlayerDesktop"
+);
+
 /*----- VARIABILI FUNZIONI PLAYER MOBILE */
 const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
 const btnPlayerMobile = document.getElementById("btnPlayerMobile");
+const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
+const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
 
 let song;
 let track;
@@ -162,11 +169,15 @@ playButton.addEventListener("click", (e) => {
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
       break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
       break;
   }
 });
@@ -179,11 +190,15 @@ btnPlayerMobile.addEventListener("click", (e) => {
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
       break;
   }
 });
@@ -246,6 +261,10 @@ function addClickToSong() {
       song = null;
       track = null;
       pressed = false;
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       loadSong(btn.innerText, btn.id);
     });
   });
