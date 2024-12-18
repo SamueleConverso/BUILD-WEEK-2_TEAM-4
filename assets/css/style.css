@@ -346,7 +346,7 @@ height: 200px;
   flex-shrink: 0;
   height: 70px;
   justify-items:end;
-
+}
 .titolation{
   opacity: 50%;
   border-bottom: 1px solid white;
