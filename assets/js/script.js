@@ -15,6 +15,9 @@ const inputSearch = document.getElementById("inputSearch");
 
 const playButton = document.getElementById('btnPlay');
 
+// const btnPlay = document.getElementById("play");
+// const btnStop = document.getElementById("stop");
+
 let randomArtist;
 let randomArtistName;
 let randomAlbum;
@@ -34,6 +37,7 @@ document.addEventListener("load", init());
 
 function init() {
   randomArtist = getRandom(myArtists);
+  artistName.setAttribute("href", `artist.html?_artist-id=${randomArtist}`);
   getData(query);
 }
 
@@ -142,7 +146,6 @@ async function getTrack() {
   }
 }
 
-
 function printData() {
   imgAlbum.setAttribute("src", randomAlbum.cover_medium);
   albumTitle.innerText = randomAlbum.title;
@@ -164,7 +167,7 @@ function getArtistName() {
       randomArtistName = "The Weeknd";
       break;
     case 1424821:
-      randomArtistName = "Lana Del Rey ";
+      randomArtistName = "Lana Del Rey";
       break;
     case 564:
       randomArtistName = "Rihanna";

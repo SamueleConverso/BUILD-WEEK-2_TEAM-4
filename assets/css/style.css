@@ -100,8 +100,19 @@ body {
 
 /*---Music Cards----*/
 
-.musicCards .card {
-  height: 350px;
+
+.photoPlay1 img{
+  border-radius: 10px;
+}
+
+.cardBck{
+  background-color: #2e2e2e;
+  border-radius: 10px;
+}
+
+.cardBck i{
+  color: #20d760;
+  font-size: 40px;
 }
 
 /*-----Section Mobile Main----*/
@@ -232,6 +243,24 @@ footer {
   
 }
 
+/*-----MOBILE MAIN OF THE SECOND PAGE----*/
+
+.bi-arrow-left{
+font-size: 30px;
+cursor: pointer;
+}
+
+.photoSinger img{
+  width: 50px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 991px) {
+  .listMusic ol li::before{
+    display: none;
+  }
+}
+
 /*---Album Section ----*/
 #albumSection p,
 #albumSection h1 {
@@ -301,12 +330,11 @@ height: 200px;
 .titolation{
   opacity: 50%;
   border-bottom: 1px solid white;
-  margin: 3rem;
-
 }
 
 .listMusic{
   padding-top: 0;
+  margin: 1rem 3rem;
 }
 
 .listMusic ol{
