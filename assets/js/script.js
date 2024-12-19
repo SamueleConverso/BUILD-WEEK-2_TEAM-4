@@ -56,6 +56,8 @@ const btnRemoveFavouriteSongsMobile = document.getElementById(
   "btnRemoveFavouriteSongsMobile"
 );
 
+const linkToPlaylistPage = document.getElementById("linkToPlaylistPage");
+
 let randomArtist;
 let randomArtistName;
 let randomAlbum;
@@ -502,6 +504,7 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
         btnToFavouriteSongsDesktop.style.display = "none";
         btnRemoveFavouriteSongsDesktop.style.display = "block";
         //updateFavButtons();
+        break;
       }
     }
   } else {
@@ -514,8 +517,23 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
     favSongArr.push(newFavSong);
     btnToFavouriteSongsDesktop.style.display = "none";
     btnRemoveFavouriteSongsDesktop.style.display = "block";
-    //updateFavButtons();
   }
+  // if (favSongArr.length === 0) {
+  //   let newFavSong = new FavSong(
+  //     album.tracks.data[playerIndex].id,
+  //     album.tracks.data[playerIndex].title,
+  //     album.artist.name,
+  //     album.tracks.data[playerIndex].preview
+  //   );
+  //   favSongArr.push(newFavSong);
+  //   btnToFavouriteSongsDesktop.style.display = "none";
+  //   btnRemoveFavouriteSongsDesktop.style.display = "block";
+  // }
+
+  // favSongArr.push(newFavSong);
+  // btnToFavouriteSongsDesktop.style.display = "none";
+  // btnRemoveFavouriteSongsDesktop.style.display = "block";
+  //updateFavButtons();
 
   console.log(favSongArr);
 });
@@ -540,7 +558,6 @@ btnRemoveFavouriteSongsMobile.addEventListener("click", (e) => {
 
 function updateFavButtons() {
   for (let i = 0; i < favSongArr.length; i++) {
-    console.log(favSongArr[i]);
     if (album.tracks.data[playerIndex].id === favSongArr[i].id) {
       console.log("già nei preferiti");
       btnToFavouriteSongsDesktop.style.display = "none";
@@ -552,3 +569,10 @@ function updateFavButtons() {
     }
   }
 }
+
+linkToPlaylistPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  let favSongStr = JSON.stringify(favSongArr);
+  localStorage.setItem("myFavouriteSongs", favSongStr);
+  window.location.href = "playlist.html";
+});

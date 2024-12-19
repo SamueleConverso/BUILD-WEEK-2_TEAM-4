@@ -6,7 +6,11 @@ const albumId = sessionStorage.getItem("id");
 
 const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
-  /*----- VARIABILI FUNZIONI PLAYER */
+let getSongsStr = localStorage.getItem("myFavouriteSongs");
+let myFavSongsObj = JSON.parse(getSongsStr);
+//console.log(myFavSongsObj);
+
+/*----- VARIABILI FUNZIONI PLAYER */
 const playButton = document.getElementById("btnPlay");
 
 const songName = document.getElementById("songName");
@@ -18,7 +22,9 @@ const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
 const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
-const pauseIconPlayerDesktop = document.getElementById("pauseIconPlayerDesktop");
+const pauseIconPlayerDesktop = document.getElementById(
+  "pauseIconPlayerDesktop"
+);
 
 const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
 const btnForwardDesktop = document.getElementById("btnForwardDesktop");
@@ -28,6 +34,8 @@ const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
 const btnPlayerMobile = document.getElementById("btnPlayerMobile");
 const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
 const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
+
+const trackListSong = document.getElementById("trackListSong");
 
 let artistName;
 
@@ -42,6 +50,7 @@ let mouseDownOnSlider = false;
 document.addEventListener("load", init());
 
 function init() {
+  printSongList();
   getData();
 }
 
@@ -79,7 +88,7 @@ btnSearch.addEventListener("click", (e) => {
   window.location.href = newUrl;
 });
 
-  /*------ FUNZIONI PLAYER ------*/
+/*------ FUNZIONI PLAYER ------*/
 
 playButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -224,3 +233,29 @@ btnForwardDesktop.addEventListener("click", (e) => {
     loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
   }
 });
+
+function printSongList() {
+  for (let i = 0; i < myFavSongsObj.length; i++) {
+    const newLi = document.createElement("li");
+    newLi.classList.add(
+      "d-flex",
+      "justify-content-between",
+      "align-items-center",
+      "border-bottom",
+      "border-secondary",
+      "border-opacity-50"
+    );
+    newLi.innerHTML = `
+                      <div class="col-8 titleSong">
+                        <p class="fw-bold mb-1 mx-3">${myFavSongsObj[i].title}</p>
+                        <p class="fw-lighter mb-1 mx-3">${myFavSongsObj[i].artist}</p>
+                      </div>
+                      <p class="col-lg-2 col-sm-3 text-end">&nbsp;</p>
+                      <i class="bi bi-heart-fill iconHeartFav"></i>
+                      <i class="bi bi-cloud-arrow-down"></i>
+                    
+                    
+    `;
+    trackListSong.appendChild(newLi);
+  }
+}
