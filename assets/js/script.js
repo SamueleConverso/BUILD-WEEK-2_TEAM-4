@@ -402,6 +402,7 @@ btnBackwardDesktop.addEventListener("click", (e) => {
   if (playerIndex !== 0) {
     resetSong();
     playerIndex -= 1;
+    updateFavButtons();
     loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
   }
 });
@@ -411,6 +412,7 @@ btnForwardDesktop.addEventListener("click", (e) => {
   if (playerIndex < tracks.length - 1) {
     resetSong();
     playerIndex += 1;
+    updateFavButtons();
     loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
   }
 });
@@ -448,6 +450,7 @@ goPreviousAlbum.addEventListener("click", (e) => {
     if (albumIndex !== 0) {
       resetSong();
       albumIndex -= 1;
+      playerIndex = 0;
       isAlbumChanged = true;
       albumId = albumArr[albumIndex].id;
       imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
@@ -470,6 +473,7 @@ goNextAlbum.addEventListener("click", (e) => {
     if (albumIndex < albumArr.length - 1) {
       resetSong();
       albumIndex += 1;
+      playerIndex = 0;
       isAlbumChanged = true;
       albumId = albumArr[albumIndex].id;
       imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
@@ -484,13 +488,34 @@ goNextAlbum.addEventListener("click", (e) => {
 
 btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
   e.preventDefault();
-  let newFavSong = new FavSong(
-    album.tracks.data[playerIndex].id,
-    album.tracks.data[playerIndex].title,
-    album.artist.name,
-    album.tracks.data[playerIndex].preview
-  );
-  favSongArr.push(newFavSong);
+  if (favSongArr.length !== 0) {
+    for (let i = 0; i < favSongArr.length; i++) {
+      if (album.tracks.data[playerIndex].id !== favSongArr[i].id) {
+        let newFavSong = new FavSong(
+          album.tracks.data[playerIndex].id,
+          album.tracks.data[playerIndex].title,
+          album.artist.name,
+          album.tracks.data[playerIndex].preview
+        );
+        favSongArr.push(newFavSong);
+        btnToFavouriteSongsDesktop.style.display = "none";
+        btnRemoveFavouriteSongsDesktop.style.display = "block";
+        //updateFavButtons();
+      }
+    }
+  } else {
+    let newFavSong = new FavSong(
+      album.tracks.data[playerIndex].id,
+      album.tracks.data[playerIndex].title,
+      album.artist.name,
+      album.tracks.data[playerIndex].preview
+    );
+    favSongArr.push(newFavSong);
+    btnToFavouriteSongsDesktop.style.display = "none";
+    btnRemoveFavouriteSongsDesktop.style.display = "block";
+    //updateFavButtons();
+  }
+
   console.log(favSongArr);
 });
 
@@ -500,8 +525,29 @@ btnToFavouriteSongsMobile.addEventListener("click", (e) => {
 
 btnRemoveFavouriteSongsDesktop.addEventListener("click", (e) => {
   e.preventDefault();
+  if (album.tracks.data[playerIndex].id === favSongArr[playerIndex].id) {
+    favSongArr.splice(playerIndex, 1);
+  }
+  btnToFavouriteSongsDesktop.style.display = "block";
+  btnRemoveFavouriteSongsDesktop.style.display = "none";
+  console.log(favSongArr);
 });
 
 btnRemoveFavouriteSongsMobile.addEventListener("click", (e) => {
   e.preventDefault();
 });
+
+function updateFavButtons() {
+  for (let i = 0; i < favSongArr.length; i++) {
+    console.log(favSongArr[i]);
+    if (album.tracks.data[playerIndex].id === favSongArr[i].id) {
+      console.log("già nei preferiti");
+      btnToFavouriteSongsDesktop.style.display = "none";
+      btnRemoveFavouriteSongsDesktop.style.display = "block";
+      break;
+    } else {
+      btnToFavouriteSongsDesktop.style.display = "block";
+      btnRemoveFavouriteSongsDesktop.style.display = "none";
+    }
+  }
+}
