@@ -24,6 +24,18 @@ const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
+const pauseIconPlayerDesktop = document.getElementById("pauseIconPlayerDesktop");
+
+const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
+const btnForwardDesktop = document.getElementById("btnForwardDesktop");
+
+/*----- VARIABILI FUNZIONI PLAYER MOBILE */
+const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
+const btnPlayerMobile = document.getElementById("btnPlayerMobile");
+const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
+const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
+
 let randomArtist;
 let randomArtistName;
 let randomAlbum;
@@ -37,6 +49,9 @@ let track;
 let song;
 //let track = new Audio(song);
 let mouseDownOnSlider = false;
+
+let tracks = [];
+let playerIndex = 0;
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -65,7 +80,7 @@ async function getData(newQuery) {
       //let dataAlbums = fetchedAlbums.data;
       //randomAlbum = getRandomAlbum();
       //console.log(fetchedAlbums);
-      console.log(randomAlbum);
+      //console.log(randomAlbum);
       printData();
     } else {
       let tempData = await response.json();
@@ -180,6 +195,8 @@ async function getTrack() {
       }
     );
     album = await response.json();
+    tracks = album.tracks.data;
+    console.log(tracks);
     //console.log(album);
     song = album.tracks.data[0].preview;
     track = new Audio(song);
@@ -200,11 +217,48 @@ playButton.addEventListener("click", (e) => {
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
+
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+      break;
+  }
+});
+
+btnPlayerMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
+
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
       break;
   }
 });
@@ -225,6 +279,7 @@ function printTrack() {
   imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = getArtistName();
+  songTitlePlayerMobile.innerHTML = `<i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}`;
 }
 
 function progressTrack() {
@@ -254,3 +309,46 @@ function progressTrack() {
     mouseDownOnSlider = false;
   });
 }
+
+function resetSong() {
+  pauseSong(track);
+  song = null;
+  track = null;
+  pressed = false;
+  playIconPlayerDesktop.style.display = "block";
+  pauseIconPlayerDesktop.style.display = "none";
+  playIconPlayerMobile.style.display = "block";
+  pauseIconPlayerMobile.style.display = "none";
+}
+
+function loadSong(title, preview) {
+  songName.innerText = title;
+
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${title}
+  `;
+
+  let newPreview = preview;
+  console.log(newPreview);
+  song = newPreview;
+  track = new Audio(song);
+  progressTrack();
+}
+
+btnBackwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (playerIndex !== 0) {
+    resetSong();
+    playerIndex -= 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
+});
+
+btnForwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (playerIndex < tracks.length - 1) {
+    resetSong();
+    playerIndex += 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
+});
