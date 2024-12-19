@@ -33,9 +33,7 @@ const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
 const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
-const pauseIconPlayerDesktop = document.getElementById(
-  "pauseIconPlayerDesktop"
-);
+const pauseIconPlayerDesktop = document.getElementById("pauseIconPlayerDesktop");
 
 const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
 const btnForwardDesktop = document.getElementById("btnForwardDesktop");
@@ -240,9 +238,7 @@ function printTrack() {
   imgAlbumPlayer.setAttribute("src", album.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = album.artist.name;
-  songTitlePlayerMobile.innerHTML = `
-  <i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}
-  `;
+  songTitlePlayerMobile.innerHTML = `<i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}`;
 }
 
 function progressTrack() {
