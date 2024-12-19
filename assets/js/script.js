@@ -87,7 +87,7 @@ async function getData(newQuery) {
       fetchedAlbums = await response.json();
       randomAlbum = getRandom(fetchedAlbums.data);
       albumId = randomAlbum.id;
-      sessionStorage.setItem("id", albumId);
+      //sessionStorage.setItem("id", albumId);
       //console.log(albumId);
       //let dataAlbums = fetchedAlbums.data;
       //randomAlbum = getRandomAlbum();
@@ -214,10 +214,11 @@ async function getTrack() {
       }
     );
     album = await response.json();
-    tracks = album.tracks.data;
-    console.log(tracks);
     //console.log(album);
+    tracks = album.tracks.data;
+    //console.log(tracks);
     song = album.tracks.data[0].preview;
+    sessionStorage.setItem("id", album.id);
     track = new Audio(song);
     progressTrack();
     //console.log(song);
