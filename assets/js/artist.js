@@ -7,7 +7,7 @@ const url = new URLSearchParams(window.location.search);
 const query = url.get("_searched-query");
 const artistId = url.get("_artist-id");
 const paramArtistName = url.get("_artist-name");
-console.log(paramArtistName);
+//console.log(paramArtistName);
 
 const artistNameLastPage = document.getElementById("artistNameLastPage");
 const artistAlbumsListLastPage = document.getElementById(
@@ -22,6 +22,24 @@ const artistCoverDown = document.getElementById("artistCoverDown");
 let albums;
 let artistName;
 let tracks;
+
+/*----- VARIABILI FUNZIONI PLAYER */
+const playButton = document.getElementById("btnPlay");
+
+const songName = document.getElementById("songName");
+const albumTitlePlayer = document.getElementById("albumTitlePlayer");
+const imgAlbumPlayer = document.getElementById("imgAlbumPlayer");
+
+const progressBar = document.getElementById("seekBar");
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
+
+let album;
+let albumId;
+let song;
+let track;
+let pressed = false;
+let mouseDownOnSlider = false;
 
 document.addEventListener("load", init());
 
@@ -47,6 +65,7 @@ async function getData() {
       console.log(tracks);
       printQuery();
     }
+    getTrack()
   } catch (error) {
     console.log(error);
   }
@@ -210,4 +229,93 @@ function getArtistPhoto() {
       artistPhoto = albums[0].cover_big;
   }
   return artistPhoto;
+}
+
+/*------ FUNZIONI PLAYER -------*/
+albumId = sessionStorage.getItem("id");
+
+async function getTrack() {
+  try {
+    let response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`,
+      {
+        headers: {
+          Authorization: apiKey,
+        },
+      }
+    );
+    album = await response.json();
+    console.log(album);
+    song = album.tracks.data[0].preview;
+    track = new Audio(song);
+    progressTrack();
+    //console.log(song);
+    //console.log(track);
+    printTrack();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+playButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      break;
+  }
+});
+
+function playSong(track) {
+  //console.log(song);
+  track.play();
+  console.log(track);
+}
+
+function pauseSong(track) {
+  //console.log(song);
+  track.pause();
+  console.log(track);
+}
+
+function printTrack() {
+  imgAlbumPlayer.setAttribute("src", album.cover_small);
+  songName.innerText = album.tracks.data[0].title;
+  artistNamePlayer.innerText = album.artist.name;
+}
+
+function progressTrack() {
+  track.addEventListener("loadeddata", () => {
+    progressBar.value = 0;
+    currentTime.innerText = "00";
+    duration.innerText = Math.round(track.duration);
+  });
+  track.addEventListener("timeupdate", () => {
+    if (!mouseDownOnSlider) {
+      progressBar.value = (track.currentTime / track.duration) * 100;
+      if (Math.floor(track.currentTime) <= 9) {
+        currentTime.innerText = "0" + Math.floor(track.currentTime + 1);
+      } else {
+        currentTime.innerText = Math.floor(track.currentTime + 1);
+      }
+    }
+  });
+  progressBar.addEventListener("change", () => {
+    const pct = progressBar.value / 100;
+    track.currentTime = (track.duration || 0) * pct;
+  });
+  progressBar.addEventListener("mousedown", () => {
+    mouseDownOnSlider = true;
+  });
+  progressBar.addEventListener("mouseup", () => {
+    mouseDownOnSlider = false;
+  });
 }
