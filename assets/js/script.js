@@ -63,6 +63,7 @@ let albumIndex = 0;
 let isRandomAlreadyCalled = false;
 let albumArr;
 let isAlbumChanged = false;
+let isFetchFinished = true;
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -294,10 +295,19 @@ function pauseSong(track) {
 }
 
 function printTrack() {
-  imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);
+  if (isAlbumChanged) {
+    imgAlbumPlayer.setAttribute("src", albumArr[albumIndex].cover_small);
+  } else {
+    imgAlbumPlayer.setAttribute("src", randomAlbum.cover_small);
+  }
+
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = getArtistName();
   songTitlePlayerMobile.innerHTML = `<i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}`;
+
+  setTimeout(() => {
+    isFetchFinished = true;
+  }, 250);
 }
 
 function progressTrack() {
@@ -371,39 +381,69 @@ btnForwardDesktop.addEventListener("click", (e) => {
   }
 });
 
+/*goPreviousAlbum.addEventListener("dblclick", (e) => {
+  e.preventDefault();
+  return;
+});
+
+goNextAlbum.addEventListener("dblclick", (e) => {
+  e.preventDefault();
+  return;
+});
+
+goPreviousAlbum.addEventListener(
+  "dblclick",
+  (event) => {
+    console.log("click disabled!");
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  },
+  true
+);
+*/
+
 goPreviousAlbum.addEventListener("click", (e) => {
   e.preventDefault();
-  //console.log("ciao");
-  //albumIndex = 1;
-  console.log(albumArr);
-  //console.log(albumArr[albumIndex]);
-  if (albumIndex !== 0) {
-    resetSong();
-    albumIndex -= 1;
-    isAlbumChanged = true;
-    albumId = albumArr[albumIndex].id;
-    imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
-    albumTitle.innerText = albumArr[albumIndex].title;
-    artistName.innerText = "nomeArtista";
-    getTrack();
-    //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
+  if (isFetchFinished) {
+    isFetchFinished = false;
+    //console.log("ciao");
+    //albumIndex = 1;
+    console.log(albumArr);
+    //console.log(albumArr[albumIndex]);
+    if (albumIndex !== 0) {
+      resetSong();
+      albumIndex -= 1;
+      isAlbumChanged = true;
+      albumId = albumArr[albumIndex].id;
+      imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
+      albumTitle.innerText = albumArr[albumIndex].title;
+      //artistName.innerText = "nomeArtista";
+
+      getTrack();
+      //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
+    }
   }
 });
 
 goNextAlbum.addEventListener("click", (e) => {
   e.preventDefault();
-  // console.log("ciaone");
-  // console.log(albumIndex);
-  // console.log(albumArr);
-  if (albumIndex < albumArr.length - 1) {
-    resetSong();
-    albumIndex += 1;
-    isAlbumChanged = true;
-    albumId = albumArr[albumIndex].id;
-    imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
-    albumTitle.innerText = albumArr[albumIndex].title;
-    artistName.innerText = "nomeArtista";
-    getTrack();
+  if (isFetchFinished) {
+    isFetchFinished = false;
+    // console.log("ciaone");
+    // console.log(albumIndex);
+    // console.log(albumArr);
+    if (albumIndex < albumArr.length - 1) {
+      resetSong();
+      albumIndex += 1;
+      isAlbumChanged = true;
+      albumId = albumArr[albumIndex].id;
+      imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
+      albumTitle.innerText = albumArr[albumIndex].title;
+      //artistName.innerText = "nomeArtista";
+
+      getTrack();
+    }
     //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
   }
 });
