@@ -85,6 +85,10 @@ body {
   color: white;
 }
 
+.hedIcon{
+  font-size: 20px;
+}
+
 
 /*----main----*/
 
@@ -282,6 +286,10 @@ footer {
 
 .page2 #albumSection {
   background: transparent;
+}
+
+.withFlwBtn{
+  width: 150px;
 }
 
 /*-----MOBILE MAIN OF THE SECOND PAGE----*/
