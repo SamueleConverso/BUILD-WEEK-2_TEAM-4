@@ -60,6 +60,7 @@ async function getData(newQuery) {
       fetchedAlbums = await response.json();
       randomAlbum = getRandom(fetchedAlbums.data);
       albumId = randomAlbum.id;
+      sessionStorage.setItem('id', albumId);
       //console.log(albumId);
       //let dataAlbums = fetchedAlbums.data;
       //randomAlbum = getRandomAlbum();
