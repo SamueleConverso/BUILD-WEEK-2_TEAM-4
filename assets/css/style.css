@@ -39,7 +39,7 @@ body {
   padding: 0 10px;
 }
 
-.overflow-auto::-webkit-scrollbar{
+.overflow-auto::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -47,7 +47,7 @@ body {
   height: 50px;
 } */
 
-.overflow-auto::-webkit-scrollbar-thumb{
+.overflow-auto::-webkit-scrollbar-thumb {
   background-color: #242424;
   border-radius: 10px;
 }
@@ -65,50 +65,52 @@ body {
   color: #4b9743;
 }
 
-.searchButton, .accordion-body{
+.searchButton,
+.accordion-body {
   background-color: #242424;
   border-radius: 10px;
   border: none;
 }
 
-.accordion-body{
+.accordion-body {
   background-color: black;
 }
 
-#btnSearch{
+#btnSearch {
   border-radius: 10px;
 }
 
-#btnSearch:hover{
+#btnSearch:hover {
   background-color: white !important;
   color: black;
 }
 
-.accordion-button, .accordion-button:hover{
+.accordion-button,
+.accordion-button:hover {
   background-color: black;
   color: white;
 }
 
-.hedIcon{
+.hedIcon {
   font-size: 20px;
 }
 
-
 /*----main----*/
 
-.page1 main, .page3 main{
+.page1 main,
+.page3 main {
   background: linear-gradient(180deg, #212121 10%, #101010 90%);
 }
 
-.page4 main{
+.page4 main {
   background: linear-gradient(180deg, #3a19a9 10%, #101010 90%);
 }
 
-.page2 main{
-  background: linear-gradient(180deg,#ceb24a 10%, #101010 90%);
+.page2 main {
+  background: linear-gradient(180deg, #ceb24a 10%, #101010 90%);
 }
 
-.iconsBeforeAfter{
+.iconsBeforeAfter {
   font-size: 25px;
 }
 
@@ -284,7 +286,7 @@ footer {
 
 /*the header shuts down at 576, no need of changing colors*/
 
-.page2 .hederMain{
+.page2 .hederMain {
   background: #ceb24a;
 }
 
@@ -292,7 +294,7 @@ footer {
   background: transparent;
 }
 
-.withFlwBtn{
+.withFlwBtn {
   width: 150px;
 }
 
@@ -324,7 +326,7 @@ footer {
   background: linear-gradient(180deg, #2e2e2e, #171717);
 }
 
-.immagineProfiloMusica{
+.immagineProfiloMusica {
   border-radius: 50%;
   margin-right: 10px;
   width: 20px;
@@ -402,19 +404,22 @@ footer {
   opacity: 50%;
 }
 
-.listMusic ol, .favPlay ol{
+.listMusic ol,
+.favPlay ol {
   list-style-position: inside;
   counter-reset: list-counter;
   color: white;
 }
 
-.listMusic ol li, .favPlay ol li{
+.listMusic ol li,
+.favPlay ol li {
   counter-increment: list-counter;
   margin: 1rem 0;
 }
 
-.listMusic ol li::before, .favPlay ol li::before{
-  content: counter(list-counter)".";
+.listMusic ol li::before,
+.favPlay ol li::before {
+  content: counter(list-counter) ".";
   font-weight: normal;
 }
 
@@ -489,22 +494,21 @@ p {
 
 /*------PAGINA EXTRA-----*/
 
-.utente{
+.utente {
   font-size: 30px;
 }
 
-.sectionFav{
+.sectionFav {
   background-color: #3a19a9;
 }
 
-.inputSearch{
+.inputSearch {
   outline: none;
   background-color: transparent;
   color: white;
-  
 }
 
-.searchRow{
+.searchRow {
   background-color: #1d143f;
   border-radius: 30px;
   padding-left: 1rem;
@@ -512,19 +516,18 @@ p {
   width: 500px;
 }
 
-.searchBtn{
+.searchBtn {
   outline: none;
   border-radius: 30px;
   background-color: #3a19a9;
-
 }
 
-.iconHeartFav{
+.iconHeartFav {
   background: none;
   color: #20d760;
 }
 
-.favPlay ol li{
+.favPlay ol li {
   border-bottom: 1px solid #1d143f;
 }
 
@@ -533,3 +536,8 @@ p {
   cursor: pointer;
 }
 
+.btnToFavouriteSongs,
+.btnRemoveFavouriteSongs {
+  cursor: pointer;
+  background: unset;
+}
