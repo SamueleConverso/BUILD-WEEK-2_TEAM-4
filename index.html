@@ -601,10 +601,12 @@
           <div class="d-flex justify-content-between mb-3 pt-3">
             <div class="d-flex gap-2 iconsBeforeAfter">
               <i
-                class="bi bi-arrow-left-circle align-self-center text-white"
+                id="goPreviousAlbum"
+                class="bi bi-arrow-left-circle align-self-center text-white btn bg-transparent border-0 p-0"
               ></i>
               <i
-                class="bi bi-arrow-right-circle align-self-center text-white"
+                id="goNextAlbum"
+                class="bi bi-arrow-right-circle align-self-center text-white btn bg-transparent border-0 p-0"
               ></i>
             </div>
             <div>
@@ -1048,8 +1050,14 @@
               <div>
                 <i class="bi bi-music-player text-white"></i>
                 <i class="bi bi-heart text-white"></i>
-                <p class="btn bg-transparent border-0 p-0 m-0" id="btnPlayerMobile">
-                  <i id="playIconPlayerMobile" class="bi bi-play-fill text-white"></i>
+                <p
+                  class="btn bg-transparent border-0 p-0 m-0"
+                  id="btnPlayerMobile"
+                >
+                  <i
+                    id="playIconPlayerMobile"
+                    class="bi bi-play-fill text-white"
+                  ></i>
                   <i
                     id="pauseIconPlayerMobile"
                     class="bi bi-pause-fill text-white"

@@ -25,7 +25,9 @@ const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
 const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
-const pauseIconPlayerDesktop = document.getElementById("pauseIconPlayerDesktop");
+const pauseIconPlayerDesktop = document.getElementById(
+  "pauseIconPlayerDesktop"
+);
 
 const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
 const btnForwardDesktop = document.getElementById("btnForwardDesktop");
@@ -35,6 +37,10 @@ const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
 const btnPlayerMobile = document.getElementById("btnPlayerMobile");
 const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
 const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
+
+/*----- VARIABILI ALBUM SCORREVOLI */
+const goPreviousAlbum = document.getElementById("goPreviousAlbum");
+const goNextAlbum = document.getElementById("goNextAlbum");
 
 let randomArtist;
 let randomArtistName;
@@ -52,6 +58,11 @@ let mouseDownOnSlider = false;
 
 let tracks = [];
 let playerIndex = 0;
+
+let albumIndex = 0;
+let isRandomAlreadyCalled = false;
+let albumArr;
+let isAlbumChanged = false;
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -75,11 +86,11 @@ async function getData(newQuery) {
       fetchedAlbums = await response.json();
       randomAlbum = getRandom(fetchedAlbums.data);
       albumId = randomAlbum.id;
-      sessionStorage.setItem('id', albumId);
+      sessionStorage.setItem("id", albumId);
       //console.log(albumId);
       //let dataAlbums = fetchedAlbums.data;
       //randomAlbum = getRandomAlbum();
-      //console.log(fetchedAlbums);
+      //console.log(fetchedAlbums.data);
       //console.log(randomAlbum);
       printData();
     } else {
@@ -116,6 +127,13 @@ function getRandom(arr) {
     myMusic.push(original[song]);
     original.splice(song, 1);
   }
+  //console.log(myMusic);
+  if (isRandomAlreadyCalled) {
+    albumArr = myMusic;
+    console.log(albumArr);
+  }
+  //console.log(albumArr);
+  isRandomAlreadyCalled = true;
   return myMusic[0];
 }
 
@@ -350,5 +368,42 @@ btnForwardDesktop.addEventListener("click", (e) => {
     resetSong();
     playerIndex += 1;
     loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
+});
+
+goPreviousAlbum.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log("ciao");
+  //albumIndex = 1;
+  console.log(albumArr);
+  //console.log(albumArr[albumIndex]);
+  if (albumIndex !== 0) {
+    resetSong();
+    albumIndex -= 1;
+    isAlbumChanged = true;
+    albumId = albumArr[albumIndex].id;
+    imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
+    albumTitle.innerText = albumArr[albumIndex].title;
+    artistName.innerText = "nomeArtista";
+    getTrack();
+    //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
+  }
+});
+
+goNextAlbum.addEventListener("click", (e) => {
+  e.preventDefault();
+  // console.log("ciaone");
+  // console.log(albumIndex);
+  // console.log(albumArr);
+  if (albumIndex < albumArr.length - 1) {
+    resetSong();
+    albumIndex += 1;
+    isAlbumChanged = true;
+    albumId = albumArr[albumIndex].id;
+    imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
+    albumTitle.innerText = albumArr[albumIndex].title;
+    artistName.innerText = "nomeArtista";
+    getTrack();
+    //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
   }
 });
