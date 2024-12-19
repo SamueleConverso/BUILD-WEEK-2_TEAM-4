@@ -288,6 +288,10 @@ footer {
   background: transparent;
 }
 
+.withFlwBtn{
+  width: 150px;
+}
+
 /*-----MOBILE MAIN OF THE SECOND PAGE----*/
 
 .bi-arrow-left {
