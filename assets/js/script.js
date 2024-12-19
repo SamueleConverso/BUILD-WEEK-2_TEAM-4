@@ -42,6 +42,20 @@ const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
 const goPreviousAlbum = document.getElementById("goPreviousAlbum");
 const goNextAlbum = document.getElementById("goNextAlbum");
 
+/*----- VARIABILI BOTTONE PREFERITI */
+const btnToFavouriteSongsDesktop = document.getElementById(
+  "btnToFavouriteSongsDesktop"
+);
+const btnToFavouriteSongsMobile = document.getElementById(
+  "btnToFavouriteSongsMobile"
+);
+const btnRemoveFavouriteSongsDesktop = document.getElementById(
+  "btnRemoveFavouriteSongsDesktop"
+);
+const btnRemoveFavouriteSongsMobile = document.getElementById(
+  "btnRemoveFavouriteSongsMobile"
+);
+
 let randomArtist;
 let randomArtistName;
 let randomAlbum;
@@ -64,6 +78,26 @@ let isRandomAlreadyCalled = false;
 let albumArr;
 let isAlbumChanged = false;
 let isFetchFinished = true;
+
+class FavSong {
+  constructor(_id, _title, _artist, _preview) {
+    this.id = _id;
+    this.title = _title;
+    this.artist = _artist;
+    this.preview = _preview;
+  }
+}
+let favSongArr = [];
+
+class FavAlbum {
+  constructor(_id, _title, _artist, _image) {
+    this.id = _id;
+    this.title = _title;
+    this.artist = _artist;
+    this.image = _image;
+  }
+}
+let favAlbumArr = [];
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -216,7 +250,7 @@ async function getTrack() {
     album = await response.json();
     tracks = album.tracks.data;
     console.log(tracks);
-    //console.log(album);
+    console.log(album);
     song = album.tracks.data[0].preview;
     track = new Audio(song);
     progressTrack();
@@ -446,4 +480,28 @@ goNextAlbum.addEventListener("click", (e) => {
     }
     //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
   }
+});
+
+btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+  let newFavSong = new FavSong(
+    album.tracks.data[playerIndex].id,
+    album.tracks.data[playerIndex].title,
+    album.artist.name,
+    album.tracks.data[playerIndex].preview
+  );
+  favSongArr.push(newFavSong);
+  console.log(favSongArr);
+});
+
+btnToFavouriteSongsMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+btnRemoveFavouriteSongsDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+btnRemoveFavouriteSongsMobile.addEventListener("click", (e) => {
+  e.preventDefault();
 });
