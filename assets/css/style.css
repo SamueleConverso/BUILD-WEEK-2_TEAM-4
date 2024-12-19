@@ -52,23 +52,25 @@ body {
 
 /*----main----*/
 
-.page1 main, .page3 main{
+.page1 main,
+.page3 main {
   background: linear-gradient(#212121, #101010);
 }
 
-.page2 main{
-  background: linear-gradient(180deg,#ceb24a, #101010);
+.page2 main {
+  background: linear-gradient(180deg, #ceb24a, #101010);
 }
 
 /*------Writings Main------*/
 
-.btnPlay, .btnSalva{
+.btnPlay,
+.btnSalva {
   background-color: #20d760;
   border-radius: 20px;
   padding: 0.5rem 2rem;
 }
 
-.btnSalva{
+.btnSalva {
   background-color: transparent;
 }
 
@@ -100,34 +102,33 @@ body {
 
 /*---Music Cards----*/
 
-
-.photoPlay1 img{
+.photoPlay1 img {
   border-radius: 10px;
 }
 
-.cardBck{
+.cardBck {
   background-color: #2e2e2e;
   border-radius: 10px;
 }
 
-.cardBck i{
+.cardBck i {
   color: #20d760;
   font-size: 40px;
 }
 
 /*-----Section Mobile Main----*/
 
-.playlistMobile .card{
+.playlistMobile .card {
   background: linear-gradient(to bottom right, #2e2e2e, #242424);
   color: white;
 }
 
-.playlistMobile i{
+.playlistMobile i {
   font-size: 50px;
   color: #20d760;
 }
 
-.playlistMobile i:hover{
+.playlistMobile i:hover {
   cursor: pointer;
   text-shadow: 2px 2px 5px white;
 }
@@ -166,12 +167,12 @@ body {
   border-radius: 10px;
 }
 
-.playlist i{
+.playlist i {
   font-size: 30px;
   color: #20d760;
 }
 
-.playlist i:hover{
+.playlist i:hover {
   cursor: pointer;
   text-shadow: 2px 2px 5px white;
 }
@@ -184,10 +185,10 @@ footer {
   color: white;
 }
 .startstop {
-  align-content: center
+  align-content: center;
 }
 .startstop img {
-  margin-right:10px;
+  margin-right: 10px;
   width: 80px;
   height: 80px;
 }
@@ -211,19 +212,18 @@ footer {
   width: 300px;
   align-self: stretch;
 }
-.bi-volume-down{
+.bi-volume-down {
   font-size: 25px;
 }
 
-.bntPlay{
+.bntPlay {
   background-color: transparent;
   border: none;
   color: white;
   font-size: 30px;
-
 }
 
-#btnPlay i{
+#btnPlay i {
   font-size: 30px;
   color: white;
 }
@@ -233,30 +233,28 @@ footer {
 
 /*the header shuts down at 576, no need of changing colors*/
 
-.hederMain{
+.hederMain {
   background: #ceb24a;
-  
 }
 
 .page2 #albumSection {
   background: transparent;
-  
 }
 
 /*-----MOBILE MAIN OF THE SECOND PAGE----*/
 
-.bi-arrow-left{
-font-size: 30px;
-cursor: pointer;
+.bi-arrow-left {
+  font-size: 30px;
+  cursor: pointer;
 }
 
-.photoSinger img{
+.photoSinger img {
   width: 50px;
   border-radius: 50%;
 }
 
 @media screen and (max-width: 991px) {
-  .listMusic ol li::before{
+  .listMusic ol li::before {
     display: none;
   }
 }
@@ -269,10 +267,9 @@ cursor: pointer;
 
 .page1 #albumSection {
   background: linear-gradient(180deg, #2e2e2e, #171717);
-  
 }
 
-.immagineProfiloMusica{
+.immagineProfiloMusica {
   border-radius: 50% 50% 50% 50%;
   margin-right: 10px;
   width: 20px;
@@ -299,15 +296,15 @@ cursor: pointer;
 
 /*---- section & player MOBILE----*/
 
-.navbarMobile{
+.navbarMobile {
   position: sticky;
   bottom: 0;
 }
 
 /*ALBUM*/
-.immaginealbum{
-width: 200px;
-height: 200px;
+.immaginealbum {
+  width: 200px;
+  height: 200px;
 }
 
 /*-----PAGINA ARTISTA------*/
@@ -315,92 +312,92 @@ height: 200px;
 .bi-patch-check-fill {
   font-size: 30px;
 }
-.salmo{
+.salmo {
   width: 100%;
   height: 100%;
 }
-.followingBtn{
+.followingBtn {
   background-color: transparent;
   border-radius: 1px solid white;
 }
-.heartLikedSong{
+.heartLikedSong {
   color: white;
   width: 30px;
   height: 30px;
 }
 
-.playerArtist{
+.playerArtist {
   font-size: 60px;
   color: #20d760;
   cursor: pointer;
 }
-.bi-patch-check-fill{
+.bi-patch-check-fill {
   font-size: 15px;
 }
-.ascoltatoriMensili p{
+.ascoltatoriMensili p {
   font-size: 5px;
 }
 
-
-.likedSong{
+.likedSong {
   flex-shrink: 0;
   height: 70px;
-  justify-items:end;
+  justify-items: end;
 }
-.titolation{
+.titolation {
   opacity: 50%;
   border-bottom: 1px solid white;
 }
 
-.listMusic{
+.listMusic {
   padding-top: 0;
   margin: 1rem 3rem;
 }
 
-.listMusic ol{
+.listMusic ol {
   list-style-position: inside;
   counter-reset: list-counter;
   color: white;
 }
 
-.listMusic ol li{
+.listMusic ol li {
   counter-increment: list-counter;
   margin: 1rem 0;
 }
 
-.listMusic ol li::before{
-  content: counter(list-counter)".";
+.listMusic ol li::before {
+  content: counter(list-counter) ".";
   font-weight: normal;
 }
 
 /*-----Sizing the text in the third page----*/
 
-.sizeText h2{
+.sizeText h2 {
   font-size: 24px;
 }
 
-.likedSong img{
+.likedSong img {
   border-radius: 50%;
   position: relative;
 }
-.testolike, p {
+.testolike,
+p {
   padding: 3px;
   margin-bottom: 0%;
   font-size: 9px;
 }
-.arianagrande{
+.arianagrande {
   display: flex;
 }
 
-.mobileBar .bi-three-dots-vertical{
+.mobileBar .bi-three-dots-vertical {
   font-size: 30px;
 }
-.mobileBar .bi-shuffle{
+.mobileBar .bi-shuffle {
   font-size: 22px;
   color: #20d760;
 }
 
-.heartLikedSong{
+.heartLikedSong {
   background: #20d760;
   border-radius: 50%;
   font-size: 10px;
@@ -411,35 +408,37 @@ height: 200px;
 }
 
 .imglike {
-width: 60px;
- height: 60px;
+  width: 60px;
+  height: 60px;
 }
 /*-----Sizing the text in the third page----*/
 
-
-
-.popularSongs ol{
+.popularSongs ol {
   list-style-position: inside;
   counter-reset: list-counter;
   color: white;
 }
 
-.popularSongs ol li{
+.popularSongs ol li {
   counter-increment: list-counter;
   margin: 1rem 0;
 }
 
-.popularSongs ol li::before{
-  content: counter(list-counter)".";
+.popularSongs ol li::before {
+  content: counter(list-counter) ".";
   font-weight: normal;
 }
 
-.popularSongs ol li img{
+.popularSongs ol li img {
   width: 30px;
 }
 
-.popularSongs ol li p{
+.popularSongs ol li p {
   font-size: 10px;
   margin: 0;
 }
 
+#btnBackwardDesktop,
+#btnForwardDesktop {
+  cursor: pointer;
+}

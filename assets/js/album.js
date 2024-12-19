@@ -37,6 +37,9 @@ const pauseIconPlayerDesktop = document.getElementById(
   "pauseIconPlayerDesktop"
 );
 
+const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
+const btnForwardDesktop = document.getElementById("btnForwardDesktop");
+
 /*----- VARIABILI FUNZIONI PLAYER MOBILE */
 const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
 const btnPlayerMobile = document.getElementById("btnPlayerMobile");
@@ -45,6 +48,8 @@ const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
 
 let song;
 let track;
+let trackTitles = [];
+let playerIndex;
 let pressed = false;
 let mouseDownOnSlider = false;
 
@@ -97,6 +102,9 @@ function printData() {
   `;
   //artistNameTop.innerText = getArtistName();
   for (let i = 0; i < tracks.length; i++) {
+    trackTitles.push(tracks[i].title);
+    //tracks[i].trackIndex = i;
+    //console.log(tracks[i].playerIndex);
     let newLi = document.createElement("li");
     newLi.classList.add(
       "d-flex",
@@ -118,6 +126,7 @@ function printData() {
     `;
     trackList.appendChild(newLi);
   }
+  console.log(trackTitles);
   addClickToSong();
 }
 
@@ -266,7 +275,11 @@ function progressTrack() {
 
 function addClickToSong() {
   btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
+  let i = 0;
   btnSongToPlay.forEach((btn) => {
+    btnSongToPlay.trackIndex = i;
+    i++;
+    console.log(btnSongToPlay.trackIndex);
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       pauseSong(track);
@@ -295,3 +308,11 @@ function loadSong(title, preview) {
   track = new Audio(song);
   progressTrack();
 }
+
+btnBackwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+btnForwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+});
