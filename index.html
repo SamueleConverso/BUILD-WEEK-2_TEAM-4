@@ -20,7 +20,7 @@
   <body>
     <div class="d-flex page1">
       <header class="col-lg-3 d-none d-lg-block">
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark position-sticky top-0">
           <div class="container-fluid">
             <button
               class="navbar-toggler"
@@ -56,7 +56,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header">
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed p-0"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseOne"
@@ -76,20 +76,20 @@
                           id="inputSearch"
                           type="text"
                           placeholder="Cerca..."
-                          class="col-8"
+                          class="col-8 searchButton"
                         />
-                        <p class="btn bg-black col-4 mb-0" id="btnSearch">
-                          VAI!
+                        <p class="btn bg-secondary col-4 mb-0" id="btnSearch">
+                          CERCA!
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
-              <li><i class="bi bi-music-note-list"></i>La tua libreria</li>
+              <li> <i class="bi bi-music-note-list"></i>La tua libreria</li>
               <br />
               <li><i class="bi bi-plus-lg bg-secondary"></i>Crea Playlist</li>
-              <li><i class="bi bi-heart-fill"></i>Brani che ti piacciono</li>
+              <li><a href="playlist.html" class="text-decoration-none text-white"><i class="bi bi-heart-fill"></i>Brani che ti piacciono</a></li>
               <li><i class="bi bi-bookmark-fill"></i>I tuoi episodi</li>
             </ul>
           </div>
@@ -159,7 +159,7 @@
       <main class="col-12 col-lg-7 bg-dark">
         <div class="container-fluid bg-gradient">
           <div class="d-flex justify-content-between mb-3 pt-3">
-            <div class="d-flex gap-2">
+            <div class="d-flex gap-2 iconsBeforeAfter">
               <i
                 class="bi bi-arrow-left-circle align-self-center text-white"
               ></i>
@@ -168,7 +168,7 @@
               ></i>
             </div>
             <div>
-              <p class="mb-0 p-1 text-white bg-black rounded-3 userSelect">
+              <p class="mb-0 p-2 text-white bg-black rounded-3 userSelect">
                 <i class="bi bi-person-circle px-1 align-middle text-white"></i
                 >Utente
                 <i class="bi bi-caret-down-fill align-middle text-white"></i>
