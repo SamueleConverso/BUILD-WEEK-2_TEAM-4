@@ -43,6 +43,10 @@ body {
   width: 10px;
 }
 
+/* .overflow-auto::-webkit-scrollbar:vertical{
+  height: 50px;
+} */
+
 .overflow-auto::-webkit-scrollbar-thumb{
   background-color: #242424;
   border-radius: 10px;
@@ -396,12 +400,6 @@ footer {
 }
 .titolation {
   opacity: 50%;
-  border-bottom: 1px solid white;
-}
-
-.listMusic, .favPlay{
-  padding-top: 0;
-  margin: 1rem 3rem;
 }
 
 .listMusic ol, .favPlay ol{
