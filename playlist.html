@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/circular-font.css" />
   </head>
   <body>
-    <div class="d-flex page2">
+    <div class="d-flex page4">
       <header class="col-lg-3 d-none d-lg-block">
         <nav class="navbar navbar-dark bg-dark">
           <div class="container-fluid">
@@ -121,7 +121,9 @@
       </header>
 
       <main class="col-12 col-lg-7">
-        <div class="container-fluid bg-gradient hederMain d-none d-lg-block">
+        <div
+          class="container-fluid bg-gradient hederMain d-none d-lg-block sectionFav"
+        >
           <div class="d-flex justify-content-between mb-3 pt-3">
             <div class="d-flex gap-2">
               <i
@@ -143,18 +145,21 @@
           <div class="d-none d-lg-block w-100 p-3" id="albumSection">
             <div class="immaginealbum w-100 d-flex gap-2">
               <div>
-                <img id="imgAlbumTop" class="immaginealbum" />
+                <img
+                  id="imgAlbumTop"
+                  class="immaginealbum"
+                  src="assets/imgs/main/favourite.jpg"
+                />
               </div>
-              <div class="w-100 d-flex flex-column justify-content-end">
-                <div class="w-100 d-flex justify-content-between">
-                  <p class="h5">ALBUM</p>
-                </div>
-                <div
-                  class="d-flex flex-column h-100 justify-content-end w-100 align-content-center"
-                >
-                  <h1 id="albumTitleTop"></h1>
-                  <p id="artistNameTop">
-                    <img class="immagineProfiloMusica" alt="" />
+              <div class="w-100 d-flex flex-column justify-content-between">
+                <p class="h5">PLAYLIST</p>
+                <div id="artistNameTop" class="m-2 d-flex align-items-center">
+                  <i
+                    class="bi bi-person-circle w-auto utente text-white mx-2"
+                  ></i>
+                  <p class="col-10 h6 w-auto m-0">
+                    User
+                    <span class="fw-light text-secondary"> • 25 songs</span>
                   </p>
                 </div>
               </div>
@@ -162,25 +167,31 @@
           </div>
         </div>
 
-        <!--Mobile first part of the main-->
-        <div class="container-fluid d-lg-none d-block">
+        <!--MOBILE FIRST PART of the main-->
+        <div class="container-fluid d-lg-none d-block firstFav">
           <div class="row">
             <div class="col-12 d-flex justify-content-start my-2">
               <i class="bi bi-arrow-left text-white fw-bold"></i>
             </div>
             <div class="col-12 d-flex justify-content-center">
-              <img alt="Artist" class="w-50" id="imgAlbumDown" />
+              <img
+                alt="Artist"
+                class="w-50"
+                id="imgAlbumDown"
+                src="assets/imgs/main/favourite.jpg"
+              />
             </div>
-            <div class="col-12 mt-4 text-white">
-              <p class="h2 fw-bold" id="albumTitleDown"></p>
-              <div
-                class="photoSinger d-flex align-items-center"
-                id="artistNameDown"
-              >
-                <img alt="" class="mx-2" />
-                <p></p>
+            <div class="mt-4 text-white">
+              <p class="h2 fw-bold" id="albumTitleDown">PLAYLIST FAVOURITES</p>
+              <div class="d-flex m-0">
+                <i
+                  class="bi bi-person-circle w-auto utente text-white mx-2"
+                ></i>
+                <p class="h6 w-auto m-0 align-self-center">
+                  User
+                  <span class="fw-light text-secondary"> • 25 songs</span>
+                </p>
               </div>
-              <p class="text-secondary-emphasis mt-1">Album • 2025</p>
             </div>
           </div>
         </div>
@@ -188,43 +199,38 @@
         <!--Section ICONS-->
         <section>
           <article>
-            <div class="container-fluid p-3">
+            <div class="container p-3">
+                <div class="row my-2 searchRow align-items-center justify-content-between">
+                        <input type="text" placeholder="Search a song" class="inputSearch col-9 border-0 p-2" />
+                        <button type="button" class="col-3 searchBtn border-0 p-2 text-white">Aggiungi</button>
+                </div>
               <div
-                class="row justify-content-start align-items-center w-100 text-start text-white"
+                class="row align-items-center w-100 text-white"
               >
                 <div
-                  class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"
+                  class="col-2 text-center"
                 >
                   <i class="bi bi-play-circle-fill playerArtist p-0"></i>
                 </div>
                 <div
-                  class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1"
-                >
-                  <i class="bi bi-heart"></i>
-                </div>
-                <div
-                  class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1"
-                >
-                  <i class="bi bi-download"></i>
-                </div>
-                <div
-                  class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8"
-                >
-                  <i class="bi bi-three-dots text-white"></i>
+                  class="col-10 d-flex">
+                  <i class="bi bi-heart p-2"></i>
+                  <i class="bi bi-download p-2"></i>
+                  <i class="bi bi-three-dots text-white p-2"></i>
                 </div>
               </div>
             </div>
           </article>
-          <article class="titolation text-white m-5 d-none d-lg-block">
+          <article class="titolation text-white mx-4 d-none d-lg-block">
             <div class="container-fluid p-0">
               <div class="row titleAlbum text-start">
                 <div
-                  class="d-flex align-items-center justify-content-around w-100 m-0 p-2"
+                  class="d-flex align-items-center justify-content-between w-100 m-0 p-2"
                 >
                   <p class="col-1 text-center">#</p>
-                  <p class="col-6 titleSong p-3">Title</p>
-                  <p class="col-4">Reproductions</p>
-                  <p class="col-1 text-center"><i class="bi bi-clock"></i></p>
+                  <p class="col-9 titleSong p-3">Title</p>
+                  <p class="col-2 text-center"><i class="bi bi-clock"></i></p>
+                  <!-- <div class="col-1"></div> -->
                 </div>
               </div>
             </div>
@@ -233,32 +239,23 @@
 
         <!--Section ALBUM PLAYLIST-->
         <section>
-          <div class="container-fluid p-0">
-            <div class="row listMusic text-start">
-              <ol
-                class="col-3 text-white list-unstyled m-1 w-100 p-0"
-                id="trackList"
-              >
-                <!-- <li class="col-3 text-white list-unstyled m-1 w-100 p-0">-->
-                <!-- <li
-
-                  class="d-flex align-items-center justify-content-around w-100 m-0"
-                >
-                  <div class="col-5 titleSong">
-                    <p class="fw-bold mb-1">90MIN</p>
-                    <p class="fw-lighter mb-1">Salmo</p>
-                  </div>
-                  <p class="col-3 d-lg-block d-none">122.631.768</p>
-                  <p class="col-lg-1 col-sm-3 text-end">3.51</p>
-                  <i class="d-lg-none col-sm-1 bi bi-three-dots-vertical text-end"></i>
-                </li>
-
-                </li> -->
-                <!-- </li> -->
-              </ol>
+            <div class="favPlay container p-0" style="width: 92%; margin: 0 auto;">
+              <div class="row listMusic text-start m-0 justify-content-between align-items-center">
+                <ol class="col-12 text-white list-unstyled p-0 m-0" id="trackList">
+                  <li class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50">
+                    <div class="col-8 titleSong">
+                      <p class="fw-bold mb-1 mx-3">90MIN</p>
+                      <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                    </div>
+                    <p class="col-lg-2 col-sm-3 text-end">3.51</p>
+                    <i class="bi bi-heart-fill iconHeartFav"></i>
+                  </li>
+                  
+                </ol>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          
       </main>
 
       <aside class="col-lg-2 d-none d-lg-block">
