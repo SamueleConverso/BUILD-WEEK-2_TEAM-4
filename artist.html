@@ -740,17 +740,22 @@
 
         <div class="navbarMobile">
           <!-- PLAYER MOBILE -->
-          <div class="d-block d-lg-none container bg-dark p-3 rounded-3 my-3">
-            <div class="d-flex w-100 justify-content-between">
-              <p class="text-white mb-0">
-                <i class="bi bi-disc text-white"></i>
-                Titolo canzone
+          <div class="d-flex w-100 justify-content-between">
+            <p class="text-white mb-0" id="songTitlePlayerMobile">
+              <i class="bi bi-disc text-white"></i>
+              Titolo canzone
+            </p>
+            <div>
+              <i class="bi bi-music-player text-white"></i>
+              <i class="bi bi-heart text-white"></i>
+              <p class="btn bg-transparent border-0 p-0 m-0" id="btnPlayerMobile">
+                <i id="playIconPlayerMobile" class="bi bi-play-fill text-white"></i>
+                <i
+                  id="pauseIconPlayerMobile"
+                  class="bi bi-pause-fill text-white"
+                  style="display: none"
+                ></i>
               </p>
-              <div>
-                <i class="bi bi-music-player text-white"></i>
-                <i class="bi bi-heart text-white"></i>
-                <i class="bi bi-play-fill text-white"></i>
-              </div>
             </div>
           </div>
 
@@ -945,7 +950,15 @@
                   id="btnBackwardDesktop"
                 ></i>
                 <button type="button" id="btnPlay" class="bntPlay">
-                  <i class="bi bi-play-circle-fill bg mx-2"></i>
+                  <i
+                    id="playIconPlayerDesktop"
+                    class="bi bi-play-circle-fill bg mx-2"
+                  ></i>
+                  <i
+                    id="pauseIconPlayerDesktop"
+                    class="bi bi-pause-circle-fill mx-2"
+                    style="display: none"
+                  ></i>
                 </button>
                 <i class="bi bi-skip-end-fill mx-2" id="btnForwardDesktop"></i>
                 <i class="bi bi-repeat mx-2"></i>
