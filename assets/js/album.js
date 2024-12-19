@@ -49,7 +49,7 @@ const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
 let song;
 let track;
 let trackTitles = [];
-let playerIndex;
+let playerIndex = 0;
 let pressed = false;
 let mouseDownOnSlider = false;
 
@@ -277,22 +277,28 @@ function addClickToSong() {
   btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
   let i = 0;
   btnSongToPlay.forEach((btn) => {
-    btnSongToPlay.trackIndex = i;
+    btn.trackIndex = i;
     i++;
-    console.log(btnSongToPlay.trackIndex);
+    console.log(btn.trackIndex);
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      pauseSong(track);
-      song = null;
-      track = null;
-      pressed = false;
-      playIconPlayerDesktop.style.display = "block";
-      pauseIconPlayerDesktop.style.display = "none";
-      playIconPlayerMobile.style.display = "block";
-      pauseIconPlayerMobile.style.display = "none";
+      playerIndex = btn.trackIndex;
+      console.log(playerIndex);
+      resetSong();
       loadSong(btn.innerText, btn.id);
     });
   });
+}
+
+function resetSong() {
+  pauseSong(track);
+  song = null;
+  track = null;
+  pressed = false;
+  playIconPlayerDesktop.style.display = "block";
+  pauseIconPlayerDesktop.style.display = "none";
+  playIconPlayerMobile.style.display = "block";
+  pauseIconPlayerMobile.style.display = "none";
 }
 
 function loadSong(title, preview) {
@@ -311,8 +317,18 @@ function loadSong(title, preview) {
 
 btnBackwardDesktop.addEventListener("click", (e) => {
   e.preventDefault();
+  if (playerIndex !== 0) {
+    resetSong();
+    playerIndex -= 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
 });
 
 btnForwardDesktop.addEventListener("click", (e) => {
   e.preventDefault();
+  if (playerIndex < tracks.length - 1) {
+    resetSong();
+    playerIndex += 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
 });
