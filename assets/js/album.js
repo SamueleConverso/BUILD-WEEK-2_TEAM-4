@@ -21,7 +21,7 @@ let album;
 let tracks;
 let artistName;
 
-/*----- VARIABILI FUNZIONI PLAYER */
+/*----- VARIABILI FUNZIONI PLAYER*/
 const playButton = document.getElementById("btnPlay");
 
 const songName = document.getElementById("songName");
@@ -32,8 +32,24 @@ const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+const playIconPlayerDesktop = document.getElementById("playIconPlayerDesktop");
+const pauseIconPlayerDesktop = document.getElementById(
+  "pauseIconPlayerDesktop"
+);
+
+const btnBackwardDesktop = document.getElementById("btnBackwardDesktop");
+const btnForwardDesktop = document.getElementById("btnForwardDesktop");
+
+/*----- VARIABILI FUNZIONI PLAYER MOBILE */
+const songTitlePlayerMobile = document.getElementById("songTitlePlayerMobile");
+const btnPlayerMobile = document.getElementById("btnPlayerMobile");
+const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
+const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
+
 let song;
 let track;
+let trackTitles = [];
+let playerIndex;
 let pressed = false;
 let mouseDownOnSlider = false;
 
@@ -86,6 +102,9 @@ function printData() {
   `;
   //artistNameTop.innerText = getArtistName();
   for (let i = 0; i < tracks.length; i++) {
+    trackTitles.push(tracks[i].title);
+    //tracks[i].trackIndex = i;
+    //console.log(tracks[i].playerIndex);
     let newLi = document.createElement("li");
     newLi.classList.add(
       "d-flex",
@@ -100,12 +119,14 @@ function printData() {
                     <p id="${tracks[i].preview}" class="fw-bold mb-1 btn btn-success bg-transparent border-0 p-0 m-0 text-success text-start btnSongToPlay">${tracks[i].title}</p>
                     <p class="fw-lighter mb-1">${artistName}</p>
                   </div>
-                  <p class="col-3">122.631.768</p>
-                  <p class="col-1 text-end">${duration} s</p>
+                  <p class="col-lg-3 d-lg-block d-none">122.631.768</p>
+                  <p class="col-lg-1 col-sm-3 text-end">${duration} s</p>
+                  <i class="d-lg-none col-sm-1 bi bi-three-dots-vertical text-end"></i>
                 
     `;
     trackList.appendChild(newLi);
   }
+  console.log(trackTitles);
   addClickToSong();
 }
 
@@ -157,11 +178,48 @@ playButton.addEventListener("click", (e) => {
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
+
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+      break;
+  }
+});
+
+btnPlayerMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
+
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
       break;
   }
 });
@@ -182,6 +240,9 @@ function printTrack() {
   imgAlbumPlayer.setAttribute("src", album.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = album.artist.name;
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}
+  `;
 }
 
 function progressTrack() {
@@ -193,7 +254,7 @@ function progressTrack() {
   track.addEventListener("timeupdate", () => {
     if (!mouseDownOnSlider) {
       progressBar.value = (track.currentTime / track.duration) * 100;
-      if (Math.floor(track.currentTime) <= 9) {
+      if (Math.floor(track.currentTime) < 9) {
         currentTime.innerText = "0" + Math.floor(track.currentTime + 1);
       } else {
         currentTime.innerText = Math.floor(track.currentTime + 1);
@@ -214,14 +275,44 @@ function progressTrack() {
 
 function addClickToSong() {
   btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
+  let i = 0;
   btnSongToPlay.forEach((btn) => {
+    btnSongToPlay.trackIndex = i;
+    i++;
+    console.log(btnSongToPlay.trackIndex);
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      loadSong(btn.id);
+      pauseSong(track);
+      song = null;
+      track = null;
+      pressed = false;
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
+      loadSong(btn.innerText, btn.id);
     });
   });
 }
 
-function loadSong(preview) {
-  console.log(preview);
+function loadSong(title, preview) {
+  songName.innerText = title;
+
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${title}
+  `;
+
+  let newPreview = preview;
+  console.log(newPreview);
+  song = newPreview;
+  track = new Audio(song);
+  progressTrack();
 }
+
+btnBackwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
+btnForwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+});
