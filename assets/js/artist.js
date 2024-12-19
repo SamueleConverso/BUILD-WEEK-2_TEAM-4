@@ -21,7 +21,7 @@ const artistCoverDown = document.getElementById("artistCoverDown");
 
 let albums;
 let artistName;
-let tracks;
+let tracks0;
 
 /*----- VARIABILI FUNZIONI PLAYER */
 const playButton = document.getElementById("btnPlay");
@@ -34,6 +34,8 @@ const progressBar = document.getElementById("seekBar");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+let tracks;
+let playerIndex = 0;
 let album;
 let albumId;
 let song;
@@ -54,6 +56,7 @@ async function getData() {
         Authorization: apiKey,
       },
     });
+    albumId = sessionStorage.getItem("id");
     if (!checkQuery()) {
       let tempData = await response.json();
       albums = tempData.data;
@@ -61,8 +64,8 @@ async function getData() {
       printArtist();
     } else {
       let tempData = await response.json();
-      tracks = tempData.data;
-      console.log(tracks);
+      tracks0 = tempData.data;
+      console.log(tracks0);
       printQuery();
     }
     getTrack()
@@ -125,7 +128,7 @@ function printQuery() {
   artistNameLastPageDown.style.color = "yellow";
   artistCover.setAttribute("src", "assets/imgs/search/image-21.jpg");
   artistCoverDown.setAttribute("src", "assets/imgs/search/image-21.jpg");
-  for (let i = 0; i < tracks.length; i++) {
+  for (let i = 0; i < tracks0.length; i++) {
     let newLi = document.createElement("li");
     newLi.classList.add(
       "d-flex",
@@ -135,16 +138,16 @@ function printQuery() {
       "col-lg-1"
     );
 
-    let duration = (tracks[i].duration / 60).toFixed(2);
+    let duration = (tracks0[i].duration / 60).toFixed(2);
     newLi.innerHTML = `
                           <img
                             class="col-2"
-                            src=${tracks[i].album.cover_small}
+                            src=${tracks0[i].album.cover_small}
                             alt="songOne"
                           />
                           <div class="col-6 d-flex flex-column">
-                          <a class="text-decoration-none text-white">${tracks[i].title}</a>
-                          <a class="text-decoration-none text-success" href="artist.html?_artist-id=${tracks[i].artist.id}&_artist-name=${tracks[i].artist.name}">${tracks[i].artist.name}</a>
+                          <a class="text-decoration-none text-white">${tracks0[i].title}</a>
+                          <a class="text-decoration-none text-success" href="artist.html?_artist-id=${tracks0[i].artist.id}&_artist-name=${tracks0[i].artist.name}">${tracks0[i].artist.name}</a>
                           </div>
                           <p class="col-2">183.811.268</p>
                           <p class="col-1">${duration}</p>
@@ -254,6 +257,7 @@ async function getTrack() {
       }
     );
     album = await response.json();
+    tracks = album.tracks.data;
     console.log(album);
     song = album.tracks.data[0].preview;
     track = new Audio(song);
@@ -274,11 +278,48 @@ playButton.addEventListener("click", (e) => {
       pauseSong(track);
       pressed = false;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
       break;
     case false:
       playSong(track);
       pressed = true;
       //console.log(pressed);
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
+
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+      break;
+  }
+});
+
+btnPlayerMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  //console.log(pressed);
+  switch (pressed) {
+    case true:
+      pauseSong(track);
+      pressed = false;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "block";
+      pauseIconPlayerMobile.style.display = "none";
+
+      playIconPlayerDesktop.style.display = "block";
+      pauseIconPlayerDesktop.style.display = "none";
+      break;
+    case false:
+      playSong(track);
+      pressed = true;
+      //console.log(pressed);
+      playIconPlayerMobile.style.display = "none";
+      pauseIconPlayerMobile.style.display = "block";
+
+      playIconPlayerDesktop.style.display = "none";
+      pauseIconPlayerDesktop.style.display = "block";
       break;
   }
 });
@@ -286,19 +327,20 @@ playButton.addEventListener("click", (e) => {
 function playSong(track) {
   //console.log(song);
   track.play();
-  console.log(track);
+  //console.log(track);
 }
 
 function pauseSong(track) {
   //console.log(song);
   track.pause();
-  console.log(track);
+  //console.log(track);
 }
 
 function printTrack() {
   imgAlbumPlayer.setAttribute("src", album.cover_small);
   songName.innerText = album.tracks.data[0].title;
   artistNamePlayer.innerText = album.artist.name;
+  songTitlePlayerMobile.innerHTML = `<i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}`;
 }
 
 function progressTrack() {
@@ -310,7 +352,7 @@ function progressTrack() {
   track.addEventListener("timeupdate", () => {
     if (!mouseDownOnSlider) {
       progressBar.value = (track.currentTime / track.duration) * 100;
-      if (Math.floor(track.currentTime) <= 9) {
+      if (Math.floor(track.currentTime) < 9) {
         currentTime.innerText = "0" + Math.floor(track.currentTime + 1);
       } else {
         currentTime.innerText = Math.floor(track.currentTime + 1);
@@ -328,3 +370,46 @@ function progressTrack() {
     mouseDownOnSlider = false;
   });
 }
+
+function resetSong() {
+  pauseSong(track);
+  song = null;
+  track = null;
+  pressed = false;
+  playIconPlayerDesktop.style.display = "block";
+  pauseIconPlayerDesktop.style.display = "none";
+  playIconPlayerMobile.style.display = "block";
+  pauseIconPlayerMobile.style.display = "none";
+}
+
+function loadSong(title, preview) {
+  songName.innerText = title;
+
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${title}
+  `;
+
+  let newPreview = preview;
+  console.log(newPreview);
+  song = newPreview;
+  track = new Audio(song);
+  progressTrack();
+}
+
+btnBackwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (playerIndex !== 0) {
+    resetSong();
+    playerIndex -= 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
+});
+
+btnForwardDesktop.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (playerIndex < tracks.length - 1) {
+    resetSong();
+    playerIndex += 1;
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+  }
+});
