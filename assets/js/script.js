@@ -56,6 +56,9 @@ const btnRemoveFavouriteSongsMobile = document.getElementById(
   "btnRemoveFavouriteSongsMobile"
 );
 
+const btnAddFavouriteAlbum = document.getElementById("addFavouriteAlbum");
+const btnRemoveFavouriteAlbum = document.getElementById("removeFavouriteAlbum");
+
 const linkToPlaylistPage = document.getElementById("linkToPlaylistPage");
 const linkToPlaylistPage2 = document.getElementById("linkToPlaylistPage2");
 
@@ -83,11 +86,12 @@ let isAlbumChanged = false;
 let isFetchFinished = true;
 
 class FavSong {
-  constructor(_id, _title, _artist, _preview) {
+  constructor(_id, _title, _artist, _preview, _image) {
     this.id = _id;
     this.title = _title;
     this.artist = _artist;
     this.preview = _preview;
+    this.image = _image
   }
 }
 let favSongArr =
@@ -103,7 +107,12 @@ class FavAlbum {
     this.image = _image;
   }
 }
+
+let favAlbumArr = [];
+let newFavAlbum;
+
 //let favAlbumArr = [];
+
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -463,9 +472,9 @@ goPreviousAlbum.addEventListener("click", (e) => {
       imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
       albumTitle.innerText = albumArr[albumIndex].title;
       //artistName.innerText = "nomeArtista";
-
       getTrack();
       //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
+      //updateFavButtonAlbum();
     }
   }
 });
@@ -486,12 +495,14 @@ goNextAlbum.addEventListener("click", (e) => {
       imgAlbum.setAttribute("src", albumArr[albumIndex].cover_medium);
       albumTitle.innerText = albumArr[albumIndex].title;
       //artistName.innerText = "nomeArtista";
-
       getTrack();
+      //updateFavButtonAlbum();
     }
     //loadSong(albumArr[albumIndex].title, albumArr[albumIndex].preview);
   }
 });
+
+/*------ FUNZIONI SALVA BRANI ------*/
 
 btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
   e.preventDefault();
@@ -502,12 +513,13 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
           album.tracks.data[playerIndex].id,
           album.tracks.data[playerIndex].title,
           album.artist.name,
-          album.tracks.data[playerIndex].preview
+          album.tracks.data[playerIndex].preview,
+          album.cover_small,
         );
         favSongArr.push(newFavSong);
         btnToFavouriteSongsDesktop.style.display = "none";
         btnRemoveFavouriteSongsDesktop.style.display = "block";
-        //updateFavButtons();
+        updateFavButtons();
         break;
       }
     }
@@ -516,7 +528,8 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
       album.tracks.data[playerIndex].id,
       album.tracks.data[playerIndex].title,
       album.artist.name,
-      album.tracks.data[playerIndex].preview
+      album.tracks.data[playerIndex].preview,
+      album.cover_small,
     );
     favSongArr.push(newFavSong);
     btnToFavouriteSongsDesktop.style.display = "none";
@@ -586,3 +599,73 @@ linkToPlaylistPage2.addEventListener("click", (e) => {
   localStorage.setItem("myFavouriteSongs", favSongStr);
   window.location.href = "playlist.html";
 });
+
+
+/*------ FUNZIONI SALVA ALBUM ------*/
+/*
+btnAddFavouriteAlbum.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (favAlbumArr.length !== 0) {
+    for (let i = 0; i < favAlbumArr.length; i++) {
+      if (album.id !== favAlbumArr[i].id) {
+        newFavAlbum = new FavAlbum(
+          album.id,
+          album.title,
+          album.artist.name,
+          album.cover_small,
+        );
+        favAlbumArr.push(newFavAlbum);
+        btnAddFavouriteAlbum.style.display = "none";
+        btnRemoveFavouriteAlbum.style.display = "block";
+        btnRemoveFavouriteAlbum.innerText = "Rimuovi";
+        //updateFavButtons();
+        break;
+      }
+    }
+  } else {
+    newFavAlbum = new FavAlbum(
+      album.id,
+      album.title,
+      album.artist.name,
+      album.cover_small,
+    );
+    favAlbumArr.push(newFavAlbum);
+    btnAddFavouriteAlbum.style.display = "none";
+    btnRemoveFavouriteAlbum.style.display = "block";
+    btnRemoveFavouriteAlbum.innerText = "Rimuovi";
+  }
+  console.log(favAlbumArr);
+  //console.log(newFavAlbum);
+});
+
+btnRemoveFavouriteAlbum.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (newFavAlbum.id === favAlbumArr.id) {
+    favAlbumArr.splice(newFavAlbum.id);
+  }
+  btnRemoveFavouriteAlbum.style.display = "none";
+  btnAddFavouriteAlbum.style.display = "block";
+  btnRemoveFavouriteAlbum.innerText = "Salva";
+  console.log(favAlbumArr);
+});
+
+function updateFavButtonAlbum() {
+  for (let i = 0; i < favAlbumArr.length; i++) {
+    if (album.id === favAlbumArr[i].id) {
+      console.log("già nei preferiti");
+      btnAddFavouriteAlbum.style.display = "none";
+      btnRemoveFavouriteAlbum.style.display = "block";
+      break;
+    } else {
+      btnAddFavouriteAlbum.style.display = "block";
+      btnRemoveFavouriteAlbum.style.display = "none";
+    }
+  }
+}
+
+linkToPlaylistPage.addEventListener("click", (e) => {
+  e.preventDefault();
+  let favAlbumStr = JSON.stringify(favAlbumArr);
+  localStorage.setItem("myFavouriteAlbums", favAlbumStr);
+  window.location.href = "playlist.html";
+});*/

@@ -8,7 +8,12 @@ const albumUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${albu
 
 let getSongsStr = localStorage.getItem("myFavouriteSongs");
 let myFavSongsObj = JSON.parse(getSongsStr);
-//console.log(myFavSongsObj);
+console.log(myFavSongsObj);
+//console.log(myFavSongsObj[0].image);
+
+let getAlbumsStr = localStorage.getItem("myFavouriteAlbums");
+let myFavAlbumsObj = JSON.parse(getAlbumsStr);
+//console.log(myFavAlbumsObj);
 
 /*----- VARIABILI FUNZIONI PLAYER */
 const playButton = document.getElementById("btnPlay");
@@ -36,6 +41,9 @@ const playIconPlayerMobile = document.getElementById("playIconPlayerMobile");
 const pauseIconPlayerMobile = document.getElementById("pauseIconPlayerMobile");
 
 const trackListSong = document.getElementById("trackListSong");
+const trackListAlbum = document.getElementById("trackListAlbum");
+
+let btnSongToPlay;
 
 let artistName;
 
@@ -51,6 +59,7 @@ document.addEventListener("load", init());
 
 function init() {
   printSongList();
+  //printAlbumList();
   getData();
 }
 
@@ -62,7 +71,7 @@ async function getData() {
       },
     });
     album = await response.json();
-    console.log(album);
+    //console.log(album);
     tracks = album.tracks.data;
     artistName = album.artist.name;
     song = album.tracks.data[0].preview;
@@ -191,37 +200,12 @@ function progressTrack() {
   });
 }
 
-function resetSong() {
-  pauseSong(track);
-  song = null;
-  track = null;
-  pressed = false;
-  playIconPlayerDesktop.style.display = "block";
-  pauseIconPlayerDesktop.style.display = "none";
-  playIconPlayerMobile.style.display = "block";
-  pauseIconPlayerMobile.style.display = "none";
-}
-
-function loadSong(title, preview) {
-  songName.innerText = title;
-
-  songTitlePlayerMobile.innerHTML = `
-  <i class="bi bi-disc text-white"></i>${title}
-  `;
-
-  let newPreview = preview;
-  console.log(newPreview);
-  song = newPreview;
-  track = new Audio(song);
-  progressTrack();
-}
-
 btnBackwardDesktop.addEventListener("click", (e) => {
   e.preventDefault();
   if (playerIndex !== 0) {
     resetSong();
     playerIndex -= 1;
-    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview, tracks[playerIndex].image);
   }
 });
 
@@ -230,7 +214,7 @@ btnForwardDesktop.addEventListener("click", (e) => {
   if (playerIndex < tracks.length - 1) {
     resetSong();
     playerIndex += 1;
-    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
+    loadSong(tracks[playerIndex].title, tracks[playerIndex].preview, tracks[playerIndex].image);
   }
 });
 
@@ -247,15 +231,86 @@ function printSongList() {
     );
     newLi.innerHTML = `
                       <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">${myFavSongsObj[i].title}</p>
+                        <p id="${myFavSongsObj[i].preview}"class="fw-bold mb-1 mx-3 btnSongToPlay">${myFavSongsObj[i].title}</p>
                         <p class="fw-lighter mb-1 mx-3">${myFavSongsObj[i].artist}</p>
                       </div>
                       <p class="col-lg-2 col-sm-3 text-end">&nbsp;</p>
                       <i class="bi bi-heart-fill iconHeartFav"></i>
-                      <i class="bi bi-cloud-arrow-down"></i>
-                    
-                    
+                      <i class="bi bi-cloud-arrow-down"></i>         
     `;
     trackListSong.appendChild(newLi);
   }
+  addClickToSong();
+}
+
+function printAlbumList() {
+  for (let i = 0; i < myFavAlbumsObj.length; i++) {
+    const newLi = document.createElement("li");
+    newLi.classList.add(
+      "d-flex",
+      "justify-content-between",
+      "align-items-center",
+      "border-bottom",
+      "border-secondary",
+      "border-opacity-50"
+    );
+    newLi.innerHTML = `
+                      <img src="${myFavAlbumsObj[i].image}" alt="fotoAlbum" height="35px" width="35px" class="mb-1 align-self-center"/>
+                      <div class="col-8 titleSong">
+                      <p class="fw-bold mb-1 mx-3">${myFavSongsObj[i].title}</p>
+                      <p class="fw-lighter mb-1 mx-3">${myFavSongsObj[i].artist}</p>
+                      </div>
+                      <div class="col-2 text-end">
+                      <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                      <i class="bi bi-cloud-arrow-down mx-1"></i>
+                     </div>
+    `;
+    trackListAlbum.appendChild(newLi);
+  }
+}
+
+function addClickToSong() {
+  btnSongToPlay = document.querySelectorAll(".btnSongToPlay");
+  let i = 0;;
+  btnSongToPlay.forEach((btn) => {
+    btn.trackIndex = i;
+    btn.img = myFavSongsObj[i].image;
+      console.log(myFavSongsObj[i].image);
+    i++;
+    //console.log(btn.trackIndex);
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      playerIndex = btn.trackIndex;
+      console.log(playerIndex);
+      resetSong();
+      loadSong(btn.innerText, btn.id, btn.img);
+    });
+  });
+}
+
+function resetSong() {
+  pauseSong(track);
+  song = null;
+  track = null;
+  pressed = false;
+  playIconPlayerDesktop.style.display = "block";
+  pauseIconPlayerDesktop.style.display = "none";
+  playIconPlayerMobile.style.display = "block";
+  pauseIconPlayerMobile.style.display = "none";
+}
+
+function loadSong(title, preview, image) {
+  songName.innerText = title;
+  console.log(image);
+  imgAlbumPlayer.setAttribute("src", image);
+
+  songTitlePlayerMobile.innerHTML = `
+  <i class="bi bi-disc text-white"></i>${title}
+  `;
+ 
+  let newPreview = preview;
+  console.log(newPreview);
+  song = newPreview;
+  track = new Audio(song);
+  progressTrack();
 }
