@@ -565,7 +565,7 @@
             </div>
 
             <div class="d-none d-lg-block w-100 p-3" id="albumSection">
-              <div class="immaginealbum w-100 d-flex gap-2">
+              <div class="immaginealbumPlay w-100 d-flex gap-2">
                 <div>
                   <img
                     id="imgAlbumTop"
@@ -600,7 +600,7 @@
               <div class="col-12 d-flex justify-content-center">
                 <img
                   alt="Artist"
-                  class="w-50"
+                  class="w-50 imgalbumMob"
                   id="imgAlbumDown"
                   src="assets/imgs/main/favourite.jpg"
                 />
@@ -623,21 +623,23 @@
           <!--Section ICONS-->
           <section>
             <article>
-              <div class="container p-3">
-                <div
-                  class="row my-2 searchRow align-items-center justify-content-between"
-                >
-                  <input
-                    type="text"
-                    placeholder="Cerca un brano o un album..."
-                    class="inputSearch col-9 border-0 p-2"
-                  />
-                  <button
-                    type="button"
-                    class="col-3 searchBtn border-0 p-2 text-white"
+              <div class="container p-3 containerTransition">
+                <div class="searchTransition">
+                  <div
+                    class="searchRow row my-2 align-items-center justify-content-between"
                   >
-                    Cerca
-                  </button>
+                    <input
+                      type="text"
+                      placeholder="Cerca un brano o un album..."
+                      class="inputSearch col-9 border-0 p-2"
+                    />
+                    <button
+                      type="button"
+                      class="col-3 searchBtn border-0 p-2 text-white"
+                    >
+                      Cerca
+                    </button>
+                  </div>
                 </div>
                 <div class="row align-items-center w-100 text-white">
                   <div class="col-2 text-center">

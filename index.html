@@ -97,7 +97,10 @@
               <br />
               <li><i class="bi bi-plus-lg bg-secondary"></i>Crea Playlist</li>
               <li>
-                <a href="playlist.html" class="text-decoration-none text-white"
+                <a
+                  id="linkToPlaylistPage2"
+                  href="playlist.html"
+                  class="text-decoration-none text-white"
                   ><i class="bi bi-heart-fill"></i>Brani che ti piacciono</a
                 >
               </li>
@@ -625,14 +628,14 @@
             </div>
 
             <div class="d-none d-lg-block w-100" id="albumSection">
-              <div class="w-100 d-flex gap-2 albumBg p-3">
+              <div class="w-100 d-flex gap-2 albumBg p-3 overflow-hidden">
                 <div>
                   <img id="imgAlbum" src="" />
                 </div>
                 <div class="w-100 d-flex flex-column">
-                  <div class="w-100 d-flex justify-content-between">
-                    <p class="mx-2">ALBUM</p>
-                    <p class="btn bg-black p-2 float-end">NASCONDI ANNUNCI</p>
+                  <div class="w-75 d-flex justify-content-start align-items-center my-2">
+                    <p class="navMain opacity-75 p-2 mx-2">ALBUM</p>
+                    <p class="navMain opacity-75 p-2 text-truncate align-self-end">NASCONDI ANNUNCI</p>
                   </div>
                   <div
                     class="d-flex flex-column h-100 justify-content-between mx-2"
@@ -905,7 +908,7 @@
             </div>
           </section>
           <!--Section spotify Wrapped-->
-          <section>
+          <section class="d-md-block d-none">
             <div class="card text-bg-dark p-1 my-5">
               <img
                 src="assets/imgs/main/wrapped.jpg"
