@@ -103,11 +103,12 @@ body {
 }
 
 .page4 main {
-  background: linear-gradient(180deg, #3a19a9 10%, #101010 90%);
+  background: linear-gradient(180deg, #3a19a9 10%, #101010 45%);
 }
 
+
 .page2 main {
-  background: linear-gradient(180deg, #ceb24a 10%, #101010 90%);
+  background: linear-gradient(180deg, #ceb24a 10%, #101010 45%);
 }
 
 .iconsBeforeAfter {
