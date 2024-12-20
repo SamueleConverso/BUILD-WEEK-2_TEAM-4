@@ -1,6 +1,4 @@
-<h1 align="center">
-  # Spotify Build Week - Replica di una Piattaforma di Streaming Musicale
-</h1>
+# Spotify Build Week - Replica di una Piattaforma di Streaming Musicale
 
 ## Descrizione del Progetto
 
@@ -27,13 +25,11 @@ di tracce e anteprime.
 
 - HTML5: Per la struttura e il markup semantico delle pagine web.
 - CSS3 & Bootstrap: Per il design responsive e il layout ottimizzato per tutti i dispositivi.
-  ![Clicca qui!](https://getbootstrap.com/)
 - JavaScript (ES6): Per gestire le funzionalità dinamiche e l'interazione con l'utente, inclusi i controlli di riproduzione musicale e le chiamate API.
 - API Striveschool Deezer: Per recuperare dati musicali in tempo reale, come album, tracce e artisti.
-- Pexels: Utilizzata per integrare immagini di alta qualità gratuite, migliorando l'estetica e l'attrattiva visiva dell'interfaccia.
-- Color Hunt: Fornisce palette di colori selezionate per mantenere un design coerente ed esteticamente gradevole.
 - Font "Circular": Una tipografia moderna e chiara, perfetta per una lettura agevole e per un'estetica elegante.
-<div align="center">
+
+<div>
   <img src="https://github.com/user-attachments/assets/ac46b6a7-f0e5-4688-86f1-afe752a1c2fe" height="80" width="80">
   <img src="https://github.com/user-attachments/assets/010bf452-2ae1-4faa-87fd-8ace85d816f7" height="80" width="80">
   <img src="https://github.com/user-attachments/assets/de604586-bb2c-4e13-b2e9-1a2e4095e01a" height="80" width="80">
@@ -49,7 +45,7 @@ di tracce e anteprime.
 - Copiea il codice:
 
 ```
-git clone https://github.com/tuo-username/music-app.git
+git clone https://github.com/Inchino
 ```
 
 ## 2. Esegui il progetto:
@@ -82,12 +78,9 @@ cd music-app
 - `style.css`: Stili personalizzati per il design.
 - `script.js`: La logica di interazione dinamica e la gestione dei controlli di riproduzione.
 
-## Licenza:
+## Licenza Questo progetto è sviluppato a scopo educativo e non è destinato a fini commerciali.
 
-Questo progetto è sviluppato a scopo educativo e non è destinato a fini commerciali.
+## Ringraziamenti Un sentito ringraziamento va a tutte le persone che hanno contribuito in modo significativo al successo
 
-## Ringraziamenti:
-
-Un sentito ringraziamento va a tutte le persone che hanno contribuito in modo significativo al successo di questo progetto,
-tra cui Valentina Rizz, Alessandro Incalza, Samuele Converso, Ombretta Deriu, e Mariam Azfar Azami. Il loro impegno e
-collaborazione sono stati fondamentali per la realizzazione di questa applicazione.
+di questo progetto, tra cui Valentina Rizz, Alessandro Incalza, Samuele Converso, Ombretta Deriu, e Mariam Azfar Azami.
+Il loro impegno e collaborazione sono stati fondamentali per la realizzazione di questa applicazione.
