@@ -322,6 +322,11 @@ footer {
   border-radius: 50%;
 }
 
+/* .imagesArtists{
+  object-fit: cover;
+  object-position: bottom;
+} */
+
 @media screen and (max-width: 991px) {
   .listMusic ol li::before {
     display: none;
