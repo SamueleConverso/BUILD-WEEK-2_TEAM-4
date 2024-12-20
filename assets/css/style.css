@@ -1,4 +1,4 @@
-/* regole CSS generali*/
+/*---regole CSS reset---*/
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   background-color: black;
 }
 
-/* header */
+/*---HEADER delle 4 pagine---*/
 
 .navbar {
   background-color: black !important;
@@ -33,8 +33,10 @@ body {
   margin: 1rem 0;
 }
 
+/*---OVERFLOW delle pagine---*/
+
 .overflow-auto {
-  height: 100vh;
+  height: 100vh; 
   overflow-y: auto;
   padding: 0 10px;
 }
@@ -43,14 +45,12 @@ body {
   width: 10px;
 }
 
-/* .overflow-auto::-webkit-scrollbar:vertical{
-  height: 50px;
-} */
-
 .overflow-auto::-webkit-scrollbar-thumb {
   background-color: #242424;
   border-radius: 10px;
 }
+
+/*---Bottoni e Icone---*/
 
 .bi-plus-lg {
   color: black;
@@ -95,27 +95,9 @@ body {
   font-size: 20px;
 }
 
-/*----main----*/
-
-.page1 main,
-.page3 main {
-  background: linear-gradient(180deg, #212121 10%, #101010 90%);
-}
-
-.page4 main {
-  background: linear-gradient(180deg, #3a19a9 10%, #101010 45%);
-}
-
-
-.page2 main {
-  background: linear-gradient(180deg, #ceb24a 10%, #101010 45%);
-}
-
 .iconsBeforeAfter {
   font-size: 25px;
 }
-
-/*------Writings Main------*/
 
 .btnPlay,
 .btnSalva {
@@ -128,12 +110,51 @@ body {
   background-color: transparent;
 }
 
-.albumBg{
+/*----MAIN delle 4 pagine----*/
+
+.page1 main,
+.page3 main {
+  background: linear-gradient(180deg, #212121 10%, #101010 90%);
+}
+
+.page4 main {
+  background: linear-gradient(180deg, #3a19a9 10%, #101010 45%);
+}
+
+.page2 main {
+  background: linear-gradient(180deg, #ceb24a 10%, #101010 45%);
+}
+
+
+/*---shadow delle immagini---*/
+
+.imgShadow {
+  box-shadow: 0 0 20px #171717, 0 0 10px white;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.imgShadow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #171717, 0 0 10px white;
+}
+
+/*------Writings Main------*/
+
+.navMain{
+  border-radius: 30px;
+  border: 1px solid white;
+  color: white;
+}
+
+/*---Backgrounds---*/
+.albumBg {
   background: linear-gradient(to bottom right, #697565 10%, #3c3d37 60%);
 }
 
 
-/*main section - buonasera*/
+
+/*---MAIN section1 - BUONASERA---*/
 
 .icBuonanotte {
   font-size: 1.5em;
@@ -159,7 +180,7 @@ body {
   font-size: 12px;
 }
 
-/*---Music Cards----*/
+/*---CARDS MUSIC----*/
 
 .photoPlay1 img {
   border-radius: 10px;
@@ -175,7 +196,7 @@ body {
   font-size: 40px;
 }
 
-/*-----Section Mobile Main----*/
+/*---MAIN section2---*/
 
 .playlistMobile .card {
   background: linear-gradient(to bottom right, #2e2e2e, #242424);
@@ -192,7 +213,7 @@ body {
   text-shadow: 2px 2px 5px white;
 }
 
-/*---aside---*/
+/*---ASIDE---*/
 
 #navAside p {
   font-size: 0.8em;
@@ -211,7 +232,7 @@ body {
   font-size: 1.2em;
 }
 
-/*---section 2----*/
+/*---MAIN section3----*/
 
 .containerImg {
   padding: 0.5rem;
@@ -231,14 +252,14 @@ body {
   text-shadow: 2px 2px 5px white;
 }
 
-.indexArtist img{
+.indexArtist img {
   border-radius: 50%;
   object-fit: cover;
   width: 150px;
   height: 150px;
 }
 
-.artists .iconVerify{
+.artists .iconVerify {
   color: #135eb0 !important;
   font-size: 20px;
 }
@@ -294,10 +315,8 @@ footer {
   color: white;
 }
 
-/*---- END OF TEH FIRST PAGE-----*/
-/*----STRAT O FTHE SECOND PAGE (ALBUM PAGE HTML)-----*/
-
-/*the header shuts down at 576, no need of changing colors*/
+/*---- END OF THE FIRST PAGE
+----START OF THE SECOND PAGE (ALBUM PAGE HTML)-----*/
 
 .page2 .hederMain {
   background: #ceb24a;
@@ -334,7 +353,7 @@ footer {
   }
 }
 
-/*---Album Section ----*/
+/*---SECTION ALBUM----*/
 #albumSection p,
 #albumSection h1 {
   color: white;
@@ -369,24 +388,45 @@ footer {
   color: white;
 }
 
-/*---- section & player MOBILE----*/
+/*---- SECTION & PLAYER - MOBILE----*/
 
 .navbarMobile {
   position: sticky;
   bottom: 0;
 }
 
-/*ALBUM*/
 .immaginealbum {
   width: 200px;
   height: 200px;
+  box-shadow: 0 0 30px #101010, 0 0 5px white;
 }
 
-/*-----PAGINA ARTISTA------*/
+.immaginealbumMobile, .imgalbumMob {
+  box-shadow: 0 0 30px #101010, 0 0 5px white;
+}
+
+/*---FINE PAGINA 3---
+--- INIZIO PAGINA 3 - PAGINA ARTISTA---*/
 
 .bi-patch-check-fill {
   font-size: 30px;
 }
+
+.bi-patch-check-fill {
+  font-size: 15px;
+}
+.ascoltatoriMensili p {
+  font-size: 5px;
+}
+
+.titolation {
+  opacity: 50%;
+}
+
+.sizeText h2 {
+  font-size: 24px;
+}
+
 .salmo {
   width: 100%;
   height: 100%;
@@ -406,45 +446,35 @@ footer {
   color: #20d760;
   cursor: pointer;
 }
-.bi-patch-check-fill {
-  font-size: 15px;
-}
-.ascoltatoriMensili p {
-  font-size: 5px;
-}
 
 .likedSong {
   flex-shrink: 0;
   height: 70px;
   justify-items: end;
 }
-.titolation {
-  opacity: 50%;
-}
+
+/*---FUNZIONE COUNTER DELLE ORDERED LISTS---*/
 
 .listMusic ol,
-.favPlay ol {
+.favPlay ol,
+.popularSongs ol {
   list-style-position: inside;
   counter-reset: list-counter;
   color: white;
 }
 
 .listMusic ol li,
-.favPlay ol li {
+.favPlay ol li,
+.popularSongs ol li {
   counter-increment: list-counter;
   margin: 1rem 0;
 }
 
 .listMusic ol li::before,
-.favPlay ol li::before {
+.favPlay ol li::before,
+.popularSongs ol li::before {
   content: counter(list-counter) ".";
   font-weight: normal;
-}
-
-/*-----Sizing the text in the third page----*/
-
-.sizeText h2 {
-  font-size: 24px;
 }
 
 .likedSong img {
@@ -485,7 +515,7 @@ p {
 }
 /*-----Sizing the text in the third page----*/
 
-.popularSongs ol {
+/* .popularSongs ol {
   list-style-position: inside;
   counter-reset: list-counter;
   color: white;
@@ -499,7 +529,7 @@ p {
 .popularSongs ol li::before {
   content: counter(list-counter) ".";
   font-weight: normal;
-}
+} */
 
 .popularSongs ol li img {
   width: 30px;
@@ -510,7 +540,8 @@ p {
   margin: 0;
 }
 
-/*------PAGINA EXTRA-----*/
+/*---FINE PAGINA 3
+INIZIO PAGINA EXTRA - PLAYLIST-----*/
 
 .utente {
   font-size: 30px;
@@ -532,6 +563,29 @@ p {
   padding-left: 1rem;
   margin: 0 auto;
   width: 500px;
+}
+
+.searchTransition {
+  
+
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 100;
+    transform: translateX(0);
+  }
+}
+
+.containerTransition:hover .searchTransition {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .searchBtn {
