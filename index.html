@@ -71,14 +71,14 @@
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFlushExample"
                     >
-                      <div class="accordion-body row">
+                      <div class="accordion-body row justify-content-center">
                         <input
                           id="inputSearch"
                           type="text"
                           placeholder="Cerca..."
                           class="col-8 searchButton"
                         />
-                        <p class="btn bg-secondary col-4 mb-0" id="btnSearch">
+                        <p class="btn bg-secondary col-4 mb-0 p-1" id="btnSearch">
                           CERCA!
                         </p>
                       </div>
@@ -250,7 +250,7 @@
             </div>
             <div class="w-100">
               <div class="m-2">
-                <p class="h6">Lana Del Ray</p>
+                <p class="h6">Lana Del Rey</p>
                 <p>
                   <span><i class="bi bi-music-note-beamed me-1"></i></span
                   >ARTIST
@@ -597,6 +597,7 @@
       </header>
 
       <main class="col-12 col-lg-7 bg-dark">
+        <div class="overflow-auto">
         <div class="container-fluid bg-gradient">
           <div class="d-flex justify-content-between mb-3 pt-3">
             <div class="d-flex gap-2 iconsBeforeAfter">
@@ -618,8 +619,8 @@
             </div>
           </div>
 
-          <div class="d-none d-lg-block w-100 p-3" id="albumSection">
-            <div class="w-100 d-flex gap-2">
+          <div class="d-none d-lg-block w-100" id="albumSection">
+            <div class="w-100 d-flex gap-2 albumBg p-3">
               <div>
                 <img id="imgAlbum" src="" />
               </div>
@@ -638,17 +639,17 @@
                     class="text-decoration-none text-success"
                   ></a>
                   <p>Questo album è perfetto per te!</p>
-                  <div class="d-flex gap-2">
-                    <p class="btn text-black mb-0 btnPlay" id="btnToAlbum">
+                  <div
+                    class="d-flex align-items-center justify-content-start w-100"
+                  >
+                    <p class="btn text-black mb-0 btnPlay m-1" id="btnToAlbum">
                       Play
                     </p>
-                    <p class="btn btn-dark border border-white mb-0 btnSalva">
+                    <p class="btn btn-dark border border-white btnSalva m-1">
                       Salva
                     </p>
-                    <p
-                      class="mb-0 btn border border-0 dotts fw-bolder align-self-center"
-                    >
-                      . . .
+                    <p class="btn border border-0 fw-bolder m-1">
+                      <i class="bi bi-three-dots"></i>
                     </p>
                   </div>
                 </div>
@@ -812,19 +813,22 @@
               <h2>Altro di ciò che ti piace</h2>
               <p>VISUALIZZA TUTTO</p>
             </div>
-            <div class="d-flex flex-row" style="width: 100%">
+            <div
+              class="d-flex flex-row justify-content-center"
+              style="width: 100%"
+            >
               <div class="row text-white justify-content-around">
                 <div
-                  style="height: fit-content; width: 22%"
-                  class="col-3 cardBck"
+                  style="height: fit-content; width: 24%"
+                  class="col-3 cardBck p-2"
                 >
                   <div
-                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center m-2"
+                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center"
                   >
                     <img
                       src="assets/imgs/main/image-11.jpg"
                       alt="playlist1"
-                      class="img-fluid"
+                      class="img-fluid mb-1"
                     />
                   </div>
                   <p class="h5">Playlist WorkOut</p>
@@ -833,16 +837,16 @@
                 </div>
 
                 <div
-                  style="height: fit-content; width: 22%"
-                  class="col-3 cardBck"
+                  style="height: fit-content; width: 24%"
+                  class="col-3 cardBck p-2"
                 >
                   <div
-                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center m-2"
+                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center"
                   >
                     <img
                       src="assets/imgs/main/image-12.jpg"
                       alt="playlist1"
-                      class="img-fluid"
+                      class="img-fluid mb-1"
                     />
                   </div>
                   <p class="h5">Playlist WorkOut</p>
@@ -851,16 +855,16 @@
                 </div>
 
                 <div
-                  style="height: fit-content; width: 22%"
-                  class="col-3 cardBck"
+                  style="height: fit-content; width: 24%"
+                  class="col-3 cardBck p-2"
                 >
                   <div
-                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center m-2"
+                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center"
                   >
                     <img
                       src="assets/imgs/main/image-13.jpg"
                       alt="playlist1"
-                      class="img-fluid"
+                      class="img-fluid mb-1"
                     />
                   </div>
                   <p class="h5">Playlist WorkOut</p>
@@ -869,21 +873,138 @@
                 </div>
 
                 <div
-                  style="height: fit-content; width: 22%"
-                  class="col-3 cardBck"
+                  style="height: fit-content; width: 24%"
+                  class="col-3 cardBck p-2"
                 >
                   <div
-                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center m-2"
+                    class="card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center"
                   >
                     <img
                       src="assets/imgs/main/image-14.jpg"
                       alt="playlist1"
-                      class="img-fluid"
+                      class="img-fluid mb-1"
                     />
                   </div>
                   <p class="h5">Playlist WorkOut</p>
                   <p>The perfect mix for your workout</p>
                   <i class="bi bi-play-circle-fill float-end"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Section spotify Wrapped-->
+        <section>
+          <div class="card text-bg-dark p-1 my-5">
+            <img
+              src="assets/imgs/main/wrapped.jpg"
+              class="card-img"
+              alt="spotifyWrapped"
+              height="350px"
+            />
+            <div
+              class="card-img-overlay text-black d-flex flex-column justify-content-end"
+            >
+              <p class="card-text">Public Playlist</p>
+              <h1 class="card-title display-1 fw-bold">
+                Scopri il tuo Wrapped 2024
+              </h1>
+              <p class="card-text h4 fw-light d-flex align-items-center">
+                <img src="assets/imgs/logo.svg" alt="logo" width="100px" class="mx-2"/> Made
+                for <span class="fw-bold">&nbsp; User</span> &nbsp;• 100 canzoni, 5hr 22min
+              </p>
+              
+            </div>
+          </div>
+        </section>
+
+        <!--extra artisti-->
+        <section>
+          <div class="container-fluid d-none d-md-block">
+            <div
+              class="d-flex justify-content-between align-items-baseline text-white mb-2"
+            >
+              <h2>Artisti che ti piacciono</h2>
+              <p>VISUALIZZA TUTTO</p>
+            </div>
+            <div
+              class="d-flex flex-row justify-content-center text-center"
+              style="width: 100%"
+            >
+              <div class="artists row text-white justify-content-around">
+                <div
+                  style="height: fit-content; width: 25%"
+                  class="col-3 cardBck p-0 bg-transparent"
+                >
+                  <div
+                    class="indexArtist card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center p-2"
+                  >
+                    <img
+                      src="assets/imgs/artists/eminem.jpg"
+                      alt="playlist1"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <p class="h5">
+                    EMINEM <i class="bi bi-patch-check-fill iconVerify"></i>
+                  </p>
+                </div>
+
+                <div
+                  style="height: fit-content; width: 25%"
+                  class="col-3 cardBck p-0 bg-transparent"
+                >
+                  <div
+                    class="indexArtist card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center p-2"
+                  >
+                    <img
+                      src="assets/imgs/artists/theWeeknd.jpg"
+                      alt="playlist1"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <p class="h5">
+                    TheWeeknd <i class="bi bi-patch-check-fill iconVerify"></i>
+                  </p>
+                </div>
+
+                <div
+                  style="height: fit-content; width: 25%"
+                  class="col-3 cardBck p-0 bg-transparent"
+                >
+                  <div
+                    class="indexArtist card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center p-2"
+                  >
+                    <img
+                      src="assets/imgs/artists/salmo.jpg"
+                      alt="playlist1"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <p class="h5">
+                    SALMO <i class="bi bi-patch-check-fill iconVerify"></i>
+                  </p>
+                </div>
+
+                <div
+                  style="height: fit-content; width: 25%"
+                  class="col-3 cardBck p-0 bg-transparent"
+                >
+                  <div
+                    class="indexArtist card photoPlay1 bg-transparent border-0 text-center d-flex align-items-center p-2"
+                  >
+                    <img
+                      src="assets/imgs/artists/lanaDelRey.jpg"
+                      alt="playlist1"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <p class="h5">
+                      Lana Del Rey
+                      <i class="bi bi-patch-check-fill iconVerify"></i>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1099,6 +1220,7 @@
             </div>
           </div>
         </div>
+      </div>
       </main>
       <!--aside-->
       <aside class="col-lg-2 d-none d-lg-block">

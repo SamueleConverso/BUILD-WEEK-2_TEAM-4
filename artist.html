@@ -540,12 +540,13 @@
       </header>
 
       <main class="col-12 col-lg-7 bg-dark">
+        <div class="overflow-auto">
         <!--initial part of the main in the desktop-->
         <div class="container-fluid p-0 bg-gradient d-none d-lg-block">
           <div class="card text-bg-dark" style="max-height: 100%">
             <img
-              class="card-img img-fluid"
-              style="height: 400px"
+              class="card-img img-fluid imagesArtists"
+              style="height: 450px"
               alt="artistBackground"
               id="artistCover"
             />
@@ -674,9 +675,10 @@
               <article class="col-lg-5">
                 <h2>Brani che ti piacciono</h2>
                 <div class="container-fluid mb-4">
-                  <div class="row align-items-center">
+                  <div class="row align-items-center justify-content-start">
                     <div
-                      class="likedSong col-lg-4 col-2 position-relative justify-content-center"
+                      class="likedSong col-lg-4 col-2 position-relative align-self-center float-start"
+                      style="width: fit-content;"
                     >
                       <img
                         src="assets/imgs/search/image-21.jpg"
@@ -792,6 +794,7 @@
             </div>
           </div>
         </div>
+      </div>
       </main>
       <!--aside-->
       <aside class="col-lg-2 d-none d-lg-block">

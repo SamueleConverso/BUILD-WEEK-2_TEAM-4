@@ -540,43 +540,78 @@
       </header>
 
       <main class="col-12 col-lg-7">
-        <div
-          class="container-fluid bg-gradient hederMain d-none d-lg-block sectionFav"
-        >
-          <div class="d-flex justify-content-between mb-3 pt-3">
-            <div class="d-flex gap-2 iconsBeforeAfter">
-              <i
-                class="bi bi-arrow-left-circle align-self-center text-white"
-              ></i>
-              <i
-                class="bi bi-arrow-right-circle align-self-center text-white"
-              ></i>
+        <div class="overflow-auto">
+          <div
+            class="container-fluid bg-gradient hederMain d-none d-lg-block sectionFav"
+          >
+            <div class="d-flex justify-content-between mb-3 pt-3">
+              <div class="d-flex gap-2 iconsBeforeAfter">
+                <i
+                  class="bi bi-arrow-left-circle align-self-center text-white"
+                ></i>
+                <i
+                  class="bi bi-arrow-right-circle align-self-center text-white"
+                ></i>
+              </div>
+              <div>
+                <p class="mb-0 p-1 text-white bg-black rounded-3 userSelect">
+                  <i
+                    class="bi bi-person-circle px-1 align-middle text-white"
+                  ></i
+                  >Utente
+                  <i class="bi bi-caret-down-fill align-middle text-white"></i>
+                </p>
+              </div>
             </div>
-            <div>
-              <p class="mb-0 p-1 text-white bg-black rounded-3 userSelect">
-                <i class="bi bi-person-circle px-1 align-middle text-white"></i
-                >Utente
-                <i class="bi bi-caret-down-fill align-middle text-white"></i>
-              </p>
+
+            <div class="d-none d-lg-block w-100 p-3" id="albumSection">
+              <div class="immaginealbum w-100 d-flex gap-2">
+                <div>
+                  <img
+                    id="imgAlbumTop"
+                    class="immaginealbum"
+                    src="assets/imgs/main/favourite.jpg"
+                  />
+                </div>
+                <div class="w-100 d-flex flex-column justify-content-between">
+                  <p class="h1">PLAYLIST PREFERITI</p>
+                  <div id="artistNameTop" class="m-2 d-flex align-items-center">
+                    <i
+                      class="bi bi-person-circle w-auto utente text-white mx-2"
+                    ></i>
+                    <p class="col-10 h6 w-auto m-0">
+                      User
+                      <span class="fw-light text-secondary">
+                        • 25 elementi</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="d-none d-lg-block w-100 p-3" id="albumSection">
-            <div class="immaginealbum w-100 d-flex gap-2">
-              <div>
+          <!--MOBILE FIRST PART of the main-->
+          <div class="container-fluid d-lg-none d-block firstFav">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-start my-2">
+                <i class="bi bi-arrow-left text-white fw-bold"></i>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
                 <img
-                  id="imgAlbumTop"
-                  class="immaginealbum"
+                  alt="Artist"
+                  class="w-50"
+                  id="imgAlbumDown"
                   src="assets/imgs/main/favourite.jpg"
                 />
               </div>
-              <div class="w-100 d-flex flex-column justify-content-between">
-                <p class="h1">PLAYLIST PREFERITI</p>
-                <div id="artistNameTop" class="m-2 d-flex align-items-center">
+              <div class="mt-4 text-white">
+                <p class="h2 fw-bold" id="albumTitleDown">PLAYLIST PREFERITI</p>
+                <div class="d-flex m-0">
                   <i
                     class="bi bi-person-circle w-auto utente text-white mx-2"
                   ></i>
-                  <p class="col-10 h6 w-auto m-0">
+                  <p class="h6 w-auto m-0 align-self-center">
                     User
                     <span class="fw-light text-secondary"> • 25 elementi</span>
                   </p>
@@ -584,103 +619,73 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <!--MOBILE FIRST PART of the main-->
-        <div class="container-fluid d-lg-none d-block firstFav">
-          <div class="row">
-            <div class="col-12 d-flex justify-content-start my-2">
-              <i class="bi bi-arrow-left text-white fw-bold"></i>
-            </div>
-            <div class="col-12 d-flex justify-content-center">
-              <img
-                alt="Artist"
-                class="w-50"
-                id="imgAlbumDown"
-                src="assets/imgs/main/favourite.jpg"
-              />
-            </div>
-            <div class="mt-4 text-white">
-              <p class="h2 fw-bold" id="albumTitleDown">PLAYLIST PREFERITI</p>
-              <div class="d-flex m-0">
-                <i
-                  class="bi bi-person-circle w-auto utente text-white mx-2"
-                ></i>
-                <p class="h6 w-auto m-0 align-self-center">
-                  User
-                  <span class="fw-light text-secondary"> • 25 elementi</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Section ICONS-->
-        <section>
-          <article>
-            <div class="container p-3">
-              <div
-                class="row my-2 searchRow align-items-center justify-content-between"
-              >
-                <input
-                  type="text"
-                  placeholder="Cerca un brano o un album..."
-                  class="inputSearch col-9 border-0 p-2"
-                />
-                <button
-                  type="button"
-                  class="col-3 searchBtn border-0 p-2 text-white"
+          <!--Section ICONS-->
+          <section>
+            <article>
+              <div class="container p-3">
+                <div
+                  class="row my-2 searchRow align-items-center justify-content-between"
                 >
-                  Cerca
-                </button>
-              </div>
-              <div class="row align-items-center w-100 text-white">
-                <div class="col-2 text-center">
-                  <i class="bi bi-play-circle-fill playerArtist p-0"></i>
+                  <input
+                    type="text"
+                    placeholder="Cerca un brano o un album..."
+                    class="inputSearch col-9 border-0 p-2"
+                  />
+                  <button
+                    type="button"
+                    class="col-3 searchBtn border-0 p-2 text-white"
+                  >
+                    Cerca
+                  </button>
                 </div>
-                <div class="col-10 d-flex">
-                  <i class="bi bi-download p-2"></i>
-                  <i class="bi bi-three-dots text-white p-2"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!--Section Tracks PLAYLIST-->
-        <section>
-          <h2 class="text-white m-3 position-sticky top-0 bg-transparent">
-            Brani che ti piacciono:
-          </h2>
-          <div style="height: 400px" class="overflow-auto">
-            <article class="titolation text-white mx-4 d-none d-lg-block">
-              <div class="container-fluid p-0">
-                <div class="row titleAlbum text-start">
-                  <div class="d-flex align-items-center w-100 m-0 p-2">
-                    <p class="col-1 text-start px-3">#</p>
-                    <p class="col-9 titleSong p-3">Title</p>
-                    <p class="col-2 text-start px-4">
-                      <i class="bi bi-clock"></i>
-                    </p>
-                    <!-- <div class="col-1"></div> -->
+                <div class="row align-items-center w-100 text-white">
+                  <div class="col-2 text-center">
+                    <i class="bi bi-play-circle-fill playerArtist p-0"></i>
+                  </div>
+                  <div class="col-10 d-flex">
+                    <i class="bi bi-download p-2"></i>
+                    <i class="bi bi-three-dots text-white p-2"></i>
                   </div>
                 </div>
-                <hr />
               </div>
             </article>
-            <article>
-              <div
-                class="favPlay container p-0"
-                style="width: 92%; margin: 0 auto"
-              >
+          </section>
+
+          <!--Section Tracks PLAYLIST-->
+          <section>
+            <h2 class="text-white m-3 position-sticky top-0 bg-transparent">
+              Brani che ti piacciono:
+            </h2>
+            <div style="height: 400px" class="overflow-auto">
+              <article class="titolation text-white mx-4 d-none d-lg-block">
+                <div class="container-fluid p-0">
+                  <div class="row titleAlbum text-start">
+                    <div class="d-flex align-items-center w-100 m-0 p-2">
+                      <p class="col-1 text-start px-3">#</p>
+                      <p class="col-9 titleSong p-3">Title</p>
+                      <p class="col-2 text-start px-4">
+                        <i class="bi bi-clock"></i>
+                      </p>
+                      <!-- <div class="col-1"></div> -->
+                    </div>
+                  </div>
+                  <hr />
+                </div>
+              </article>
+              <article>
                 <div
-                  class="row listMusic text-start m-0 justify-content-between align-items-center"
+                  class="favPlay container p-0"
+                  style="width: 92%; margin: 0 auto"
                 >
-                  <ol
-                    class="col-12 text-white list-unstyled p-0 m-0"
-                    id="trackListSong"
+                  <div
+                    class="row listMusic text-start m-0 justify-content-between align-items-center"
                   >
-                    <!-- <li
+                    <ol
+                      class="col-12 text-white list-unstyled p-0 m-0"
+                      id="trackListSong"
+                    >
+                      <!-- <li
                       class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
                     >
                       <div class="col-8 titleSong">
@@ -757,184 +762,185 @@
                       <i class="bi bi-heart-fill iconHeartFav"></i>
                       <i class="bi bi-cloud-arrow-down"></i>
                     </li> -->
-                  </ol>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!--Section Album PLAYLIST-->
-        <section>
-          <h2 class="text-white m-3 position-sticky top-0 bg-transparent">
-            Album che ti piacciono:
-          </h2>
-          <div style="height: 400px" class="overflow-auto">
-            <article class="titolation text-white mx-4 d-none d-lg-block">
-              <div class="container-fluid p-0">
-                <div class="row titleAlbum text-start">
-                  <div class="d-flex align-items-center w-100 m-0 p-2">
-                    <p class="col-2 text-start px-3">#</p>
-                    <p class="col-10 titleSong p-3">ALBUM</p>
-
-                    <!-- <div class="col-1"></div> -->
+                    </ol>
                   </div>
                 </div>
-                <hr class="mx-2" />
-              </div>
-            </article>
-            <article>
-              <div
-                class="favPlay container p-3"
-                style="width: 92%; margin: 0 auto"
-              >
-                <!--div row-->
-                <div
-                  class="row listMusic text-start m-0 justify-content-between align-items-center"
-                >
-                  <ol
-                    class="col-12 text-white list-unstyled p-0 m-0"
-                    id="trackListAlbum"
-                  >
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                    <li
-                      class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
-                    >
-                      <img
-                        src="assets/imgs/main/image-10.jpg"
-                        alt="fotoAlbum"
-                        height="35px"
-                        width="35px"
-                        class="mb-1 align-self-center"
-                      />
-                      <div class="col-8 titleSong">
-                        <p class="fw-bold mb-1 mx-3">90MIN</p>
-                        <p class="fw-lighter mb-1 mx-3">Salmo</p>
-                      </div>
-                      <div class="col-2 text-end">
-                        <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
-                        <i class="bi bi-cloud-arrow-down mx-1"></i>
-                      </div>
-                    </li>
-                  </ol>
+              </article>
+            </div>
+          </section>
+
+          <!--Section Album PLAYLIST-->
+          <section>
+            <h2 class="text-white m-3 position-sticky top-0 bg-transparent">
+              Album che ti piacciono:
+            </h2>
+            <div style="height: 400px" class="overflow-auto">
+              <article class="titolation text-white mx-4 d-none d-lg-block">
+                <div class="container-fluid p-0">
+                  <div class="row titleAlbum text-start">
+                    <div class="d-flex align-items-center w-100 m-0 p-2">
+                      <p class="col-2 text-start px-3">#</p>
+                      <p class="col-10 titleSong p-3">ALBUM</p>
+
+                      <!-- <div class="col-1"></div> -->
+                    </div>
+                  </div>
+                  <hr class="mx-2" />
                 </div>
-              </div>
-            </article>
-          </div>
-        </section>
+              </article>
+              <article>
+                <div
+                  class="favPlay container p-3"
+                  style="width: 92%; margin: 0 auto"
+                >
+                  <!--div row-->
+                  <div
+                    class="row listMusic text-start m-0 justify-content-between align-items-center"
+                  >
+                    <ol
+                      class="col-12 text-white list-unstyled p-0 m-0"
+                      id="trackListAlbum"
+                    >
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                      <li
+                        class="d-flex justify-content-between align-items-center border-bottom border-secondary border-opacity-50"
+                      >
+                        <img
+                          src="assets/imgs/main/image-10.jpg"
+                          alt="fotoAlbum"
+                          height="35px"
+                          width="35px"
+                          class="mb-1 align-self-center"
+                        />
+                        <div class="col-8 titleSong">
+                          <p class="fw-bold mb-1 mx-3">90MIN</p>
+                          <p class="fw-lighter mb-1 mx-3">Salmo</p>
+                        </div>
+                        <div class="col-2 text-end">
+                          <i class="bi bi-heart-fill iconHeartFav mx-1"></i>
+                          <i class="bi bi-cloud-arrow-down mx-1"></i>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
       </main>
       <!--Aside-->
       <aside class="col-lg-2 d-none d-lg-block">
