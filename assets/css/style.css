@@ -34,7 +34,7 @@ body {
 }
 
 .overflow-auto {
-  height: 120vh;
+  height: 100vh;
   overflow-y: auto;
   padding: 0 10px;
 }
@@ -126,6 +126,11 @@ body {
 .btnSalva {
   background-color: transparent;
 }
+
+.albumBg{
+  background: linear-gradient(to bottom right, #697565 10%, #3c3d37 60%);
+}
+
 
 /*main section - buonasera*/
 
@@ -220,14 +225,21 @@ body {
   border-radius: 10px;
 }
 
-.playlist i {
-  font-size: 30px;
-  color: #20d760;
-}
-
 .playlist i:hover {
   cursor: pointer;
   text-shadow: 2px 2px 5px white;
+}
+
+.indexArtist img{
+  border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.artists .iconVerify{
+  color: #135eb0 !important;
+  font-size: 20px;
 }
 
 /*------ FOOTER ------*/
