@@ -91,7 +91,7 @@ class FavSong {
     this.title = _title;
     this.artist = _artist;
     this.preview = _preview;
-    this.image = _image
+    this.image = _image;
   }
 }
 let favSongArr =
@@ -112,7 +112,6 @@ let favAlbumArr = [];
 let newFavAlbum;
 
 //let favAlbumArr = [];
-
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -514,7 +513,7 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
           album.tracks.data[playerIndex].title,
           album.artist.name,
           album.tracks.data[playerIndex].preview,
-          album.cover_small,
+          album.cover_small
         );
         favSongArr.push(newFavSong);
         btnToFavouriteSongsDesktop.style.display = "none";
@@ -529,7 +528,7 @@ btnToFavouriteSongsDesktop.addEventListener("click", (e) => {
       album.tracks.data[playerIndex].title,
       album.artist.name,
       album.tracks.data[playerIndex].preview,
-      album.cover_small,
+      album.cover_small
     );
     favSongArr.push(newFavSong);
     btnToFavouriteSongsDesktop.style.display = "none";
@@ -599,7 +598,6 @@ linkToPlaylistPage2.addEventListener("click", (e) => {
   localStorage.setItem("myFavouriteSongs", favSongStr);
   window.location.href = "playlist.html";
 });
-
 
 /*------ FUNZIONI SALVA ALBUM ------*/
 /*
