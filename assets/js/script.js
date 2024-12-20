@@ -57,6 +57,7 @@ const btnRemoveFavouriteSongsMobile = document.getElementById(
 );
 
 const linkToPlaylistPage = document.getElementById("linkToPlaylistPage");
+const linkToPlaylistPage2 = document.getElementById("linkToPlaylistPage2");
 
 let randomArtist;
 let randomArtistName;
@@ -89,7 +90,10 @@ class FavSong {
     this.preview = _preview;
   }
 }
-let favSongArr = [];
+let favSongArr =
+  JSON.parse(localStorage.getItem("myFavouriteSongs")) !== null
+    ? JSON.parse(localStorage.getItem("myFavouriteSongs"))
+    : [];
 
 class FavAlbum {
   constructor(_id, _title, _artist, _image) {
@@ -99,7 +103,7 @@ class FavAlbum {
     this.image = _image;
   }
 }
-let favAlbumArr = [];
+//let favAlbumArr = [];
 
 //https://striveschool-api.herokuapp.com/api/deezer/artist/412/albums
 
@@ -572,6 +576,12 @@ function updateFavButtons() {
 
 linkToPlaylistPage.addEventListener("click", (e) => {
   e.preventDefault();
+  let favSongStr = JSON.stringify(favSongArr);
+  localStorage.setItem("myFavouriteSongs", favSongStr);
+  window.location.href = "playlist.html";
+});
+
+linkToPlaylistPage2.addEventListener("click", (e) => {
   let favSongStr = JSON.stringify(favSongArr);
   localStorage.setItem("myFavouriteSongs", favSongStr);
   window.location.href = "playlist.html";
