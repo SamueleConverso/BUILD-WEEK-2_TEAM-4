@@ -1,4 +1,4 @@
-/* regole CSS generali*/
+/* regole CSS reset*/
 * {
   margin: 0;
   padding: 0;
@@ -106,13 +106,23 @@ body {
   background: linear-gradient(180deg, #3a19a9 10%, #101010 45%);
 }
 
-
 .page2 main {
   background: linear-gradient(180deg, #ceb24a 10%, #101010 45%);
 }
 
 .iconsBeforeAfter {
   font-size: 25px;
+}
+
+.imgShadow {
+  box-shadow: 0 0 20px #171717, 0 0 10px white;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.imgShadow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #171717, 0 0 10px white;
 }
 
 /*------Writings Main------*/
@@ -128,10 +138,9 @@ body {
   background-color: transparent;
 }
 
-.albumBg{
+.albumBg {
   background: linear-gradient(to bottom right, #697565 10%, #3c3d37 60%);
 }
-
 
 /*main section - buonasera*/
 
@@ -231,14 +240,14 @@ body {
   text-shadow: 2px 2px 5px white;
 }
 
-.indexArtist img{
+.indexArtist img {
   border-radius: 50%;
   object-fit: cover;
   width: 150px;
   height: 150px;
 }
 
-.artists .iconVerify{
+.artists .iconVerify {
   color: #135eb0 !important;
   font-size: 20px;
 }
@@ -380,6 +389,11 @@ footer {
 .immaginealbum {
   width: 200px;
   height: 200px;
+  box-shadow: 0 0 30px #101010, 0 0 5px white;
+}
+
+.immaginealbumMobile, .imgalbumMob {
+  box-shadow: 0 0 30px #101010, 0 0 5px white;
 }
 
 /*-----PAGINA ARTISTA------*/
@@ -532,6 +546,29 @@ p {
   padding-left: 1rem;
   margin: 0 auto;
   width: 500px;
+}
+
+.searchTransition {
+  
+
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 100;
+    transform: translateX(0);
+  }
+}
+
+.containerTransition:hover .searchTransition {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .searchBtn {
