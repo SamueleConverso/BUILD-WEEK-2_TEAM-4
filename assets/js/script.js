@@ -354,6 +354,14 @@ function printTrack() {
   artistNamePlayer.innerText = getArtistName();
   songTitlePlayerMobile.innerHTML = `<i class="bi bi-disc text-white"></i>${album.tracks.data[0].title}`;
 
+  for (let i = 0; i < favSongArr.length; i++) {
+    if (tracks[0].id !== favSongArr[i].id) {
+      btnRemoveFavouriteSongsDesktop.style.display = "none";
+      btnToFavouriteSongsDesktop.style.display = "block";
+      break;
+    }
+  }
+
   setTimeout(() => {
     isFetchFinished = true;
   }, 250);
@@ -427,6 +435,7 @@ btnForwardDesktop.addEventListener("click", (e) => {
   if (playerIndex < tracks.length - 1) {
     resetSong();
     playerIndex += 1;
+    console.log(playerIndex);
     updateFavButtons();
     loadSong(tracks[playerIndex].title, tracks[playerIndex].preview);
   }
@@ -560,9 +569,19 @@ btnToFavouriteSongsMobile.addEventListener("click", (e) => {
 
 btnRemoveFavouriteSongsDesktop.addEventListener("click", (e) => {
   e.preventDefault();
-  if (album.tracks.data[playerIndex].id === favSongArr[playerIndex].id) {
-    favSongArr.splice(playerIndex, 1);
+
+  for (let i = 0; i < favSongArr.length; i++) {
+    if (album.tracks.data[playerIndex].id === favSongArr[i].id) {
+      favSongArr.splice(i, 1);
+      btnRemoveFavouriteSongsDesktop.style.display = "none";
+      btnToFavouriteSongsDesktop.style.display = "block";
+      break;
+    }
   }
+
+  // if (album.tracks.data[playerIndex].id === favSongArr[playerIndex].id) {
+  //   favSongArr.splice(playerIndex, 1);
+  // }
   btnToFavouriteSongsDesktop.style.display = "block";
   btnRemoveFavouriteSongsDesktop.style.display = "none";
   console.log(favSongArr);
@@ -572,17 +591,35 @@ btnRemoveFavouriteSongsMobile.addEventListener("click", (e) => {
   e.preventDefault();
 });
 
+// function updateFavButtons() {
+//   for (let i = 0; i < favSongArr.length; i++) {
+//     if (album.tracks.data[playerIndex].id === favSongArr[i].id) {
+//       console.log("già nei preferiti");
+//       btnToFavouriteSongsDesktop.style.display = "none";
+//       btnRemoveFavouriteSongsDesktop.style.display = "block";
+//       break;
+//     } else {
+//       btnToFavouriteSongsDesktop.style.display = "block";
+//       btnRemoveFavouriteSongsDesktop.style.display = "none";
+//       break;
+//     }
+//   }
+// }
+
 function updateFavButtons() {
+  let found = false;
   for (let i = 0; i < favSongArr.length; i++) {
     if (album.tracks.data[playerIndex].id === favSongArr[i].id) {
-      console.log("già nei preferiti");
-      btnToFavouriteSongsDesktop.style.display = "none";
-      btnRemoveFavouriteSongsDesktop.style.display = "block";
+      found = true;
       break;
-    } else {
-      btnToFavouriteSongsDesktop.style.display = "block";
-      btnRemoveFavouriteSongsDesktop.style.display = "none";
     }
+  }
+  if (found) {
+    btnToFavouriteSongsDesktop.style.display = "none";
+    btnRemoveFavouriteSongsDesktop.style.display = "block";
+  } else {
+    btnToFavouriteSongsDesktop.style.display = "block";
+    btnRemoveFavouriteSongsDesktop.style.display = "none";
   }
 }
 
